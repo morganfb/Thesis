@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: Breitmeyer-Thesis-Proposal.aux
+The style file: plain.bst
+Database file #1: Bibliography.bib
+Warning--empty journal in wright2015international
+You've used 5 entries,
+            2118 wiz_defined-function locations,
+            528 strings with 5086 characters,
+and the built_in function-call counts, 1860 in all, are:
+= -- 172
+> -- 119
+< -- 0
++ -- 47
+- -- 42
+* -- 151
+:= -- 330
+add.period$ -- 15
+call.type$ -- 5
+change.case$ -- 34
+chr.to.int$ -- 0
+cite$ -- 6
+duplicate$ -- 55
+empty$ -- 123
+format.name$ -- 42
+if$ -- 362
+int.to.chr$ -- 0
+int.to.str$ -- 5
+missing$ -- 6
+newline$ -- 28
+num.names$ -- 10
+pop$ -- 35
+preamble$ -- 1
+purify$ -- 30
+quote$ -- 0
+skip$ -- 37
+stack$ -- 0
+substring$ -- 106
+swap$ -- 4
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 18
+warning$ -- 1
+while$ -- 16
+width$ -- 6
+write$ -- 54
+(There was 1 warning)
