@@ -1,0 +1,43 @@
+\begin{thebibliography}{}
+
+\bibitem[Bang \& Robins, 2005]{bang2005doubly}
+Bang, H. \& Robins, J.~M. (2005).
+\newblock Doubly robust estimation in missing data and causal inference models.
+\newblock {\em Biometrics}, 61(4), 962--973.
+
+\bibitem[Eigen, 1971]{Eigen1971}
+Eigen, M. (1971).
+\newblock Selforganization of matter and the evolution of biological
+  macromolecules.
+\newblock {\em Naturwissenschaften}, 58(10), 465--523.
+
+\bibitem[Hernan \& Robins, 2016]{hernan_robins_2016}
+Hernan, M.~A. \& Robins, J.~M. (2016).
+\newblock {\em Causal Inference}.
+\newblock Chapman \& Hall/CRC.
+
+\bibitem[Knuth, 1968]{Knuth1968}
+Knuth, D.~E. (1968).
+\newblock Semantics of context-free languages.
+\newblock {\em Mathematical Systems Theory}, 2(2), 127--145.
+
+\bibitem[Lodi et~al., 2015]{lodi2015comparative}
+Lodi, S., Phillips, A., Logan, R., Olson, A., Costagliola, D., Abgrall, S., van
+  Sighem, A., Reiss, P., Mir{\'o}, J.~M., Ferrer, E., et~al. (2015).
+\newblock Comparative effectiveness of immediate antiretroviral therapy versus
+  cd4-based initiation in hiv-positive individuals in high-income countries:
+  observational cohort study.
+\newblock {\em The Lancet HIV}, 2(8), e335--e343.
+
+\bibitem[Wright, 2015]{wright2015international}
+Wright, J.~D. (2015).
+\newblock International encyclopedia of the social and behavioral sciences.
+
+\bibitem[Young et~al., 2011]{young2011comparative}
+Young, J.~G., Cain, L.~E., Robins, J.~M., O?Reilly, E.~J., \& Hern{\'a}n, M.~A.
+  (2011).
+\newblock Comparative effectiveness of dynamic treatment regimes: an
+  application of the parametric g-formula.
+\newblock {\em Statistics in biosciences}, 3(1), 119--143.
+
+\end{thebibliography}

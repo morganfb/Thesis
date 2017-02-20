@@ -3,6 +3,8 @@
 
 \documentclass{Dissertate}
 
+
+
 \begin{document}
 
 % the front matter
@@ -27,16 +29,21 @@
 \include{chapters/chapter2}
 \include{chapters/chapter3}
 \include{chapters/conclusion}
+%\include{chapters/appendixA}
 
 \setstretch{\dnormalspacing}
 
 % the back matter
-% \backmatter
+\backmatter
 
-% \clearpage
-\bibliography{references}
-% \addcontentsline{toc}{chapter}{References}
+\nocite{*} 
+
+\clearpage
+%\bibliography{references}
+\addcontentsline{toc}{chapter}{References}
 \bibliographystyle{apalike2}
+
+% when bibliography not printing correctly, try this http://tex.stackexchange.com/questions/169113/bibtex-bibliography-not-printing
 
 % \include{endmatter/colophon}
 

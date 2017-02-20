@@ -73,6 +73,8 @@
 \RequirePackage{verbatim}
 
 % Fonts.
+\usepackage{amsmath}
+\usepackage{txfonts}
 \RequirePackage{color}
 \RequirePackage{xcolor}
 \usepackage{hyperref}
