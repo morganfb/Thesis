@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.5.22)  15 FEB 2017 18:16
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.5.22)  20 FEB 2017 10:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -901,7 +901,7 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 201.
 )
 (./main.aux (./chapters/introduction.aux) (./chapters/chapter1.aux)
 (./chapters/chapter2.aux) (./chapters/chapter3.aux) (./chapters/conclusion.aux)
-(./chapters/appendixA.aux) (./endmatter/colophon.aux))
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
@@ -924,10 +924,246 @@ LaTeX Font Info:    Checking defaults for EU1/lmr/m/n on input line 6.
 LaTeX Font Info:    ... okay on input line 6.
 LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 6.
 LaTeX Font Info:    Try loading font information for T3+cmr on input line 6.
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/tipa/t3cmr.fd
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/tipa/t3cmr.fd
 File: t3cmr.fd 2001/12/31 TIPA font definitions
 )
 LaTeX Font Info:    ... okay on input line 6.
 
-*geometry
+*geometry* driver: auto-detecting
+*geometry* detected driver: xetex
+*geometry* verbose mode - [ preamble ] result:
+* driver: xetex
+* paper: letterpaper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(99.37125pt, 415.55249pt, 99.37126pt)
+* v-part:(T,H,B)=(95.39737pt, 556.47656pt, 143.09605pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=415.55249pt
+* \textheight=556.47656pt
+* \oddsidemargin=27.10126pt
+* \evensidemargin=27.10126pt
+* \topmargin=-8.74641pt
+* \headheight=15.0pt
+* \headsep=19.8738pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=47.0pt
+* \marginparsep=7.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+ABD: EverySelectfont initializing macros
+LaTeX Info: Redefining \selectfont on input line 6.
+\AtBeginShipoutBox=\box47
+Package hyperref Info: Link coloring ON on input line 6.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
+)
+\c@section@level=\count157
+)
+LaTeX Info: Redefining \ref on input line 6.
+LaTeX Info: Redefining \pageref on input line 6.
+LaTeX Info: Redefining \nameref on input line 6.
+
+(./main.out) (./main.out)
+\@outlinefile=\write3
+\openout3 = `main.out'.
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Info: Redefining \microtypecontext on input line 6.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using default protrusion set `alltext'.
+Package microtype Info: No adjustment of tracking.
+Package microtype Info: No adjustment of spacing.
+Package microtype Info: No adjustment of kerning.
+Package microtype Info: Loading generic settings for font family
+(microtype)             `EBGaramond12-Regular.otf' (encoding: EU1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+ (./frontmatter/personalize.tex)
+(./frontmatter/personalize.tex)
+LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(2)/m/n' will be
+(Font)              scaled to size 24.88pt on input line 12.
+LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(2)/m/sc' will be
+(Font)              scaled to size 12.0pt on input line 12.
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
+File: se-ascii-print.def 2016/05/16 v1.11 stringenc: Printable ASCII characters
+
+)
+[1
+
+]
+LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(2)/m/sc' will be
+(Font)              scaled to size 10.95pt on input line 12.
+LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(2)/m/n' will be
+(Font)              scaled to size 10.95pt on input line 12.
+ [2]
+LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(2)/m/n' will be
+(Font)              scaled to size 17.28pt on input line 12.
+ (./frontmatter/abstract.tex) [3]
+LaTeX Font Info:    Try loading font information for T1+ppl on input line 12.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/t1ppl.fd
+File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/microtype/mt-ppl.cfg
+File: mt-ppl.cfg 2005/11/16 v1.6 microtype config. file: Palatino (RS)
+) (./main.toc
+
+LaTeX Font Warning: Font shape `EU1/EBGaramond12-Regular.otf(2)/bx/n' undefined
+
+(Font)              using `EU1/EBGaramond12-Regular.otf(2)/m/n' instead on inpu
+t line 1.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/microtype/mt-cmr.cfg
+File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
+(RS)
+)
+LaTeX Font Info:    Try loading font information for U+msa on input line 1.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 1.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
+
+LaTeX Font Warning: Font shape `EU1/EBGaramond12-Regular.otf(0)/m/it' undefined
+
+(Font)              using `EU1/EBGaramond12-Regular.otf(0)/m/n' instead on inpu
+t line 1.
+
+LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(2)/bx/n' will be
+(Font)              scaled to size 10.95pt on input line 1.
+)
+\tf@toc=\write4
+\openout4 = `main.toc'.
+
+ [4
+
+] (./frontmatter/dedication.tex) [5
+
+] (./frontmatter/thanks.tex) [6
+
+
+]
+\openout2 = `chapters/introduction.aux'.
+
+
+(./chapters/introduction.tex
+Chapter 0.
+) [1
+
+
+]
+\openout2 = `chapters/chapter1.aux'.
+
+ (./chapters/chapter1.tex
+Chapter 1.
+LaTeX Font Info:    Font shape `EU1/Lato-Reg.ttf(1)/m/n' will be
+(Font)              scaled to size 8.64758pt on input line 6.
+Package microtype Info: Loading generic settings for font family
+(microtype)             `Lato-Reg.ttf' (encoding: EU1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
+LaTeX Font Warning: Font shape `EU1/Lato-Reg.ttf(1)/m/it' undefined
+(Font)              using `EU1/Lato-Reg.ttf(1)/m/n' instead on input line 6.
+
+LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(2)/m/n' will be
+(Font)              scaled to size 8.0pt on input line 6.
+LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(2)/m/n' will be
+(Font)              scaled to size 6.0pt on input line 6.
+LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(2)/bx/n' will be
+(Font)              scaled to size 8.0pt on input line 6.
+
+Package natbib Warning: Citation `Eigen1971' on page 2 undefined on input line 
+6.
+
+
+Package natbib Warning: Citation `Knuth1968' on page 2 undefined on input line 
+6.
+
+[2
+
+
+
+] [3]) [4]
+\openout2 = `chapters/chapter2.aux'.
+
+ (./chapters/chapter2.tex
+Chapter 2.
+) [5
+
+
+
+]
+\openout2 = `chapters/chapter3.aux'.
+
+ (./chapters/chapter3.tex
+Chapter 3.
+) [6
+
+
+
+]
+\openout2 = `chapters/conclusion.aux'.
+
+ (./chapters/conclusion.tex
+Chapter 4.
+) [7
+
+
+
+]
+No file main.bbl.
+
+Package natbib Warning: There were undefined citations.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 43.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 43.
+(./main.aux (./chapters/introduction.aux) (./chapters/chapter1.aux)
+(./chapters/chapter2.aux) (./chapters/chapter3.aux) (./chapters/conclusion.aux)
+)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 43.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 43.
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 26347 strings out of 493591
+ 468671 string characters out of 6143546
+ 516829 words of memory out of 5000000
+ 29441 multiletter control sequences out of 15000+600000
+ 10858 words of font info for 65 fonts, out of 8000000 for 9000
+ 1347 hyphenation exceptions out of 8191
+ 60i,12n,107p,10479b,344s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on main.pdf (13 pages).
