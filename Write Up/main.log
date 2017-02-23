@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.5.22)  20 FEB 2017 14:43
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.5.22)  22 FEB 2017 21:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -153,9 +153,18 @@ Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 \verbatim@line=\toks17
 \verbatim@in@stream=\read1
 )
+(/usr/local/texlive/2016/texmf-dist/tex/latex/units/nicefrac.sty
+Package: nicefrac 1998/08/04 v0.9b Nice fractions
+\L@UnitsRaiseDisplaystyle=\skip57
+\L@UnitsRaiseTextstyle=\skip58
+\L@UnitsRaiseScriptstyle=\skip59
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+))
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2016/03/10 v2.15b AMS math features
-\@mathmargin=\skip57
+\@mathmargin=\skip60
 
 For additional information on amsmath, use the `?' option.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amstext.sty
@@ -205,8 +214,8 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 635.
 \totwidth@=\dimen136
 \lineht@=\dimen137
 \@envbody=\toks21
-\multlinegap=\skip58
-\multlinetaggap=\skip59
+\multlinegap=\skip61
+\multlinetaggap=\skip62
 \mathdisplay@stack=\toks22
 LaTeX Info: Redefining \[ on input line 2739.
 LaTeX Info: Redefining \] on input line 2740.
@@ -435,7 +444,7 @@ Package rerunfilecheck Info: Feature \pdfmdfivesum is not available
 tly
 (rerunfilecheck)             and the loading of the package is aborted.
 )
-\Hy@SectionHShift=\skip60
+\Hy@SectionHShift=\skip63
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
@@ -716,12 +725,12 @@ L3 Module: l3skip 2016/01/05 v6366 L3 Dimensions and skips
 \l_tmpb_dim=\dimen145
 \g_tmpa_dim=\dimen146
 \g_tmpb_dim=\dimen147
-\c_zero_skip=\skip61
-\c_max_skip=\skip62
-\l_tmpa_skip=\skip63
-\l_tmpb_skip=\skip64
-\g_tmpa_skip=\skip65
-\g_tmpb_skip=\skip66
+\c_zero_skip=\skip64
+\c_max_skip=\skip65
+\l_tmpa_skip=\skip66
+\l_tmpb_skip=\skip67
+\g_tmpa_skip=\skip68
+\g_tmpb_skip=\skip69
 \c_zero_muskip=\muskip12
 \c_max_muskip=\muskip13
 \l_tmpa_muskip=\muskip14
@@ -984,28 +993,29 @@ File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 \c@eu@i=\count156
 \c@mkern=\count157
 )
-\g__fontspec_family_EBGaramond12-Regular.otf_int=\count158
+\g__fontspec_family_IwonaCondLight-Regular.otf_int=\count158
 .................................................
 . fontspec info: "defining-font"
 . 
-. Font family 'EBGaramond12-Regular.otf(0)' created for font
-. 'EBGaramond12-Regular.otf' with options [Numbers={Proportional}].
+. Font family 'IwonaCondLight-Regular.otf(0)' created for font
+. 'IwonaCondLight-Regular.otf' with options [Numbers={Proportional}].
 . 
 . This font family consists of the following NFSS series/shapes:
 . - 'normal' (m/n) with NFSS spec.:
-. <->"[EBGaramond12-Regular]/OT:script=latn;language=DFLT;+pnum;"
+. <->"[IwonaCondLight-Regular]/OT:script=latn;language=DFLT;+pnum;"
 . - 'small caps'  (m/sc) with NFSS spec.:
-. <->"[EBGaramond12-Regular]/OT:script=latn;language=DFLT;+pnum;+smcp;"
+. <->"[IwonaCondLight-Regular]/OT:script=latn;language=DFLT;+pnum;+smcp;"
 .................................................
 \symDigits:m:n=\mathgroup10
 \symLatin:m:n=\mathgroup11
 \symLatin:m:it=\mathgroup12
 \symGreek:m:n=\mathgroup13
 \symGreek:m:it=\mathgroup14
+\g__fontspec_family_EBGaramond12-Regular.otf_int=\count159
 .................................................
 . fontspec info: "defining-font"
 . 
-. Font family 'EBGaramond12-Regular.otf(1)' created for font
+. Font family 'EBGaramond12-Regular.otf(0)' created for font
 . 'EBGaramond12-Regular.otf' with options [].
 . 
 . This font family consists of the following NFSS series/shapes:
@@ -1014,32 +1024,32 @@ File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 . - 'small caps'  (m/sc) with NFSS spec.:
 . <->"[EBGaramond12-Regular]/OT:script=latn;language=DFLT;+smcp;"
 .................................................
-LaTeX Font Info:    Redeclaring math alphabet \mathrm on input line 85.
+LaTeX Font Info:    Redeclaring math alphabet \mathrm on input line 88.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  EU1/EBGaramond12-Regular.otf(1)/m/n --> EU1/EBGaramond1
-2-Regular.otf(1)/bx/n on input line 85.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 85.
+(Font)                  EU1/EBGaramond12-Regular.otf(0)/m/n --> EU1/EBGaramond1
+2-Regular.otf(0)/bx/n on input line 88.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 88.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/txr/m/it --> EU1/EBGaramond12-Regular.otf(1)/m/it o
-n input line 85.
+(Font)                  OT1/txr/m/it --> EU1/EBGaramond12-Regular.otf(0)/m/it o
+n input line 88.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/txr/bx/it --> EU1/EBGaramond12-Regular.otf(1)/m/it 
-on input line 85.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 85.
+(Font)                  OT1/txr/bx/it --> EU1/EBGaramond12-Regular.otf(0)/m/it 
+on input line 88.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 88.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/txr/bx/n --> EU1/EBGaramond12-Regular.otf(1)/bx/n o
-n input line 85.
+(Font)                  OT1/txr/bx/n --> EU1/EBGaramond12-Regular.otf(0)/bx/n o
+n input line 88.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/txr/bx/n --> EU1/EBGaramond12-Regular.otf(1)/bx/n o
-n input line 85.
+(Font)                  OT1/txr/bx/n --> EU1/EBGaramond12-Regular.otf(0)/bx/n o
+n input line 88.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  EU1/EBGaramond12-Regular.otf(1)/m/it --> EU1/EBGaramond
-12-Regular.otf(1)/bx/it on input line 85.
+(Font)                  EU1/EBGaramond12-Regular.otf(0)/m/it --> EU1/EBGaramond
+12-Regular.otf(0)/bx/it on input line 88.
 \symOperators:m:n=\mathgroup15
 .................................................
 . fontspec info: "defining-font"
 . 
-. Font family 'EBGaramond12-Regular.otf(2)' created for font
+. Font family 'EBGaramond12-Regular.otf(1)' created for font
 . 'EBGaramond12-Regular.otf' with options
 . [Ligatures=TeX,Numbers=OldStyle,Ligatures={Common, TeX},Scale=1.0].
 . 
@@ -1051,12 +1061,12 @@ xt;+onum;+liga;mapping=tex-text;"
 . <->s*[1.0]"[EBGaramond12-Regular]/OT:script=latn;language=DFLT;mapping=tex-te
 xt;+onum;+liga;mapping=tex-text;+smcp;"
 .................................................
-LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(2)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 89.
+LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(1)/m/n' will be
+(Font)              scaled to size 12.0pt on input line 92.
 .................................................
 . fontspec info: "defining-font"
 . 
-. Font family 'EBGaramond12-Regular.otf(3)' created for font
+. Font family 'EBGaramond12-Regular.otf(2)' created for font
 . 'EBGaramond12-Regular.otf' with options [RawFeature={+c2sc,+scmp}].
 . 
 . This font family consists of the following NFSS series/shapes:
@@ -1070,7 +1080,7 @@ LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(2)/m/n' will be
 . 
 . Lato-Reg.ttf scale = 0.7897335863911148.
 .................................................
-\g__fontspec_family_Lato-Reg.ttf_int=\count159
+\g__fontspec_family_Lato-Reg.ttf_int=\count160
 .................................................
 . fontspec info: "set-scale"
 . 
@@ -1140,17 +1150,17 @@ Package caption Info: We need package `newfloat' on input line 292.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/caption/newfloat.sty
 Package: newfloat 2015/09/17 v1.1-109 Defining new floating environments (AR)
 )
-\c@ContinuedFloat=\count160
+\c@ContinuedFloat=\count161
 Package caption Info: hyperref package is loaded.
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/microtype/microtype.sty
 Package: microtype 2016/05/14 v2.6a Micro-typographical refinements (RS)
 \MT@toks=\toks27
-\MT@count=\count161
+\MT@count=\count162
 LaTeX Info: Redefining \textls on input line 774.
 \MT@outer@kern=\dimen183
 LaTeX Info: Redefining \textmicrotypecontext on input line 1310.
-\MT@listname@count=\count162
+\MT@listname@count=\count163
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/microtype/microtype-xetex.def
 File: microtype-xetex.def 2016/05/14 v2.6a Definitions specific to xetex (RS)
@@ -1162,21 +1172,21 @@ Package microtype Info: Loading configuration file microtype.cfg.
 File: microtype.cfg 2016/05/14 v2.6a microtype main configuration file (RS)
 ))
 (/usr/local/texlive/2016/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-\fancy@headwidth=\skip67
-\f@ncyO@elh=\skip68
-\f@ncyO@erh=\skip69
-\f@ncyO@olh=\skip70
-\f@ncyO@orh=\skip71
-\f@ncyO@elf=\skip72
-\f@ncyO@erf=\skip73
-\f@ncyO@olf=\skip74
-\f@ncyO@orf=\skip75
+\fancy@headwidth=\skip70
+\f@ncyO@elh=\skip71
+\f@ncyO@erh=\skip72
+\f@ncyO@olh=\skip73
+\f@ncyO@orh=\skip74
+\f@ncyO@elf=\skip75
+\f@ncyO@erf=\skip76
+\f@ncyO@olf=\skip77
+\f@ncyO@orf=\skip78
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
 \ttl@box=\box47
-\beforetitleunit=\skip76
-\aftertitleunit=\skip77
+\beforetitleunit=\skip79
+\aftertitleunit=\skip80
 \ttl@plus=\dimen184
 \ttl@minus=\dimen185
 \ttl@toksa=\toks28
@@ -1186,69 +1196,69 @@ Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/titling/titling.sty
 Package: titling 2009/09/04 v2.1d maketitle typesetting
-\thanksmarkwidth=\skip78
-\thanksmargin=\skip79
-\droptitle=\skip80
+\thanksmarkwidth=\skip81
+\thanksmargin=\skip82
+\droptitle=\skip83
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/tocloft/tocloft.sty
 Package: tocloft 2013/05/02 v2.3f parameterised ToC, etc., typesetting
 Package tocloft Info: The document has chapter divisions on input line 44.
-\cftparskip=\skip81
-\cftbeforetoctitleskip=\skip82
-\cftaftertoctitleskip=\skip83
-\cftbeforepartskip=\skip84
-\cftpartnumwidth=\skip85
-\cftpartindent=\skip86
-\cftbeforechapskip=\skip87
-\cftchapindent=\skip88
-\cftchapnumwidth=\skip89
-\cftbeforesecskip=\skip90
-\cftsecindent=\skip91
-\cftsecnumwidth=\skip92
-\cftbeforesubsecskip=\skip93
-\cftsubsecindent=\skip94
-\cftsubsecnumwidth=\skip95
-\cftbeforesubsubsecskip=\skip96
-\cftsubsubsecindent=\skip97
-\cftsubsubsecnumwidth=\skip98
-\cftbeforeparaskip=\skip99
-\cftparaindent=\skip100
-\cftparanumwidth=\skip101
-\cftbeforesubparaskip=\skip102
-\cftsubparaindent=\skip103
-\cftsubparanumwidth=\skip104
-\cftbeforeloftitleskip=\skip105
-\cftafterloftitleskip=\skip106
-\cftbeforefigskip=\skip107
-\cftfigindent=\skip108
-\cftfignumwidth=\skip109
-\c@lofdepth=\count163
-\c@lotdepth=\count164
-\cftbeforelottitleskip=\skip110
-\cftafterlottitleskip=\skip111
-\cftbeforetabskip=\skip112
-\cfttabindent=\skip113
-\cfttabnumwidth=\skip114
+\cftparskip=\skip84
+\cftbeforetoctitleskip=\skip85
+\cftaftertoctitleskip=\skip86
+\cftbeforepartskip=\skip87
+\cftpartnumwidth=\skip88
+\cftpartindent=\skip89
+\cftbeforechapskip=\skip90
+\cftchapindent=\skip91
+\cftchapnumwidth=\skip92
+\cftbeforesecskip=\skip93
+\cftsecindent=\skip94
+\cftsecnumwidth=\skip95
+\cftbeforesubsecskip=\skip96
+\cftsubsecindent=\skip97
+\cftsubsecnumwidth=\skip98
+\cftbeforesubsubsecskip=\skip99
+\cftsubsubsecindent=\skip100
+\cftsubsubsecnumwidth=\skip101
+\cftbeforeparaskip=\skip102
+\cftparaindent=\skip103
+\cftparanumwidth=\skip104
+\cftbeforesubparaskip=\skip105
+\cftsubparaindent=\skip106
+\cftsubparanumwidth=\skip107
+\cftbeforeloftitleskip=\skip108
+\cftafterloftitleskip=\skip109
+\cftbeforefigskip=\skip110
+\cftfigindent=\skip111
+\cftfignumwidth=\skip112
+\c@lofdepth=\count164
+\c@lotdepth=\count165
+\cftbeforelottitleskip=\skip113
+\cftafterlottitleskip=\skip114
+\cftbeforetabskip=\skip115
+\cfttabindent=\skip116
+\cfttabnumwidth=\skip117
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/appendix/appendix.sty
 Package: appendix 2009/09/02 v1.2b extra appendix facilities
-\c@@pps=\count165
-\c@@ppsavesec=\count166
-\c@@ppsaveapp=\count167
+\c@@pps=\count166
+\c@@ppsavesec=\count167
+\c@@ppsaveapp=\count168
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip115
-\bibsep=\skip116
+\bibhang=\skip118
+\bibsep=\skip119
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count168
+\c@NAT@ctr=\count169
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/quotchap/quotchap.sty
 Package: quotchap 2012/10/20 v1.1 Decorative Chapter Headings with Quotes
 \@quotebox=\box48
 )
-\mybibindent=\skip117
-Package hyperref Info: Option `colorlinks' set `true' on input line 203.
+\mybibindent=\skip120
+Package hyperref Info: Option `colorlinks' set `true' on input line 206.
 )
 (./main.aux (./chapters/introduction.aux) (./chapters/chapter1.aux)
 (./chapters/chapter2.aux) (./chapters/chapter3.aux) (./chapters/conclusion.aux)
@@ -1346,7 +1356,7 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count169
+\c@section@level=\count170
 )
 LaTeX Info: Redefining \ref on input line 8.
 LaTeX Info: Redefining \pageref on input line 8.
@@ -1370,9 +1380,9 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             See the microtype manual for details.
  (./frontmatter/personalize.tex)
 (./frontmatter/personalize.tex)
-LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(2)/m/n' will be
+LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(1)/m/n' will be
 (Font)              scaled to size 24.88pt on input line 14.
-LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(2)/m/sc' will be
+LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(1)/m/sc' will be
 (Font)              scaled to size 12.0pt on input line 14.
 
 (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
@@ -1382,12 +1392,12 @@ File: se-ascii-print.def 2016/05/16 v1.11 stringenc: Printable ASCII characters
 [1
 
 ]
-LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(2)/m/sc' will be
+LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(1)/m/sc' will be
 (Font)              scaled to size 10.95pt on input line 14.
-LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(2)/m/n' will be
+LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(1)/m/n' will be
 (Font)              scaled to size 10.95pt on input line 14.
  [2]
-LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(2)/m/n' will be
+LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(1)/m/n' will be
 (Font)              scaled to size 17.28pt on input line 14.
  (./frontmatter/abstract.tex) [3]
 LaTeX Font Info:    Try loading font information for T1+ppl on input line 14.
@@ -1399,9 +1409,9 @@ File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 File: mt-ppl.cfg 2005/11/16 v1.6 microtype config. file: Palatino (RS)
 ) (./main.toc
 
-LaTeX Font Warning: Font shape `EU1/EBGaramond12-Regular.otf(2)/bx/n' undefined
+LaTeX Font Warning: Font shape `EU1/EBGaramond12-Regular.otf(1)/bx/n' undefined
 
-(Font)              using `EU1/EBGaramond12-Regular.otf(2)/m/n' instead on inpu
+(Font)              using `EU1/EBGaramond12-Regular.otf(1)/m/n' instead on inpu
 t line 1.
 
 LaTeX Font Info:    Try loading font information for OT1+txr on input line 1.
@@ -1437,13 +1447,18 @@ LaTeX Font Info:    Try loading font information for U+txsyc on input line 1.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/txfonts/utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
 )
+Package microtype Info: Loading generic settings for font family
+(microtype)             `IwonaCondLight-Regular.otf' (encoding: EU1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
 
-LaTeX Font Warning: Font shape `EU1/EBGaramond12-Regular.otf(0)/m/it' undefined
 
-(Font)              using `EU1/EBGaramond12-Regular.otf(0)/m/n' instead on inpu
-t line 1.
+LaTeX Font Warning: Font shape `EU1/IwonaCondLight-Regular.otf(0)/m/it' undefin
+ed
+(Font)              using `EU1/IwonaCondLight-Regular.otf(0)/m/n' instead on in
+put line 1.
 
-LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(2)/bx/n' will be
+LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(1)/bx/n' will be
 (Font)              scaled to size 10.95pt on input line 1.
 )
 \tf@toc=\write4
@@ -1480,20 +1495,44 @@ Package microtype Info: Loading generic settings for font family
 LaTeX Font Warning: Font shape `EU1/Lato-Reg.ttf(1)/m/it' undefined
 (Font)              using `EU1/Lato-Reg.ttf(1)/m/n' instead on input line 6.
 
-LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(2)/m/n' will be
+LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(1)/m/n' will be
 (Font)              scaled to size 8.0pt on input line 6.
-LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(2)/m/n' will be
+LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(1)/m/n' will be
 (Font)              scaled to size 6.0pt on input line 6.
+LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(1)/m/n' will be
+(Font)              scaled to size 10.0pt on input line 11.
+LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(1)/m/n' will be
+(Font)              scaled to size 7.0pt on input line 11.
+LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(1)/bx/n' will be
+(Font)              scaled to size 8.0pt on input line 11.
+
+Package natbib Warning: Citation `hernan2006estimating' on page 2 undefined on 
+input line 11.
+
 [2
 
 
 
-] [3] [4]) [5] [6]
+] [3] [4]
+
+Package natbib Warning: Citation `cole2009consistency' on page 5 undefined on i
+nput line 29.
+
+
+Package natbib Warning: Citation `cole2009consistency' on page 5 undefined on i
+nput line 32.
+
+[5]
+
+Package natbib Warning: Citation `hernan2006estimating' on page 6 undefined on 
+input line 49.
+
+[6] [7]) [8] [9]
 \openout2 = `chapters/chapter2.aux'.
 
  (./chapters/chapter2.tex
 Chapter 2.
-) [7
+) [10
 
 
 
@@ -1502,7 +1541,7 @@ Chapter 2.
 
  (./chapters/chapter3.tex
 Chapter 3.
-) [8
+) [11
 
 
 
@@ -1511,7 +1550,7 @@ Chapter 3.
 
  (./chapters/conclusion.tex
 Chapter 4.
-) [9
+) [12
 
 
 
@@ -1520,20 +1559,20 @@ Chapter 4.
 
  (./chapters/appendixA.tex
 Appendix A.
-) [10
+) [13
 
 
 
 ] (./endmatter/personalize.tex) (./main.bbl
 
-LaTeX Font Warning: Font shape `EU1/EBGaramond12-Regular.otf(2)/m/it' undefined
+LaTeX Font Warning: Font shape `EU1/EBGaramond12-Regular.otf(1)/m/it' undefined
 
-(Font)              using `EU1/EBGaramond12-Regular.otf(2)/m/n' instead on inpu
+(Font)              using `EU1/EBGaramond12-Regular.otf(1)/m/n' instead on inpu
 t line 6.
 
-LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(2)/m/it' will be
+LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(1)/m/it' will be
 (Font)              scaled to size 10.95pt on input line 12.
-) [11
+) [14
 
 
 
@@ -1541,12 +1580,14 @@ LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(2)/m/it' will be
 \openout2 = `endmatter/colophon.aux'.
 
  (./endmatter/colophon.tex)
+
+Package natbib Warning: There were undefined citations.
+
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 50.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 50.
- (./main.aux (./chapters/introduction.aux)
-(./chapters/chapter1.aux) (./chapters/chapter2.aux) (./chapters/chapter3.aux)
-(./chapters/conclusion.aux) (./chapters/appendixA.aux)
-(./endmatter/colophon.aux))
+(./main.aux (./chapters/introduction.aux) (./chapters/chapter1.aux)
+(./chapters/chapter2.aux) (./chapters/chapter3.aux) (./chapters/conclusion.aux)
+(./chapters/appendixA.aux) (./endmatter/colophon.aux))
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 50.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 50.
 
@@ -1555,12 +1596,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 27372 strings out of 493591
- 481222 string characters out of 6143546
- 530135 words of memory out of 5000000
- 30409 multiletter control sequences out of 15000+600000
- 16046 words of font info for 77 fonts, out of 8000000 for 9000
+ 27541 strings out of 493591
+ 485170 string characters out of 6143546
+ 532535 words of memory out of 5000000
+ 30555 multiletter control sequences out of 15000+600000
+ 25972 words of font info for 117 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
- 60i,12n,107p,10479b,401s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 75i,12n,107p,10481b,401s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (17 pages).
+Output written on main.pdf (20 pages).

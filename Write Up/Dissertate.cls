@@ -72,16 +72,19 @@
 \RequirePackage{setspace}
 \RequirePackage{verbatim}
 
-% Fonts.
+% Morgan adding packages 
+\usepackage{nicefrac}
 \usepackage{amsmath}
 \usepackage{txfonts}
+
+% Fonts.
 \RequirePackage{color}
 \RequirePackage{xcolor}
 \usepackage{hyperref}
 \RequirePackage{url}
 \RequirePackage{amssymb}
 \RequirePackage{mathspec}
-\setmathsfont(Digits,Latin,Greek)[Numbers={Proportional}]{EBGaramond12-Regular.otf}
+\setmathsfont(Digits,Latin,Greek)[Numbers={Proportional}]{IwonaCondLight-Regular.otf}
 \setmathrm{EBGaramond12-Regular.otf}
 \AtBeginEnvironment{tabular}{\addfontfeature{RawFeature=+tnum}}
 \widowpenalty=300
