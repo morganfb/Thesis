@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.5.22)  22 FEB 2017 21:15
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.5.22)  24 FEB 2017 05:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1522,17 +1522,17 @@ nput line 29.
 Package natbib Warning: Citation `cole2009consistency' on page 5 undefined on i
 nput line 32.
 
-[5]
+[5] [6]
 
-Package natbib Warning: Citation `hernan2006estimating' on page 6 undefined on 
+Package natbib Warning: Citation `hernan2006estimating' on page 7 undefined on 
 input line 49.
 
-[6] [7]) [8] [9]
+[7] [8]) [9] [10]
 \openout2 = `chapters/chapter2.aux'.
 
  (./chapters/chapter2.tex
 Chapter 2.
-) [10
+) [11
 
 
 
@@ -1541,7 +1541,7 @@ Chapter 2.
 
  (./chapters/chapter3.tex
 Chapter 3.
-) [11
+) [12
 
 
 
@@ -1550,7 +1550,7 @@ Chapter 3.
 
  (./chapters/conclusion.tex
 Chapter 4.
-) [12
+) [13
 
 
 
@@ -1559,7 +1559,7 @@ Chapter 4.
 
  (./chapters/appendixA.tex
 Appendix A.
-) [13
+) [14
 
 
 
@@ -1572,7 +1572,7 @@ t line 6.
 
 LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(1)/m/it' will be
 (Font)              scaled to size 10.95pt on input line 12.
-) [14
+) [15
 
 
 
@@ -1598,10 +1598,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  27541 strings out of 493591
  485170 string characters out of 6143546
- 532535 words of memory out of 5000000
+ 532536 words of memory out of 5000000
  30555 multiletter control sequences out of 15000+600000
  25972 words of font info for 117 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
  75i,12n,107p,10481b,401s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (20 pages).
+Output written on main.pdf (21 pages).

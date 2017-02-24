@@ -26,7 +26,7 @@ because the average of differences is equal to the difference of averages.\cite{
 
 
 \section{Identifiability Assumptions} \label{assumptions} 
-It is sufficient to show that causal effects are valid and identifiable, meaning they have a single measurement of effect, on the following three assumptions: consistency, positivity, and exchangeability.\cite{cole2009consistency, hernan_robins_2016}   
+It is sufficient to show that causal effects are valid and identifiable, meaning they have a single measurement of effect, on the following three assumptions: consistency, positivity, and exchangeability.\cite{cole2009consistency, hernan_robins_2016}   Under these three assumptions, the data closely resembles an ideal randomized trial.  Through this, causation can be inferred, rather than simply association.  Although the methods are directly testing association, these assumptions allow the tests to measure causation.  
  
 \subsection{Consistency} 
 Consistency is the idea that an individual's potential outcome and their observed outcome are equal\cite{cole2009consistency, hernan_robins_2016}.  Statistically, this is 
@@ -60,7 +60,9 @@ for a $l$ with $P[L=l] \neq 0$.
 
 
 \section{IP Weighting} 
-Many of the concerns discussed above can by addressed using the method of IP weighting, which simulates a pseudo-population where every individual has two data inputs, one of treatment and one of no treatment.  The method by which this is done is by considering a confounder of the data, $L$, a value which is known before treatment and often factors into the decision to assign treatment.  For example, a confounder in a study on a cholesterol drug could be whether the patient is obese or has high blood pressure.  The pseudo-population can be calculated with the following for each of the possible $A$ and $L$ combinations 
+Many of the concerns discussed above can by addressed using the method of IP weighting by simulating a pseudo-population, in which every individual has two data inputs, the expected observed outcomes under treatment and under no treatment.  The method by which this is done is by considering a confounder of the data, $L$, a value which is known before treatment and often factors into the decision to assign treatment.  For example, a confounder in a study on a cholesterol drug could be whether the patient is obese or has high blood pressure.  By creating the pseudo-population, the treatment and placebo groups share the same underlying covariate characterizations and distributions. 
+
+The pseudo-population can be calculated with the following for each of the possible $A$ and $L$ combinations 
 \begin{align} n\cdot P[Y=y \mid A = a, L= 1] \cdot P[A=a \mid L=l]  \cdot P[L=l] \cdot \frac{1}{P[A = a \mid L = 1]} \end{align}  
 where the last term here is the IP weight, $W^{A} = \nicefrac{1}{f(A\mid L)}$.  This form can be used to solve for the standardized mean as follows, 
 \begin{align} 
@@ -75,6 +77,16 @@ This leads to the confounders being accounted for or eliminated in the pseudo-po
 The above non-parametric values for $P[A=a\mid L=l]$ are effective for limited dichotomous confounders, but this method has limitations when $L$ is highly dimensional.  To address this, a parametric estimate $\widehat{P}[A=a\mid L=l]$ can be obtained using a logistic regression model for $A$ with all the confounders in $L$ included as covariates.  This allows us to estimate IP weights 
 
 \section{Standardization} 
+Like IP weighting, standardization is a method of calculating the marginal counterfactual risk of $P[Y^a = 1]$.  This method weights the population by  conditioning on the covariates levels in $L$.  
+\begin{align} 
+P[Y^a = 1] &= \sum_l P[Y^a = 1 \mid L=l] \cdot P[L = l] \\ 
+&= \sum_l P[Y = 1 \mid L=l] P[L = l]  
+\end{align} 
+where the equality is because of the conditional exchangeability.  This standardization method can be used to obtain the standardized mean, 
+\begin{align} 
+E[Y^{\,a}] &= E[Y \mid L = l, A =a ] \cdot P[L=l] 
+\end{align} 
+Note that this returns the same equation for the standardized mean as the method of IP weighting because they are mathematically equivalent.  
 
 \section{Parametric G-formula} 
 
