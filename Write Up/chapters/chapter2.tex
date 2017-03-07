@@ -3,3 +3,57 @@
 \chapter{Methods}
 
 \newthought{Lorem ipsum dolor sit amet}, 
+
+
+\section{Data Creation} 
+
+
+
+\section{Parametric G-formula} 
+Similar to IP weighting, parametric estimates can be obtained for standardized estimates.  An efficient method for doing this is the generalization of standardization to time-varying treatments and confounders, coined the g-formula method by Robins in 1986.\cite{robins1986new, hernan_robins_2016}  The method seeks to measure the average causal effect of treatment, which can be estimated as 
+\begin{align} 
+\mathbb{E}[Y^{\bar{a} = \bar{1}}] - \mathbb{E}[Y^{\bar{a} = \bar{0}}] 
+\end{align} 
+where the respective $\bar{a} = \bar{1}$ and $\bar{a} = \bar{0}$ signify constant treatment and no treatment over the entire time period.  
+
+The g-formula seeks to calculate each standardized mean using the following, 
+\begin{align} \label{eq:3} 
+\mathbb{E}[Y^{\bar{a}= \bar{1}}] &= \sum_{l_i} \mathbb{E} \big[Y \mid  \overline{L}_{t}, \overline{A}_{t} \big]\cdot \prod_{k=0}^t P[L_k = l_k \mid \overline{L}_{k-1}, \overline{A}_{k-1}]
+\end{align}
+where $\overline{L}_k = \{L_{0} = l_0, L_{1} = l_1,  \cdots, \; L_{k} = l_k\}$ and $\overline{A}_k = \{a_{0} = 1, a_{1} = 1,  \cdots, \; a_{k} = 1\}$.  The equivalent formula can be derived for $ \mathbb{E}[Y^{\bar{a} = \bar{0}}]$.   In equation \ref{eq:3}, the summation term is 
+%% come back here to discuss more about why you would use this method, how it was developed, details from Jamie's original paper, etc
+
+
+\subsection{Protocol} 
+The method is performed in several steps, as follows 
+\begin{enumerate}
+\item \underline{Expand the dataset}: Create two new simulated datasets, the first has all individuals under no treatment ($A=0$) and the second of which has all individuals treated ($A=1$).  Each of these new datasets has the same size as the original and the same ``individuals'', just changed values for $A$.  For these two datasets, delete the outcome values for $Y$ to treat it as a missing data.  
+
+\item \underline{Create outcome models}: Create models for the outcome variable $Y$ and the covariates, $L_k$ at each time using the original dataset and the two datasets created in step 1 together.  The model for $Y$ is regressed on the treatment variable $A$ and the confounders, $L$.  Note that because the data in these two new datasets is missing for $Y$, they will not actually contribute to the model's parameters.  
+
+In this case, the following models were chose for $Y \mid  \overline{A}_t, \overline{L}_t$ and $L_k \mid \overline{L}_{k-1}, \overline{A}_{k-1}$, 
+\begin{align} 
+\mathbb{E} \big[Y \mid \overline{A}_t, \overline{L}_t \big] &= \theta_{0} + \theta_1 A_{t} + \cdots + \theta_j A_0 + \theta_{j+1} L_t + \cdots + \theta_{j+k} L_0 \label{eq:2} \\ 
+logit[L_k \mid \overline{L}_{k-1}, \overline{A}_{k-1}] &= \gamma_0 + \gamma_1 L_{k-1} + \gamma_2 L_{k-2} + \gamma_3 A_{k-1} + \gamma_4 A_{k-2} 
+\end{align} 
+A time lag of only two historical values was deemed sufficient for the model of $L_k$ because ... 
+%% PUT SOME REASONS IN HERE DISCUSSING HOW THESE MODELS WERE CHOSEN... SHOULD I BE USING QUADRATIC TERMS OR INTERACTION TERMS??!?!?!?!
+
+
+\item \underline{Predict}: Using the model created in step 2, predict the outcome $Y$ for the two new datasets created in step 1, conditioned on the given $A$ and $L$ values.  
+
+Using equation \ref{eq:2} above, 
+
+\item \underline{Standardization by averaging}:  Created a weighted average for $E[Y^{a=0}]$ from the first new dataset and one for $E[Y^{a=1}]$ from the second new dataset
+\end{enumerate} 
+
+
+\subsubsection{Variance Estimate} 
+%% TALK THROUGH HOW THIS IS DONE USING BOOTSTRAPPING 
+
+
+\section{Doubly Robust Estimation} 
+The method of doubly robust estimation, as proposed by Bang and Robins \cite{bang2005doubly}, combines the two previously discussed methods of IP weighting and standardization.  
+
+IP weighting and standardization techniques are expected to provide different answers, unless there are no models used to create estimates.\cite{hernan_robins_2016}  
+IP weighting estimates $P[A=a \mid L =l]$ using $P[A =a \mid L= l]$, while standardization estimates $E[Y \mid A = a, L=l]$  

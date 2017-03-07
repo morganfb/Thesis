@@ -1,0 +1,61 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: main.aux
+A level-1 auxiliary file: chapters/introduction.aux
+A level-1 auxiliary file: chapters/chapter1.aux
+A level-1 auxiliary file: chapters/chapter2.aux
+A level-1 auxiliary file: chapters/chapter3.aux
+A level-1 auxiliary file: chapters/conclusion.aux
+A level-1 auxiliary file: chapters/appendixA.aux
+The style file: apalike2.bst
+A level-1 auxiliary file: endmatter/colophon.aux
+Illegal, another \bibstyle command---line 38 of file main.aux
+ : \bibstyle
+ :          {apalike2}
+I'm skipping whatever remains of this command
+Database file #1: references.bib
+Warning--I didn't find a database entry for "Eigen1971"
+Warning--I didn't find a database entry for "Knuth1968"
+Warning--empty journal in wright2015international
+You've used 10 entries,
+            2229 wiz_defined-function locations,
+            586 strings with 6024 characters,
+and the built_in function-call counts, 4024 in all, are:
+= -- 390
+> -- 172
+< -- 8
++ -- 62
+- -- 58
+* -- 358
+:= -- 707
+add.period$ -- 29
+call.type$ -- 10
+change.case$ -- 76
+chr.to.int$ -- 10
+cite$ -- 11
+duplicate$ -- 139
+empty$ -- 277
+format.name$ -- 78
+if$ -- 767
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 12
+newline$ -- 52
+num.names$ -- 30
+pop$ -- 64
+preamble$ -- 1
+purify$ -- 78
+quote$ -- 0
+skip$ -- 108
+stack$ -- 0
+substring$ -- 299
+swap$ -- 9
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 56
+warning$ -- 1
+while$ -- 34
+width$ -- 0
+write$ -- 127
+(There was 1 error message)

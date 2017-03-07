@@ -3,8 +3,7 @@
 \chapter{Background}
 
 %% FIGURE OUT HOW TO START HTIS CHAPTER HERE 
-\newthought{There's something to be said} for having a good opening line. Morbi commodo, ipsum sed pharetra gravida, orci  $x = 1/\alpha$ magna rhoncus neque, id pulvinar odio lorem non turpis \cite{Eigen1971, Knuth1968}. 
-
+\newthought{There's something to be said} 
 
 \section{Causal Effects} 
 
@@ -24,6 +23,9 @@ Mathematically, this is equivalent to
 \begin{align}  \mathbb{E}[Y^{\; a=1} - Y^{\; a=0}] \end{align}  
 because the average of differences is equal to the difference of averages.\cite{hernan_robins_2016} Note, that this is not the same as calculating the mean of paired differences as if each individual had received both treatments at different times to calculate individual causal effects.  Rather, the difference in the means of the placebo and treatment groups is being calculated to estimate average causal effect across the population.  
 
+\section{Confounding} 
+%% WHAT IS IT AND WHY DO WE CARE 
+
 
 \section{Identifiability Assumptions} \label{assumptions} 
 It is sufficient to show that causal effects are valid and identifiable, meaning they have a single measurement of effect, on the following three assumptions: consistency, positivity, and exchangeability.\cite{cole2009consistency, hernan_robins_2016}   Under these three assumptions, the data closely resembles an ideal randomized trial.  Through this, causation can be inferred, rather than simply association.  Although the methods are directly testing association, these assumptions allow the tests to measure causation.  
@@ -38,10 +40,10 @@ where $Y_i^a$ is individual $i$'s potential outcome and $A_i$ is the observed tr
 Consistency can deteriorate under the presence of multiple or varying treatment options, such as different surgeons perform a procedure or even varying procedures.  Protection against this is partially in the understanding and reasonable pruning of the data.  This can be done through clear and precise questions of interest, and hopefully, detailed data that allows for comprehensive refinement.  
 
 \subsection{Exchangeability} \label{exchangeability} 
-Exchangeability is the idea that individuals in either group of a randomized experiment would have had the same response given the treatment. \cite{hernan_robins_2016}There should be no bias to either group to respond favorably or not to treatment or lack thereof.  
+Exchangeability is the idea that individuals in either group of a randomized experiment would have had the same response given the treatment. \cite{hernan_robins_2016}  There should be no bias to either group to respond favorably or not to treatment or lack thereof.  
 Statistically, this is $P[Y^a = 1 \mid A = 1] = P[Y^a = 1 \mid A = 0] = P[Y^a = 1]$.  This means that $Y^a$ is independent of $A$, and the treatment has no predictive power of the outcome.  This independence allows for several conclusions.  Firstly, $E[Y^a \mid A = a'] = E[Y^a]$ by definition of independence.  
 
-Given some indicator of progonosis in the form of $L$, exchangeability is possible for those with similar prognoses, but problematic across varying prognoses.  Therefore, conditional exchangeability is obtained: $P[Y^a = 1 \mid A = a, L=l] = P[Y^a = 1 \mid A \neq a, L=l]$, i.e. $Y^{a} \Perp A\mid L$. \cite{hernan_robins_2016}  Conditional exchangeability guarantees the ability to measure effects using complete data.  
+Given some indicator of prognosis in the form of $L$, exchangeability is possible for those with similar prognoses, but it becomes problematic across varying prognoses.  For example, exchangeability is attainable when considering obesity, but is more difficult when the confounder has a high mortality rate, such as    Therefore, conditional exchangeability is obtained: $P[Y^a = 1 \mid A = a, L=l] = P[Y^a = 1 \mid A \neq a, L=l]$, i.e. $Y^{a} \Perp A\mid L$. \cite{hernan_robins_2016}  Conditional exchangeability guarantees the ability to measure effects using complete data.  
 
 The power of a randomized trial is that it should theoretically create exchangeability.  By randomly putting subjects into their groups, there should be no reason that the patients between the two groups differ or will respond to treatment differently.  
       
@@ -63,8 +65,18 @@ for a $l$ with $P[L=l] \neq 0$.
 Many of the concerns discussed above can by addressed using the method of IP weighting by simulating a pseudo-population, in which every individual has two data inputs, the expected observed outcomes under treatment and under no treatment.  The method by which this is done is by considering a confounder of the data, $L$, a value which is known before treatment and often factors into the decision to assign treatment.  For example, a confounder in a study on a cholesterol drug could be whether the patient is obese or has high blood pressure.  By creating the pseudo-population, the treatment and placebo groups share the same underlying covariate characterizations and distributions. 
 
 The pseudo-population can be calculated with the following for each of the possible $A$ and $L$ combinations 
-\begin{align} n\cdot P[Y=y \mid A = a, L= 1] \cdot P[A=a \mid L=l]  \cdot P[L=l] \cdot \frac{1}{P[A = a \mid L = 1]} \end{align}  
-where the last term here is the IP weight, $W^{A} = \nicefrac{1}{f(A\mid L)}$.  This form can be used to solve for the standardized mean as follows, 
+\begin{align} \label{eq:1}
+n\cdot P[Y=y \mid A = a, L= 1] \cdot P[A=a \mid L=l]  \cdot P[L=l] \cdot \frac{1}{P[A = a \mid L = 1]} \end{align}  
+where the last term here is the IP weight, $W^{A} = \nicefrac{1}{f(A\mid L)}$.  
+
+%% IS this next statement true?? 
+This weight is equivalent to the inverse of the propensity score, which can be defined as the probability of receiving treatment and written as,\cite{imbens2015causal}
+\begin{align} 
+e(x) = \frac{N_t(x)}{N_c(x) + N_t(x)} = P[A=a \mid L = l] 
+\end{align} 
+where $x = X_i$ is the population data and $N_t(x)$ and $N_c (x)$ are the number of individuals in the treatment and control groups respectively.  
+
+This form in equation \ref{eq:1} can be used to solve for the standardized mean as follows, 
 \begin{align} 
 E[Y^{\,a}] &= \sum_l n \cdot P[Y=y \mid A = a, L= 1] \cdot P[A=a \mid L=l]  \cdot P[L=l] \cdot \frac{1}{P[A = a \mid L = 1]} \\ 
 &=  \sum_l n \cdot P[Y=y \mid A = a, L= 1] \cdot P[L=l]\\ 
@@ -77,7 +89,7 @@ This leads to the confounders being accounted for or eliminated in the pseudo-po
 The above non-parametric values for $P[A=a\mid L=l]$ are effective for limited dichotomous confounders, but this method has limitations when $L$ is highly dimensional.  To address this, a parametric estimate $\widehat{P}[A=a\mid L=l]$ can be obtained using a logistic regression model for $A$ with all the confounders in $L$ included as covariates.  This allows us to estimate IP weights 
 
 \section{Standardization} 
-Like IP weighting, standardization is a method of calculating the marginal counterfactual risk of $P[Y^a = 1]$.  This method weights the population by  conditioning on the covariates levels in $L$.  
+Like IP weighting, standardization is a method of calculating the marginal counterfactual risk of $P[Y^a = 1]$.  This method weights the population by  conditioning on the covariates levels in $L$, in order to make the probability of treatment $A$ independent of the covariates.  The weighting looks like this, 
 \begin{align} 
 P[Y^a = 1] &= \sum_l P[Y^a = 1 \mid L=l] \cdot P[L = l] \\ 
 &= \sum_l P[Y = 1 \mid L=l] P[L = l]  
@@ -86,28 +98,4 @@ where the equality is because of the conditional exchangeability.  This standard
 \begin{align} 
 E[Y^{\,a}] &= E[Y \mid L = l, A =a ] \cdot P[L=l] 
 \end{align} 
-Note that this returns the same equation for the standardized mean as the method of IP weighting because they are mathematically equivalent.  
-
-\section{Parametric G-formula} 
-
-\section{Doubly Robust Estimation} 
-The method of doubly robust estimation, as proposed by Bang and Robins \cite{bang2005doubly}, combines the two previously discussed methods of IP weighting and standardization.  
-
-
-
-
-
-
-
-
-
-
-
-% For an example of a full page figure, see Fig.~\ref{fig:myFullPageFigure}.
-
-
-%\begin{figure}
-%\includegraphics[width=\textwidth]{figures/fig1}
-%\caption[Short figure name.]{This is a figure that floats inline and here is its caption.
-%\label{fig:myInlineFigure}}
-%\end{figure}
+Note that this returns the same non-parametric equation for the standardized mean as the method of IP weighting because they are mathematically equivalent.  
