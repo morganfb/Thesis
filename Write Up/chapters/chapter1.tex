@@ -9,11 +9,11 @@
 
 A traditional understanding of causation comes from the field of medicine, where researchers can perform a controlled experiment to prove causation.  This type of study contains two sample groups, one which receives no treatment (the placebo group) and one which receives the treatment (the treatment group).  Individuals are randomly allocated into one group, and by comparing the outcome of these two groups, the researchers can demonstrate whether the outcome for patients receiving treatment differs significantly from the controls.  By quantifying the difference in outcomes between the groups, researchers can demonstrate an association between treatment and outcome.  However, because of the randomized nature of the trial, association is causation.\footnote{This idea is discussed further in Section \ref{assumptions}.}\cite{hernan2006estimating}  
 
-To translate this idea into statistical terms, some notation must be introduced.  The random variable $A$ represents the treatment status, where a value of $1$ indicates treated and a value of $0$ indicates untreated.  The random variable $Y$ is the outcome variable, often with a value of $0$ indicating survival and a value of $1$ indicating death.  These interpretations of $A$ and $Y$ correspond to the above understanding of causation studies, but for various causal inference studies, the form of $Y$ and  in particular can change depending on the question of interest.  For example, $Y$ can be a continuous variable, such as the weight difference of an individual in a weight loss trial or the change in HDL levels in a cholesterol study. 
+To translate this idea into statistical terms, some notation must be introduced.  The random variable $A$ represents the treatment status, where a value of $1$ indicates treated and a value of $0$ indicates untreated.  A fixed $A$, which has constant treatment over time, is written as $A_i$ for the individual $i \in \{0,1,2,\dots n\}$ with $n$ the total number of individuals.\footnote{Non-fixed $A$ representations are common and discussed in greater detail in Section \ref{Time-varying}.} The random variable $Y$ is the outcome variable, often with a value of $0$ indicating survival and a value of $1$ indicating death.  These interpretations of $A$ and $Y$ correspond to the above understanding of causation studies, but for various causal inference studies, the form of $Y$ and  in particular can change depending on the question of interest.  For example, $Y$ can be a continuous variable, such as the weight difference of an individual in a weight loss trial or the change in HDL levels in a cholesterol study. 
 
-To study the causal effect of $A$, the desired value is the difference in $Y$ under the varying conditions of $A$.  Notationally, this is the difference between $Y^{\, a=1}$,  the outcome that would be observed under treatment, and $Y^{\, a=0}$, the outcome that would be observed under no treatment.  This is in comparison to the observed outcome of $Y$ or $Y^A$.  
+To study the causal effect of $A$, the desired value is the difference in $Y$ under the varying conditions of $A$.  Notationally, this is the difference between $Y^{\, a=1}$ \footnote{Note that lowercase letters signify possible values of the random variable, in comparison to uppercase letters which represent actual observed values},  the outcome that would be observed under treatment, and $Y^{\, a=0}$, the outcome that would be observed under no treatment.  This is in comparison to the observed outcome of $Y$ or $Y^A$.  
 
-A causal effect can be seen on an individual level if $\; Y_i^{\, a=1} \neq Y_i^{\, a=0}$ for individual $i$.  By considering how each individual's responses to varying treatments differ, causation (or lack thereof) can easily be determined using paired differences of the form 
+A causal effect can be seen on an individual level if $\; Y_i^{\, a=1} \neq Y_i^{\, a=0}$.  By considering how each individual's responses to varying treatments differ, causation (or lack thereof) can easily be determined using paired differences of the form 
 \begin{align} \; Y_i^{\, a=1} - Y_i^{\, a=0}\end{align} 
 These differences would be tested against the null hypothesis of zero difference in outcome for varying treatments.  
 
@@ -23,8 +23,17 @@ Mathematically, this is equivalent to
 \begin{align}  \mathbb{E}[Y^{\; a=1} - Y^{\; a=0}] \end{align}  
 because the average of differences is equal to the difference of averages.\cite{hernan_robins_2016} Note, that this is not the same as calculating the mean of paired differences as if each individual had received both treatments at different times to calculate individual causal effects.  Rather, the difference in the means of the placebo and treatment groups is being calculated to estimate average causal effect across the population.  
 
+\subsection{Time Varying Data} \label{Time-varying}
+Not all treatment regimens consist of constant treatment over a set period of time.  Furthermore, if patients ina Therefore, a more complicated time-varying treatment can be considered.  This would be written for a single individual as $\overline{A}_k = \{A_0, A_1, \cdots, A_k \}$, with time point $k \in \{ 0, 1, \dots K\}$, given $K$ as the maximum time value.  The overline on $\overline{A}_k$ indicates the history of values up to and including time point $k$, and the notation $\overline{A}$ represents the full history.  As an example of this, a patient with continuous treatment throughout the whole study would have data $\overline{A} = \{A_0 = 1, A_1 = 1, \dots, A_K = 1 \}  = \{1,1,\dots 1 \}$, which can also be written as $\overline{A} = \overline{1}$.  In this scenario, the average causal effect is instead defined as 
+\begin{align} \mathbb{E}\bigg[Y^{\bar{a} = \bar{1}}\bigg] -  \mathbb{E}\bigg[Y^{\bar{a} = \bar{0}}\bigg] \end{align} 
+
+This time-varying framework of the treatment variable can also be considered for the covariate, $L$.  From this, a dynamic treatment strategy can also be created, such that each $A_k$ is dependent on the treatment and covariate history, $\overline{L}_k$ and $\overline{A}_{k-1}$.   
+
+
 \section{Confounding} 
 %% WHAT IS IT AND WHY DO WE CARE 
+
+The use of the covariate $\overline{L}$ is a measurable proxy for an unmeasured and unknown underlying confounder, $U$.  Theoretically, $U$ should directly impact both $L$ and $Y$, but not $A$, so it indicates a backdoor path between $A$ and $Y$ through $U$.  \cite{wright2015international}  The expected way to account for the backdoor path caused by $U$ would be to condition on it, but because it is unknown and therefore unmeasurable, this is not possible.  Therefore, methods must be used to create this same effect using only $L$, which will allow for the study of just the causal effect of $A$ on $Y$.  By eliminating the effect of $U$, there will no bias in the estimate of causal effect.  The methods for doing so will be discussed in Sections \ref{IP Weighting} and \ref{Standardization}.  
 
 
 \section{Identifiability Assumptions} \label{assumptions} 
@@ -61,7 +70,7 @@ for a $l$ with $P[L=l] \neq 0$.
 
 
 
-\section{IP Weighting} 
+\section{IP Weighting} \label{IP Weighting} 
 Many of the concerns discussed above can by addressed using the method of IP weighting by simulating a pseudo-population, in which every individual has two data inputs, the expected observed outcomes under treatment and under no treatment.  The method by which this is done is by considering a confounder of the data, $L$, a value which is known before treatment and often factors into the decision to assign treatment.  For example, a confounder in a study on a cholesterol drug could be whether the patient is obese or has high blood pressure.  By creating the pseudo-population, the treatment and placebo groups share the same underlying covariate characterizations and distributions. 
 
 The pseudo-population can be calculated with the following for each of the possible $A$ and $L$ combinations 
@@ -88,7 +97,7 @@ This leads to the confounders being accounted for or eliminated in the pseudo-po
 \subsection{Parametric Estimates} 
 The above non-parametric values for $P[A=a\mid L=l]$ are effective for limited dichotomous confounders, but this method has limitations when $L$ is highly dimensional.  To address this, a parametric estimate $\widehat{P}[A=a\mid L=l]$ can be obtained using a logistic regression model for $A$ with all the confounders in $L$ included as covariates.  This allows us to estimate IP weights 
 
-\section{Standardization} 
+\section{Standardization} \label{Standardization} 
 Like IP weighting, standardization is a method of calculating the marginal counterfactual risk of $P[Y^a = 1]$.  This method weights the population by  conditioning on the covariates levels in $L$, in order to make the probability of treatment $A$ independent of the covariates.  The weighting looks like this, 
 \begin{align} 
 P[Y^a = 1] &= \sum_l P[Y^a = 1 \mid L=l] \cdot P[L = l] \\ 

@@ -8,9 +8,11 @@
 \section{Data Creation} 
 
 
-
+%% Testing under the null of full treatment, but using data on time varying treatment 
 \section{Parametric G-formula} 
-Similar to IP weighting, parametric estimates can be obtained for standardized estimates.  An efficient method for doing this is the generalization of standardization to time-varying treatments and confounders, coined the g-formula method by Robins in 1986.\cite{robins1986new, hernan_robins_2016}  The method seeks to measure the average causal effect of treatment, which can be estimated as 
+Similar to IP weighting, parametric estimates can be obtained for standardized estimates.  An efficient method for doing this is the generalization of standardization to time-varying treatments and confounders, coined the g-formula method by Robins in 1986.\cite{robins1986new, wright2015international, hernan_robins_2016}  The method can be used for fixed and time-varying treatments in longitudinal studies, and it seeks to estimate the average causal effect of treatment.  
+
+which can be estimated as 
 \begin{align} 
 \mathbb{E}[Y^{\bar{a} = \bar{1}}] - \mathbb{E}[Y^{\bar{a} = \bar{0}}] 
 \end{align} 
