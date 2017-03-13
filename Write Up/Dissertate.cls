@@ -76,6 +76,10 @@
 \usepackage{nicefrac}
 \usepackage{amsmath}
 \usepackage{txfonts}
+\usepackage[all]{xy}
+\usepackage{amstext} % for \text macro
+\usepackage{array}   % for \newcolumntype macro
+\newcolumntype{L}{>{$}l<{$}} % math-mode version of "l" column type
 
 % Fonts.
 \RequirePackage{color}

@@ -111,7 +111,7 @@ e(x) = \frac{N_t(x)}{N_c(x) + N_t(x)} = P[A=a \mid L = l]
 \end{align} 
 where $x = X_i$ is the population data and $N_t(x)$ and $N_c (x)$ are the number of individuals in the treatment and control groups respectively.  
 
-This form in equation \ref{eq:1} can be used to solve for the standardized mean as follows, 
+This form in expression \ref{eq:1} can be used to solve for the standardized mean as follows, 
 \begin{align} 
 E[Y^{\,a}] &= \sum_l n \cdot P[Y=y \mid A = a, L= 1] \cdot P[A=a \mid L=l]  \cdot P[L=l] \cdot \frac{1}{P[A = a \mid L = 1]} \\ 
 &=  \sum_l n \cdot P[Y=y \mid A = a, L= 1] \cdot P[L=l]\\ 
@@ -133,4 +133,4 @@ where the equality is because of the conditional exchangeability.  This standard
 \begin{align} 
 E[Y^{\,a}] &= E[Y \mid L = l, A =a ] \cdot P[L=l] 
 \end{align} 
-Note that this returns the same non-parametric equation for the standardized mean as the method of IP weighting because they are mathematically equivalent.  
+Note that this returns the same non-parametric expression for the standardized mean as the method of IP weighting because they are mathematically equivalent.  

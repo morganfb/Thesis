@@ -6,12 +6,55 @@
 
 
 \section{Data Creation} 
+For the purposes of this study, a data generating algorithm was created to provide consistent and easily accessible data for many simulations.  
+
+\begin{displaymath}
+    \xymatrix{
+    	& & & & & & \mathbf{Y} \\
+        \mathbf{L_0} \ar[r] & \mathbf{A_0} \ar[r]  & \mathbf{ L_1} \ar[r]  & \mathbf{A_1} \ar@{.>}[r] & \mathbf{L_K} \ar[r] & \mathbf{A_K} &  \\ 
+        & & & & & \ar[lllllu] \ar[lllu]  \ar[lu] \mathbb{U}  \ar[ruu]  & 
+        }
+\end{displaymath}
+
+The algorithm to generate datasets is as follows for each individual, of which 1000 were simulated in this study.  
+\begin{enumerate} 
+\item Take the predetermined coefficients $\vec{\mathbf{\alpha}}$ and $\vec{\mathbf{\beta}} $, which are generated outside the data generating process to provide consistency.  In this study, the values were as follows, 
+\begin{align*}   
+\begin{tabular}{L|L}
+\; \; \; \;\; \; \; \;\; \; \; \; \vec{\mathbf{\alpha}} &\; \; \; \;\; \; \; \; \; \; \; \;  \vec{\mathbf{\beta}} \\ 
+\hline 
+\alpha_0 = 0.58986656 & \beta_0 = 0.17868818\\ 
+\alpha_1 = 0.95344212 & \beta_1 = 0.89069712 \\ 
+\alpha_2 = -0.89822429 & \beta_2 =   0.89037635 \\ 
+\alpha_3 =  -0.95566697 & \beta_3 = 0.20497534 \\ 
+\alpha_4 = 0.67520365 & \beta_4 =  0.10442911 \\ 
+ \alpha_5 = 2.46365403 & 
+\end{tabular} 
+\end{align*}  
+\item Create the underlying confounder, $U_i$ from $U_i \sim Unif(0.1, 1)$ 
+\item Using the following logistic expressions, probabilities for each $L_{k,i}$ and $A_{k,i}$ can be obtained where $k$ is the time and $i$ is the individual, conditional on $\overline{L}_{k-1,i}$ and $\overline{A}_{k-1,i}$.  These probabilities are then used to obtain values for $L_{k,i}$ and $A_{k,i}$ using a binomial distribution with the respective probabilities.  
+\begin{align} 
+logitP[L_{k,i}] &= \alpha_0 + \alpha_1 \cdot L_{k-1,i} + \alpha_2 \cdot L_{k-2,i} + \alpha_3 A_{k-1,i} + \alpha_4 A_{k-2,i} + \alpha_5 U_i\\ 
+logit[A_{k,i}] &= \beta_0 + \beta_1 L_{k,i} + \beta_2 L_{k-1,i} + \beta_3 A_{k-1,i} + \beta_4 A_{k-2,i}
+\end{align} 
+Note that for low time values when history is limited, the above expressions are slightly modified as follows, 
+\begin{align} 
+logitP[L_{0,i}] &= \alpha_0 + \alpha_5 U_i\\ 
+logit[A_{0,i}] &= \beta_0 + \beta_1 L_{k,i} \\
+logitP[L_{1,i}] &= \alpha_0 + \alpha_1 \cdot L_{k-1,i} + \alpha_3 A_{k-1,i}  + \alpha_5 U_i\\ 
+logit[A_{1,i}] &= \beta_0 + \beta_1 L_{k,i} + \beta_2 L_{k-1,i} + \beta_3 A_{k-1,i} 
+\end{align} 
+\item Obtain a final $Y_i$ value for each individual where $Y_i \sim \mathcal{N}(\mu = U, \sigma = 1)$ 
+\end{enumerate} 
+
+
 
 
 %% Testing under the null of full treatment, but using data on time varying treatment 
 \section{Parametric G-formula} 
 Similar to IP weighting, parametric estimates can be obtained for standardized estimates.  An efficient method for doing this is the generalization of standardization to time-varying treatments and confounders, coined the g-formula method by Robins in 1986.\cite{robins1986new, wright2015international, hernan_robins_2016}  The method can be used for fixed and time-varying treatments in longitudinal studies, and it seeks to estimate the average causal effect of treatment.  
 
+%%finish this sentence/thought below here 
 which can be estimated as 
 \begin{align} 
 \mathbb{E}[Y^{\bar{a} = \bar{1}}] - \mathbb{E}[Y^{\bar{a} = \bar{0}}] 
@@ -22,7 +65,7 @@ The g-formula seeks to calculate each standardized mean using the following,
 \begin{align} \label{eq:3} 
 \mathbb{E}[Y^{\bar{a}= \bar{1}}] &= \sum_{l_i} \mathbb{E} \big[Y \mid  \overline{L}_{t}, \overline{A}_{t} \big]\cdot \prod_{k=0}^t P[L_k = l_k \mid \overline{L}_{k-1}, \overline{A}_{k-1}]
 \end{align}
-where $\overline{L}_k = \{L_{0} = l_0, L_{1} = l_1,  \cdots, \; L_{k} = l_k\}$ and $\overline{A}_k = \{a_{0} = 1, a_{1} = 1,  \cdots, \; a_{k} = 1\}$.  The equivalent formula can be derived for $ \mathbb{E}[Y^{\bar{a} = \bar{0}}]$.   In equation \ref{eq:3}, the summation term is 
+where $\overline{L}_k = \{L_{0} = l_0, L_{1} = l_1,  \cdots, \; L_{k} = l_k\}$ and $\overline{A}_k = \{a_{0} = 1, a_{1} = 1,  \cdots, \; a_{k} = 1\}$ are the history of the treatment and covariate variables up to and including time $k$.  The equivalent formula can be derived for $ \mathbb{E}[Y^{\bar{a} = \bar{0}}]$.   In expression \ref{eq:3}, the summation term is %% finish this sentence
 %% come back here to discuss more about why you would use this method, how it was developed, details from Jamie's original paper, etc
 
 One of the key reasons for using the g-formula method is that it is able to account for time-varying confounders which have feedback to each other.  This is equivalent to each $L_k$ being dependent on $A_{k-1}$.\cite{robins1986new}  In these scenarios, traditional methods for adjusting for the confounder, such as stratification, regression, and matching, may introduce bias; however, the g-formula method (as well as IP weighting) will not.\cite{wright2015international}  This is because these other methods are unable to estimate the joint effect of all treatment values $\{A_0, A_1 \dots A_K \}$ simultaneously and without bias.\cite{fitzmaurice2008longitudinal}  
@@ -31,6 +74,7 @@ The g-formula method has been shown to have a smaller variance than IP weighting
 
 \subsection{Protocol} 
 The method is performed in several steps, as follows 
+%% SHOULD I REWRITE THIS AS NOT ABOUT EXPANDING THE DATASETS 
 \begin{enumerate}
 \item \underline{Expand the dataset}: Create two new simulated datasets, the first has all individuals under no treatment ($A=0$) and the second of which has all individuals treated ($A=1$).  Each of these new datasets has the same size as the original and the same ``individuals'', just changed values for $A$.  For these two datasets, delete the outcome values for $Y$ to treat it as a missing data.  
 
@@ -39,15 +83,34 @@ The method is performed in several steps, as follows
 In this case, the following models were chose for $Y \mid  \overline{A}_t, \overline{L}_t$ and $L_k \mid \overline{L}_{k-1}, \overline{A}_{k-1}$, 
 \begin{align} 
 \mathbb{E} \big[Y \mid \overline{A}_t, \overline{L}_t \big] &= \theta_{0} + \theta_1 A_{t} + \cdots + \theta_j A_0 + \theta_{j+1} L_t + \cdots + \theta_{j+k} L_0 \label{eq:2} \\ 
-logit[L_k \mid \overline{L}_{k-1}, \overline{A}_{k-1}] &= \gamma_0 + \gamma_1 L_{k-1} + \gamma_2 L_{k-2} + \gamma_3 A_{k-1} + \gamma_4 A_{k-2} 
+logit[L_k \mid \overline{L}_{k-1}, \overline{A}_{k-1}] &= \gamma_0 + \gamma_1 L_{k-1} + \gamma_2 L_{k-2} + \gamma_3 L_{k-3}  + \gamma_4 A_{k-1} + \gamma_5 A_{k-2} + \gamma_6 A_{k-3} \label{eq:3} 
 \end{align} 
-A time lag of only two historical values was deemed sufficient for the model of $L_k$ because ... 
+A time lag of only three historical values was deemed sufficient for the model of $L_k$ because ... 
 %% PUT SOME REASONS IN HERE DISCUSSING HOW THESE MODELS WERE CHOSEN... SHOULD I BE USING QUADRATIC TERMS OR INTERACTION TERMS??!?!?!?!
 
 
-\item \underline{Predict}: Using the model created in step 2, predict the outcome $Y$ for the two new datasets created in step 1, conditioned on the given $A$ and $L$ values.  
+\vspace{1cm}
+Note that for initial time points where there was insufficient history for the full model, smaller models were created as follows 
+\begin{align} 
+Logit[L_1 \mid L_0, A_0]  &= \gamma'_0 + \gamma'_1 L_0 +  \gamma'_2 A_0 \label{eq:4} \\
+Logit[L_2 \mid L_0, L_1, A_0, A_1] &= \gamma''_0 + \gamma''_1 L_{k-1} + \gamma''_2 L_{k-2}   + \gamma''_3 A_{k-1} + \gamma''_4 A_{k-2} \label{eq:5}
+\end{align}
 
-Using equation \ref{eq:2} above, 
+
+\item \underline{Predict using monte carlo}: Using the model created in step 2, predict the outcome $Y$ for the two new datasets created in step 1, conditioned on the given $A$ and $L$ values.  
+
+Using expressions \ref{eq:2} through \ref{eq:5}, a Monte Carlo simulation must be performed to gain prediction values.  This is because it is impractical to calculate expression \ref{eq:3} directly for a continuous $L$.  This process is done as follows for time $k = \{ 0, \dots, K \}$, and $i = \{ 1, \dots, n \}$ keeping the test treatment regimen of interest $\bar{a}$ in mind through the process.  
+\begin{enumerate} 
+\item Select the $L_0$ value from a random individual from $i \in  \{ 1, \dots, n \}$. \label{step1}  
+\item Obtain a probability of $L_1$ using this $L_0$ and $a_0$ in expression \ref{eq:4} and then obtain a sample $L_1$ by pulling from a binomial distribution.  
+\item Obtain a probability of $L_2$ using the $L_0, L_1, a_0$, and $a_1$ in expression \ref{eq:5} and then obtain a sample $L_2$ by pulling from a binomial distribution.  
+\item Continue the above process until time $K$ using expression \ref{eq:3} to get a full history $\overline{L}_K$ and all the probabilities $P[L_k = l_k \mid  \overline{L}_{k-1}, \overline{A}_{k-1}]$ 
+\item Using expression \ref{eq:2}, $\bar{a}$ and the above solved for $\overline{L}_K$, calculate $\mathbb{E} \big[Y \mid \overline{A}_t, \overline{L}_t \big]$ 
+\item Take the product of all the probabilities $P[L_k = l_k \mid  \overline{L}_{k-1}, \overline{A}_{k-1}]$ for $k = 0, \dots, K$ and $\mathbb{E} \big[Y \mid \overline{A}_t, \overline{L}_t \big]$ to get a final estimate.  \label{laststep}
+\item Repeat steps (\ref{step1}) through (\ref{laststep}) for as many simulations as desired.  
+\item Take the mean of all simulation values to obtain $\mathbb{E}[Y^{\bar{a}}]$ 
+\item Repeat all above steps for the opposing treatment regimen of interest $\bar{a}'$ and take difference $\mathbb{E}[Y^{\bar{a}}] - \mathbb{E}[Y^{\bar{a}'}]$ to get average causal treatment effect.  
+\end{enumerate}
 
 \item \underline{Standardization by averaging}:  Created a weighted average for $E[Y^{a=0}]$ from the first new dataset and one for $E[Y^{a=1}]$ from the second new dataset
 \end{enumerate} 
