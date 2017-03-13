@@ -27,14 +27,20 @@ because the average of differences is equal to the difference of averages.\cite{
 Not all treatment regimens consist of constant treatment over a set period of time.  Furthermore, if patients ina Therefore, a more complicated time-varying treatment can be considered.  This would be written for a single individual as $\overline{A}_k = \{A_0, A_1, \cdots, A_k \}$, with time point $k \in \{ 0, 1, \dots K\}$, given $K$ as the maximum time value.  The overline on $\overline{A}_k$ indicates the history of values up to and including time point $k$, and the notation $\overline{A}$ represents the full history.  As an example of this, a patient with continuous treatment throughout the whole study would have data $\overline{A} = \{A_0 = 1, A_1 = 1, \dots, A_K = 1 \}  = \{1,1,\dots 1 \}$, which can also be written as $\overline{A} = \overline{1}$.  In this scenario, the average causal effect is instead defined as 
 \begin{align} \mathbb{E}\bigg[Y^{\bar{a} = \bar{1}}\bigg] -  \mathbb{E}\bigg[Y^{\bar{a} = \bar{0}}\bigg] \end{align} 
 
-This time-varying framework of the treatment variable can also be considered for the covariate, $L$.  From this, a dynamic treatment strategy can also be created, such that each $A_k$ is dependent on the treatment and covariate history, $\overline{L}_k$ and $\overline{A}_{k-1}$.   
+\subsection{Deterministic Treatment Regimes} 
+This time-varying framework of the treatment variable can also be considered for the covariate, $L$.  From this, a dynamic treatment strategy can also be created, such that each possible realization $\bar{a}_{k}$ is dependent on the treatment and covariate history, $\overline{L}_k$ and $\overline{A}_{k-1}$.  This can be written as a set of functions $\{g_k (\bar{a}_{k-1}, \bar{l}_k \}$ where $g_k$ is the function making the treatment decision.  
 
+
+\subsection{Sequentially Randomized Trial} 
+%% DO I NEED THIS SECTION?? 
+A specific type of deterministic treatment regime is the sequentially randomized trial, in which a subject's treatment is chosen at each time from an associated density $f (a_k \mid \bar{l}_k, \bar{a}_{k-1})$ for $\bar{a}_k \in \overline{\mathcal{A}}_k$ where $\overline{\mathcal{A}}_k$ is the support of $\overline{A}_k$ in time period $k$.\cite{young2011comparative}  In this type of randomized trial, each $A_k$ for all subjects is chosen as an independent random draw from this type of distribution density.  Sequentially randomized trials guarantee the identifiability assumptions of exchangeability and consistency to be discussed in Section \ref{assumptions}.  
 
 \section{Confounding} 
 %% WHAT IS IT AND WHY DO WE CARE 
 
 The use of the covariate $\overline{L}$ is a measurable proxy for an unmeasured and unknown underlying confounder, $U$.  Theoretically, $U$ should directly impact both $L$ and $Y$, but not $A$, so it indicates a backdoor path between $A$ and $Y$ through $U$.  \cite{wright2015international}  The expected way to account for the backdoor path caused by $U$ would be to condition on it, but because it is unknown and therefore unmeasurable, this is not possible.  Therefore, methods must be used to create this same effect using only $L$, which will allow for the study of just the causal effect of $A$ on $Y$.  By eliminating the effect of $U$, there will no bias in the estimate of causal effect.  The methods for doing so will be discussed in Sections \ref{IP Weighting} and \ref{Standardization}.  
 
+In this scenario, $L$ is referred to as a confounder for the effect of $A$, reflective of the fact that the underlying bias was the unknown of $U$ and $L$ is being used to account for that.  It can be shown that in order to validly estimate the joint effect of all $A_k$ simultaneously and without bias, it is sufficient (but not necessary) to block all backdoor paths from $U$ to any $A_k$ for all $k$.\cite{pearl1995probabilistic}
 
 \section{Identifiability Assumptions} \label{assumptions} 
 It is sufficient to show that causal effects are valid and identifiable, meaning they have a single measurement of effect, on the following three assumptions: consistency, positivity, and exchangeability.\cite{cole2009consistency, hernan_robins_2016}   Under these three assumptions, the data closely resembles an ideal randomized trial.  Through this, causation can be inferred, rather than simply association.  Although the methods are directly testing association, these assumptions allow the tests to measure causation.  
@@ -42,26 +48,46 @@ It is sufficient to show that causal effects are valid and identifiable, meaning
 \subsection{Consistency} 
 Consistency is the idea that an individual's potential outcome and their observed outcome are equal\cite{cole2009consistency, hernan_robins_2016}.  Statistically, this is 
 \begin{align} 
-\text{if  } A_i = a, \text{     then,    } Y_i^a = Y^{A_i} = Y_i 
+\text{If  } A_i = a, \text{     then,    } Y_i^a = Y^{A_i} = Y_i 
 \end{align} 
 where $Y_i^a$ is individual $i$'s potential outcome and $A_i$ is the observed treatment.  
 
 Consistency can deteriorate under the presence of multiple or varying treatment options, such as different surgeons perform a procedure or even varying procedures.  Protection against this is partially in the understanding and reasonable pruning of the data.  This can be done through clear and precise questions of interest, and hopefully, detailed data that allows for comprehensive refinement.  
 
+This idea can be expanded to time-varying treatment and covariate variables, as follows 
+\begin{align} 
+\text{If } \overline{A}_k = \bar{a}^g _k, \text{ then, } \overline{Y}_{k+1} =  \bar{Y}^g_{k+1} \text{ and } \overline{L}_k = \bar{L}^g_k
+\end{align}
+
 \subsection{Exchangeability} \label{exchangeability} 
-Exchangeability is the idea that individuals in either group of a randomized experiment would have had the same response given the treatment. \cite{hernan_robins_2016}  There should be no bias to either group to respond favorably or not to treatment or lack thereof.  
+Exchangeability is the idea that individuals in either group of a randomized experiment would have had the same response given the treatment. \cite{hernan_robins_2016}  There should be no bias to either group to respond favorably or not to treatment or lack thereof; thus, the results should be equivalent if any subject is moved from one group to the other.  
+ 
 Statistically, this is $P[Y^a = 1 \mid A = 1] = P[Y^a = 1 \mid A = 0] = P[Y^a = 1]$.  This means that $Y^a$ is independent of $A$, and the treatment has no predictive power of the outcome.  This independence allows for several conclusions.  Firstly, $E[Y^a \mid A = a'] = E[Y^a]$ by definition of independence.  
 
 Given some indicator of prognosis in the form of $L$, exchangeability is possible for those with similar prognoses, but it becomes problematic across varying prognoses.  For example, exchangeability is attainable when considering obesity, but is more difficult when the confounder has a high mortality rate, such as    Therefore, conditional exchangeability is obtained: $P[Y^a = 1 \mid A = a, L=l] = P[Y^a = 1 \mid A \neq a, L=l]$, i.e. $Y^{a} \Perp A\mid L$. \cite{hernan_robins_2016}  Conditional exchangeability guarantees the ability to measure effects using complete data.  
 
-The power of a randomized trial is that it should theoretically create exchangeability.  By randomly putting subjects into their groups, there should be no reason that the patients between the two groups differ or will respond to treatment differently.  
+The power of a randomized trial is that it should theoretically create exchangeability.  By randomly putting subjects into their groups, there should be no reason that the patients between the two groups differ or will respond to treatment differently.  However, exchangeability can be obtained in an observational study if $P[A_k = 1]$ depends only on $\{\overline{A}_{k-1}, \overline{L}_{k} \}$ and thus, 
+\begin{align}
+P[A_k \mid \overline{A}_{k-1}, \overline{L}_{k} ] \Perp U
+\end{align}
+By accounting for $U$ using $L$ in a time-varying treatment method, it can be seen that 
+\begin{align} 
+Y \Perp A_k \mid  \overline{L}_{k}, \overline{A}_{k-1}
+\end{align}
+which is referred to as having no unmeasured time-varying confounders.  Although guaranteed for fixed treatments, sequential exchangeability is not guaranteed.\cite{wright2015international}  Approximate exchangeability can be achieved in practice by including as many covariates as is feasibly reasonable, but this is still risky business there is no known method for computationally measuring or empirically testing sequential exchangeability.  However, the assumption of conditional exchangeability is the same as for fixed treatment models and is sufficient for determining causal effect. 
+
       
 \subsection{Positivity} 
 Positivity is the condition that a specified conditional probability is well-defined, meaning that for every value of the covariate L, there exist subjects with a specified value of $a$.\cite{hernan2006estimating}  Statistically, this looks like 
 \begin{align}
-P[A=a \mid L=l] > 0 
+P[A=a \mid L=l] > 0 \;\; \forall l \text{, such that } P[L=l] \neq 0
 \end{align} 
-for a $l$ with $P[L=l] \neq 0$. 
+This can also be expressed for time-varying treatments as follows, 
+\begin{align} 
+P[A_k = a_k \mid \overline{L}_{k}, \overline{A}_{k-1}] > 0 \;\;  \forall A_k \text{, such that } P[\overline{L}_k = \overline{l}_k, \overline{A}_{k-1} = \overline{a}_{k-1} ] \neq 0
+\end{align} 
+
+
 % Cox (1958) -- independence of observations 
 % Rubin 1980 
 % no multiple versions of treatment in STUVA 

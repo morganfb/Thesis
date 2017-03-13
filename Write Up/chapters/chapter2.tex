@@ -25,6 +25,9 @@ The g-formula seeks to calculate each standardized mean using the following,
 where $\overline{L}_k = \{L_{0} = l_0, L_{1} = l_1,  \cdots, \; L_{k} = l_k\}$ and $\overline{A}_k = \{a_{0} = 1, a_{1} = 1,  \cdots, \; a_{k} = 1\}$.  The equivalent formula can be derived for $ \mathbb{E}[Y^{\bar{a} = \bar{0}}]$.   In equation \ref{eq:3}, the summation term is 
 %% come back here to discuss more about why you would use this method, how it was developed, details from Jamie's original paper, etc
 
+One of the key reasons for using the g-formula method is that it is able to account for time-varying confounders which have feedback to each other.  This is equivalent to each $L_k$ being dependent on $A_{k-1}$.\cite{robins1986new}  In these scenarios, traditional methods for adjusting for the confounder, such as stratification, regression, and matching, may introduce bias; however, the g-formula method (as well as IP weighting) will not.\cite{wright2015international}  This is because these other methods are unable to estimate the joint effect of all treatment values $\{A_0, A_1 \dots A_K \}$ simultaneously and without bias.\cite{fitzmaurice2008longitudinal}  
+
+The g-formula method has been shown to have a smaller variance than IP weighting methods, but this comes with added parametric modeling assumptions.\cite{young2011comparative} 
 
 \subsection{Protocol} 
 The method is performed in several steps, as follows 
@@ -59,9 +62,4 @@ The method of doubly robust estimation, as proposed by Bang and Robins \cite{ban
 
 IP weighting and standardization techniques are expected to provide different answers, unless there are no models used to create estimates.\cite{hernan_robins_2016}  
 IP weighting estimates $P[A=a \mid L =l]$ using $P[A =a \mid L= l]$, while standardization estimates $E[Y \mid A = a, L=l]$  
-\newpage 
 
-\begin{align*} 
-Y &= \beta_0 + \beta_1 X \\ 
-expit(Y) &= expit(\beta_0 + \beta_1 X) \\ 
-\end{align*} 
