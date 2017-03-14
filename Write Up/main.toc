@@ -18,7 +18,8 @@
 \contentsline {subsection}{\numberline {2.2.1}Protocol}{18}{subsection.2.2.1}
 \contentsline {subsubsection}{Variance Estimate}{20}{Item.15}
 \contentsline {section}{\numberline {2.3}Doubly Robust Estimation}{20}{section.2.3}
-\contentsline {chapter}{\numberline {3}Results Discussion}{21}{chapter.3}
-\contentsline {chapter}{\numberline {4}Conclusion}{22}{chapter.4}
-\contentsline {chapter}{Appendix \numberline {A}Code}{23}{Appendix.1.A}
-\contentsline {chapter}{References}{24}{chapter*.5}
+\contentsline {subsection}{\numberline {2.3.1}Protocol}{21}{subsection.2.3.1}
+\contentsline {chapter}{\numberline {3}Results Discussion}{22}{chapter.3}
+\contentsline {chapter}{\numberline {4}Conclusion}{23}{chapter.4}
+\contentsline {chapter}{Appendix \numberline {A}Code}{24}{Appendix.1.A}
+\contentsline {chapter}{References}{25}{chapter*.5}

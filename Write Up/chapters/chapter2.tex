@@ -140,3 +140,25 @@ IP weighting estimates $P[A=a \mid L =l]$ using $P[A =a \mid L= l]$, while stand
 - estimators are consistent if either the model for treatment given the past (as in IP weighting) is correctly specified or the models for the outcome and covariates given the past (as needed to implement the parametric g-formula) are correctly specified, without knowing which is correct\\
 - 
 
+\subsection{Protocol} 
+The method can be performed recursively using the following steps, 
+
+\begin{enumerate}
+\item Build propensity score models at each time $m \in \{1, \dots, K \}$ for the treatment $A_k$ and obtain the MLE $\hat{\mathbf{\alpha}}$ of $\mathbf{\alpha}$ using logistic regression. 
+\begin{align} 
+logit\{P[A_{m,i} = 1 \mid \overline{l}_{m,i}, \overline{a}_{m-1,i}; \mathbf{\alpha}]\} = w_m [\overline{l}_{m,i}, \overline{a}_{m-1,i}; \mathbf{\alpha}]
+\end{align} 
+
+These models will end up looking like the following, which are built off all individuals at time $m$.  
+\begin{align} 
+w_m [\overline{l}_{m}, \overline{a}_{m-1}; \mathbf{\alpha}]  = \alpha_{0,m} + \alpha_{1,m} \cdot L_{m} + \alpha_{2,m} \cdot A_{m-1} + \alpha_{3,m} \cdot L_{m-1} + \alpha_{4,m} \cdot L_{m-2} + \alpha_{5,m} \cdot A_{m-2} 
+\end{align} 
+
+\item Set $\hat{T}_{K+1} = Y$ 
+
+\item Recurse for $m = K+1, \dots, 2$ 
+\begin{enumerate}
+\item specify 
+\end{enumerate}
+\end{enumerate}
+
