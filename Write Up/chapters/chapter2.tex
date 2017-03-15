@@ -4,7 +4,7 @@
 
 \newthought{Two formal methods for estimating}, causal effect were used in this study: g-formula estimation and doubly robust estimation.  These two methods are developments of standardization and IP weighting as discussed in the previous section.  They were implemented and studied using simulated data according to the following methods.  
 
-\section{Data Creation} 
+\section{Data Creation} \label{data}
 For the purposes of this study, a data generating algorithm was created to provide consistent and easily accessible data for many simulations.  The data generated was time-varying and sequentially randomized according to the following schematic.  
 
 \begin{figure}[h!]
@@ -124,8 +124,6 @@ Using expressions \ref{eq:2} through \ref{eq:5}, a Monte Carlo simulation must b
 
 To do this process using non-parametric estimates, the Monte Carlo simulation is unnecessary.  Instead, the methodology would be to create two new simulated datasets, the first having all individuals under no treatment ($A=0$) and the second having all individuals treated ($A=1$).  Each of these new datasets has the same size as the original and the same ``individuals'', just changed values for $A$.  For these two datasets, delete the outcome values for $Y$ to treat it as a missing data.  Then, the outcome models would be calculated as above.  The prediction step, however, would differ, instead using the models directly to get predicted values for each individual in the extra two datasets.  Finally, the standardized means could be obtained by creating a weighted average for $E[Y^{a=0}]$ from the first new dataset and one for $E[Y^{a=1}]$ from the second new dataset.  
 
-\subsubsection{Variance Estimate} 
-
 
 %% TALK THROUGH HOW THIS IS DONE USING BOOTSTRAPPING 
 
@@ -201,5 +199,23 @@ where $a_{m-1}$ is our treatment value of interest, the lowercase letter indicat
 \end{enumerate}
 
 
+\section{Variance Estimate} 
+In order to compute the variance of the estimates obtained using the above two methods, a bootstrapping simulation was conducted.  
+
+\subsection{Protocol}
+\begin{enumerate} 
+\item Determine the number of simulations to be performed.  In this case, 1,000 simulations were performed.  \label{stepa} 
+\item Perform the following steps as many times as decided in step \ref{stepa} 
+\begin{enumerate}
+\item Create a dataset using the data generating algorithm described in Section \ref{data}.  
+\item Estimate the average causal treatment effect using the g-formula.  
+\item Estimate the average causal treatment effect using the doubly robust method.  
+\end{enumerate} 
+\item Calculate the mean of estimates for each of the two methods 
+\item Calculate the variance and standard error of each mean of estimates.  
+\end{enumerate} 
+%% can we confirm in here whether I am getting a variance of the estimate (i.e. the method) or a variance of the mean? 
+
+Note that it is also possible to directly compute the variance of a doubly robust estimator, but this was beyond the scope of this project.  The ability to calculate variance without bootstrapping is highly efficient and proves another advantage of the doubly robust estimator.  
 
 
