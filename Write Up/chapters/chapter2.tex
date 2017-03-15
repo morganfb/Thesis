@@ -144,21 +144,57 @@ IP weighting estimates $P[A=a \mid L =l]$ using $P[A =a \mid L= l]$, while stand
 The method can be performed recursively using the following steps, 
 
 \begin{enumerate}
-\item Build propensity score models at each time $m \in \{1, \dots, K \}$ for the treatment $A_k$ and obtain the MLE $\hat{\mathbf{\alpha}}$ of $\mathbf{\alpha}$ using logistic regression. 
+\item Build a model for the treatment $A_k$ with data pooled for all time $m \in \{1, \dots, K \}$ and all individuals $i \in \{1, \dots n\}$ and obtain the MLE $\hat{\mathbf{\alpha}}$ of $\mathbf{\alpha}$ using logistic regression. 
 \begin{align} 
-logit\{P[A_{m,i} = 1 \mid \overline{l}_{m,i}, \overline{a}_{m-1,i}; \mathbf{\alpha}]\} = w_m [\overline{l}_{m,i}, \overline{a}_{m-1,i}; \mathbf{\alpha}]
+logit\{P[A_{m,i} = 1 \mid \overline{l}_{m,i}, \overline{a}_{m-1,i}; \mathbf{\alpha}]\} &= w_m [\overline{l}_{m,i}, \overline{a}_{m-1,i}; \mathbf{\alpha}]
 \end{align} 
 
-These models will end up looking like the following, which are built off all individuals at time $m$.  
+This model can be rewritten as the following.  
 \begin{align} 
-w_m [\overline{l}_{m}, \overline{a}_{m-1}; \mathbf{\alpha}]  = \alpha_{0,m} + \alpha_{1,m} \cdot L_{m} + \alpha_{2,m} \cdot A_{m-1} + \alpha_{3,m} \cdot L_{m-1} + \alpha_{4,m} \cdot L_{m-2} + \alpha_{5,m} \cdot A_{m-2} 
+f(A_m \mid \overline{L}_m, \overline{A}_{m-1}; \hat{\mathbf{\alpha}}) = \alpha_{0} + \alpha_{1} \cdot L_{m} + \alpha_{2} \cdot A_{m-1} + \alpha_{3} \cdot L_{m-1} + \alpha_{4} \cdot L_{m-2} + \alpha_{5} \cdot A_{m-2} 
 \end{align} 
 
 \item Set $\hat{T}_{K+1} = Y$ 
 
 \item Recurse for $m = K+1, \dots, 2$ 
 \begin{enumerate}
-\item specify 
+\item \label{modcreate} Use IRLS and a specified parametric regression model to get
+\begin{align}
+h_{m-1}(\overline{L}_{m-1}, \overline{A}_{m-1}; \mathbf{\beta}_{m-1}, \phi_{m-1}) = \Psi \{s_{m-1}(\overline{L}_{m-1}, \overline{A}_{m-1}; \mathbf{\beta}_{m-1}) + \phi_{m-1} \overline{\pi}_{m-1}^{-1} (\hat{\mathbf{\alpha}}) \}
+\end{align}
+which gives the conditional expectation of 
+\begin{align}
+\mathbb{E} \bigg[\hat{T}_m \mid \overline{L}_{m-1}, \overline{A}_{m-1} \bigg]
+\end{align} 
+The known function $s_{m}$ is specified on a case by case basis, and in this case was chosen to be as follows for the unknown parameter $\mathbf{\beta}$.  
+\begin{align}
+s_{m}(\overline{L}_{m}, \overline{A}_{m};\mathbf{\beta}_{m}) = \theta_0 + \theta_1 L_{m} +\theta_2 A_{m} + \theta_3 L_{m-1} +\theta_4 A_{m-1}+ \theta_5 L_{m-2} +\theta_6 A_{m-2}
+\end{align}
+Furthermore, the function $\overline{\pi}_m(\hat{\mathbf{\alpha}})$ is the propensity score model and is specified as follows
+\begin{align} 
+\overline{\pi}_m(\hat{\mathbf{\alpha}}) &= \prod_{j=1}^m f(A_m \mid \overline{L}_m, \overline{A}_{m-1}; \hat{\mathbf{\alpha}}) \\
+&= \zeta_0 + \zeta_1 L_m + \zeta_2 L_{m-1} + \zeta_3 A_{m-1} + \zeta_4 A_{m-2}
+\end{align}
+The given $\Psi$ is the canonical link function of the chosen GLM.  \footnote{The desired method to do this is using a GLM with an underlying distribution (or family) of a Gaussian normal and a logit link.  However, python does not have the capacity to do it in this way, so alternatives had to be tested and considered, including basic linear regression with an expit applied after step \ref{} as well as using a logistic regression and taking the predicted probability to pull 1000 samples for each individual and regressing off that new data in the next step.}
+%% COME BACK HERE AND WRITE IN WHAT I END UP CHOOSING
+
+\item Let $ \hat{h}_{m-1}(\overline{L}_{m-1}, \overline{A}_{m-1}; \hat{\mathbf{\beta}}_{m-1}, \hat{\phi}_{m-1})$ be the predicted model derived in step \ref{modcreate}.  This implies that $(\hat{\mathbf{\beta}}'_{m-1}, \hat{\phi}_{m-1}')$ is a solution of 
+\begin{align}
+\mathbf{0} = \tilde{\mathbb{E}} \left[ \left[\hat{T}_{m} - \Psi \{ s_{m-1}(\overline{L}_{m-1}, \overline{A}_{m-1}; \hat{\mathbf{\beta}}_{m-1}) + \hat{\phi}_{m-1} \overline{\pi}^{-1}_{m-1}(\hat{\mathbf{\alpha}}) \} \right] \left( \frac{\partial s (\overline{L}_{m-1}; \mathbf{\beta}_{m-1})}{\partial \mathbf{\beta}'_{m-1}, \overline{\pi}^{-1}_{m-1}(\hat{\mathbf{\alpha}})} \right) \right]
+\end{align}
+where $\tilde{\mathbb{E}}(X) = \frac{1}{n} \sum_{i=1}^n X_i$ is the computational average.  
+
+\item Set 
+\begin{align} 
+\hat{T}_{m-1}^{a_{m-1}, \dots, a_K} &= \hat{h}_{m-1}(\overline{L}_{m-1}, \overline{A}_{m-2}, a_{m-1}) \\
+&=  \Psi \{s_{m-1}(\overline{L}_{m-1}, \overline{A}_{m-2}, a_{m-1}; \mathbf{\beta}_{m-1}) + \phi_{m-1} \overline{\pi}_{m-2}^{-1} (\hat{\mathbf{\alpha}}) f(a_{m-1} \mid \overline{L}_{m-1}, \overline{A}_{m-2}; \hat{\mathbf{\alpha}}) \}
+\end{align} 
+where $a_{m-1}$ is our treatment value of interest, the lowercase letter indicating a test value rather than an observed.  
 \end{enumerate}
+
+\item To calculate the final $\mathbb{E}[Y^{\bar{a}}]$, solve 
+\begin{align} 
+\mathbb{E}[Y^{\bar{a}}] = \tilde{\mathbb{E}}(\hat{T}_1) = \tilde{\mathbb{E}}(\hat{T}_1^{\bar{a}})
+\end{align}
 \end{enumerate}
 

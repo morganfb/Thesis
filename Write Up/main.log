@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.5.22)  14 MAR 2017 11:51
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.5.22)  14 MAR 2017 21:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1704,12 +1704,43 @@ LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(3)/m/n' will be
 Package natbib Warning: Citation `fitzmaurice2008longitudinal' on page 17 undef
 ined on input line 76.
 
-[17] [18] [19] [20]) [21]
+[17] [18] [19] [20]
+LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(1)/bx/n' will be
+(Font)              scaled to size 10.0pt on input line 178.
+
+
+LaTeX Warning: Reference `' on page 21 undefined on input line 178.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--178
+[][][]\EU1/EBGaramond12-Regular.otf(1)/bx/n/10 The desired method to do this is
+ using a GLM with an underlying distribution (or family) of a Gaussian
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--178
+\EU1/EBGaramond12-Regular.otf(1)/bx/n/10 normal and a logit link. However, pyth
+on does not have the capacity to do it in this way, so alternatives had to
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--178
+\EU1/EBGaramond12-Regular.otf(1)/bx/n/10 be tested and considered, including ba
+sic linear regression with an expit applied after step [] as well as using a
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--178
+\EU1/EBGaramond12-Regular.otf(1)/bx/n/10 logistic regression and taking the pre
+dicted probability to pull 1000 samples for each individual and regressing
+ []
+
+[21]) [22]
 \openout2 = `chapters/chapter3.aux'.
 
  (./chapters/chapter3.tex
 Chapter 3.
-) [22
+) [23
 
 
 
@@ -1718,7 +1749,7 @@ Chapter 3.
 
  (./chapters/conclusion.tex
 Chapter 4.
-) [23
+) [24
 
 
 
@@ -1727,7 +1758,7 @@ Chapter 4.
 
  (./chapters/appendixA.tex
 Appendix A.
-) [24
+) [25
 
 
 
@@ -1740,7 +1771,7 @@ t line 6.
 
 LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(1)/m/it' will be
 (Font)              scaled to size 10.95pt on input line 12.
-) [25
+) [26
 
 
 
@@ -1763,16 +1794,19 @@ Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 50.
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
+LaTeX Warning: There were undefined references.
+
+
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 29922 strings out of 493591
- 516298 string characters out of 6143546
- 604768 words of memory out of 5000000
- 32869 multiletter control sequences out of 15000+600000
+ 29932 strings out of 493591
+ 516655 string characters out of 6143546
+ 604799 words of memory out of 5000000
+ 32879 multiletter control sequences out of 15000+600000
  30776 words of font info for 146 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
- 75i,21n,107p,10481b,564s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 75i,21n,107p,10481b,589s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (31 pages).
+Output written on main.pdf (32 pages).
