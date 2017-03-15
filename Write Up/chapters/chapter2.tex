@@ -118,7 +118,7 @@ Using expressions \ref{eq:2} through \ref{eq:5}, a Monte Carlo simulation must b
 \item Take the product of all the probabilities $P[L_k = l_k \mid  \overline{L}_{k-1}, \overline{A}_{k-1}]$ for $k = 0, \dots, K$ and $\mathbb{E} \big[Y \mid \overline{A}_t, \overline{L}_t \big]$ to get a final estimate.  \label{laststep}
 \item Repeat steps (\ref{step1}) through (\ref{laststep}) for as many simulations as desired.  In this study, 10,000 individuals were simulated.    
 \item Take the mean of all simulation values to obtain $\mathbb{E}[Y^{\bar{a}}]$ 
-\item Repeat all above steps for the opposing treatment regimen of interest $\bar{a}'$ and take difference $\mathbb{E}[Y^{\bar{a}}] - \mathbb{E}[Y^{\bar{a}'}]$ to get average causal treatment effect.  
+\item Repeat all above steps for the opposing treatment regimen of interest $\bar{a}'$ and take difference $\mathbb{E}[Y^{\bar{a}}] - \mathbb{E}[Y^{\bar{a}'}]$ to get the average causal treatment effect.  
 \end{enumerate}
 \end{enumerate} 
 
@@ -196,6 +196,8 @@ where $a_{m-1}$ is our treatment value of interest, the lowercase letter indicat
 \begin{align} 
 \mathbb{E}[Y^{\bar{a}}] = \tilde{\mathbb{E}}(\hat{T}_1) = \tilde{\mathbb{E}}(\hat{T}_1^{\bar{a}})
 \end{align}
+
+\item Repeat all above steps for the opposing treatment regimen of interest $\bar{a}'$ and take difference $\mathbb{E}[Y^{\bar{a}}] - \mathbb{E}[Y^{\bar{a}'}]$ to get the average causal treatment effect.  
 \end{enumerate}
 
 
