@@ -11,6 +11,11 @@ Cole, S.~R. \& Frangakis, C.~E. (2009).
   assumption?
 \newblock {\em Epidemiology}, 20(1), 3--5.
 
+\bibitem[Fitzmaurice et~al., 2008]{fitzmaurice2008longitudinal}
+Fitzmaurice, G., Davidian, M., Verbeke, G., \& Molenberghs, G. (2008).
+\newblock {\em Longitudinal data analysis}.
+\newblock CRC Press.
+
 \bibitem[Hern{\'a}n \& Robins, 2006]{hernan2006estimating}
 Hern{\'a}n, M.~A. \& Robins, J.~M. (2006).
 \newblock Estimating causal effects from epidemiological data.
@@ -34,6 +39,13 @@ Lodi, S., Phillips, A., Logan, R., Olson, A., Costagliola, D., Abgrall, S., van
   cd4-based initiation in hiv-positive individuals in high-income countries:
   observational cohort study.
 \newblock {\em The Lancet HIV}, 2(8), e335--e343.
+
+\bibitem[Pearl \& Robins, 1995]{pearl1995probabilistic}
+Pearl, J. \& Robins, J. (1995).
+\newblock Probabilistic evaluation of sequential plans from causal models with
+  hidden variables.
+\newblock In {\em Proceedings of the Eleventh conference on Uncertainty in
+  artificial intelligence}  (pp.\ 444--453).: Morgan Kaufmann Publishers Inc.
 
 \bibitem[Robins, 1986]{robins1986new}
 Robins, J. (1986).
