@@ -173,7 +173,7 @@ Furthermore, the function $\overline{\pi}_m(\hat{\mathbf{\alpha}})$ is the prope
 \overline{\pi}_m(\hat{\mathbf{\alpha}}) &= \prod_{j=1}^m f(A_m \mid \overline{L}_m, \overline{A}_{m-1}; \hat{\mathbf{\alpha}}) \\
 &= \zeta_0 + \zeta_1 L_m + \zeta_2 L_{m-1} + \zeta_3 A_{m-1} + \zeta_4 A_{m-2}
 \end{align}
-The given $\Psi$ is the canonical link function of the chosen GLM.  \footnote{The desired method to do this is using a GLM with an underlying distribution (or family) of a Gaussian normal and a logit link.  However, python does not have the capacity to do it in this way, so alternatives had to be tested and considered, including basic linear regression with an expit applied after step \ref{} as well as using a logistic regression and taking the predicted probability to pull 1000 samples for each individual and regressing off that new data in the next step.}
+The given $\Psi$ is the canonical link function of the chosen GLM.  The desired method to do this is using a GLM with an underlying distribution (or family) of a Gaussian normal and a logit link.  However, python does not have the capacity to do it this way, so alternatives had to be tested and considered, including basic linear regression with an expit applied after step \ref{stepc} as well as using a logistic regression and taking the predicted probability to pull 1000 samples from a binomial distribution for each individual and regressing off that new data in the next step. 
 %% COME BACK HERE AND WRITE IN WHAT I END UP CHOOSING
 
 \item Let $ \hat{h}_{m-1}(\overline{L}_{m-1}, \overline{A}_{m-1}; \hat{\mathbf{\beta}}_{m-1}, \hat{\phi}_{m-1})$ be the predicted model derived in step \ref{modcreate}.  This implies that $(\hat{\mathbf{\beta}}'_{m-1}, \hat{\phi}_{m-1}')$ is a solution of 
@@ -182,7 +182,7 @@ The given $\Psi$ is the canonical link function of the chosen GLM.  \footnote{Th
 \end{align}
 where $\tilde{\mathbb{E}}(X) = \frac{1}{n} \sum_{i=1}^n X_i$ is the computational average.  
 
-\item Set 
+\item \label{stepc} Set 
 \begin{align} 
 \hat{T}_{m-1}^{a_{m-1}, \dots, a_K} &= \hat{h}_{m-1}(\overline{L}_{m-1}, \overline{A}_{m-2}, a_{m-1}) \\
 &=  \Psi \{s_{m-1}(\overline{L}_{m-1}, \overline{A}_{m-2}, a_{m-1}; \mathbf{\beta}_{m-1}) + \phi_{m-1} \overline{\pi}_{m-2}^{-1} (\hat{\mathbf{\alpha}}) f(a_{m-1} \mid \overline{L}_{m-1}, \overline{A}_{m-2}; \hat{\mathbf{\alpha}}) \}
