@@ -80,6 +80,7 @@
 \usepackage{amstext} % for \text macro
 \usepackage{array}   % for \newcolumntype macro
 \newcolumntype{L}{>{$}l<{$}} % math-mode version of "l" column type
+\usepackage{listings}
 
 % Fonts.
 \RequirePackage{color}
