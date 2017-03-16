@@ -2,6 +2,7 @@
 
 \chapter{Methods}
 
+
 \newthought{Two formal methods for estimating}, causal effect were used in this study: g-formula estimation and doubly robust estimation.  These two methods are developments of standardization and IP weighting as discussed in the previous section.  They were implemented and studied using simulated data according to the following methods.  
 
 \section{Data Creation} \label{data}
@@ -124,10 +125,6 @@ Using expressions \ref{eq:2} through \ref{eq:5}, a Monte Carlo simulation must b
 
 To do this process using non-parametric estimates, the Monte Carlo simulation is unnecessary.  Instead, the methodology would be to create two new simulated datasets, the first having all individuals under no treatment ($A=0$) and the second having all individuals treated ($A=1$).  Each of these new datasets has the same size as the original and the same ``individuals'', just changed values for $A$.  For these two datasets, delete the outcome values for $Y$ to treat it as a missing data.  Then, the outcome models would be calculated as above.  The prediction step, however, would differ, instead using the models directly to get predicted values for each individual in the extra two datasets.  Finally, the standardized means could be obtained by creating a weighted average for $E[Y^{a=0}]$ from the first new dataset and one for $E[Y^{a=1}]$ from the second new dataset.  
 
-
-%% TALK THROUGH HOW THIS IS DONE USING BOOTSTRAPPING 
-
-
 \section{Doubly Robust Estimation} 
 The method of doubly robust estimation, as proposed by Bang and Robins \cite{bang2005doubly}, combines the two previously discussed methods of IP weighting and standardization.  
 
@@ -168,6 +165,7 @@ The known function $s_{m}$ is specified on a case by case basis, and in this cas
 \begin{align}
 s_{m}(\overline{L}_{m}, \overline{A}_{m};\mathbf{\beta}_{m}) = \theta_0 + \theta_1 L_{m} +\theta_2 A_{m} + \theta_3 L_{m-1} +\theta_4 A_{m-1}+ \theta_5 L_{m-2} +\theta_6 A_{m-2}
 \end{align}
+%% I ALSO TRIED OUT s_m USING INTERACTION TERMS BUT DIDNT SEE ANY HUGE VALUE ADD, DOES THAT MAKE SENSE??? 
 Furthermore, the function $\overline{\pi}_m(\hat{\mathbf{\alpha}})$ is the propensity score model and is specified as follows
 \begin{align} 
 \overline{\pi}_m(\hat{\mathbf{\alpha}}) &= \prod_{j=1}^m f(A_m \mid \overline{L}_m, \overline{A}_{m-1}; \hat{\mathbf{\alpha}}) \\
@@ -175,6 +173,7 @@ Furthermore, the function $\overline{\pi}_m(\hat{\mathbf{\alpha}})$ is the prope
 \end{align}
 The given $\Psi$ is the canonical link function of the chosen GLM.  The desired method to do this is using a GLM with an underlying distribution (or family) of a Gaussian normal and a logit link.  However, python does not have the capacity to do it this way, so alternatives had to be tested and considered, including basic linear regression with an expit applied after step \ref{stepc} as well as using a logistic regression and taking the predicted probability to pull 1000 samples from a binomial distribution for each individual and regressing off that new data in the next step. 
 %% COME BACK HERE AND WRITE IN WHAT I END UP CHOOSING
+%% NEED TO UPDATE TO REFLECT THAT I ADDED INTERACTION TERMS 
 
 \item Let $ \hat{h}_{m-1}(\overline{L}_{m-1}, \overline{A}_{m-1}; \hat{\mathbf{\beta}}_{m-1}, \hat{\phi}_{m-1})$ be the predicted model derived in step \ref{modcreate}.  This implies that $(\hat{\mathbf{\beta}}'_{m-1}, \hat{\phi}_{m-1}')$ is a solution of 
 \begin{align}

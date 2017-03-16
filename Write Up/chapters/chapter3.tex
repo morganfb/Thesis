@@ -3,3 +3,35 @@
 \chapter{Results Discussion}
 
 \newthought{Lorem ipsum dolor sit amet}, 
+
+\section{Natural Course} 
+
+\section{Simulation of the Two Methods} 
+
+
+
+\section{Confirming Double Robustness} 
+Fifty simulations were performed in order to test the double robustness of the ``doubly'' robust estimator.  Four different setups were tested: 
+\begin{itemize} 
+\item Using the correct model for both user specified functions, $\hat{\mathbf{\alpha}}$ and $s_{m-1}$ 
+\item Using an intentionally misspecified model for $\hat{\mathbf{\alpha}}$ while keeping the correct model for $s_{m-1}$ 
+\item Using an intentionally misspecified model for $s_{m-1}$ while keeping the correct model for $\hat{\mathbf{\alpha}}$
+\item Using intentionally misspecified models for both $\hat{\mathbf{\alpha}}$ and $s_{m-1}$ 
+\end{itemize} 
+
+The misspecified models used were as follows, 
+\begin{align} 
+f(A_m \mid \overline{L}_m, \overline{A}_{m-1}; \hat{\mathbf{\alpha}}) &= \alpha'_{0} + \alpha'_{1} \cdot L_{m-3} + \alpha'_{2} \cdot A_{m-3} \\ 
+s_{m}(\overline{L}_{m}, \overline{A}_{m};\mathbf{\beta}_{m}) &= \theta'_0 + \theta'_1 A_{m} +\theta'_2 A_{m-4} + \theta'_3 L_{m-4} 
+ \end{align} 
+
+\begin{align} 
+\begin{tabular} {c | c  c}
+Models & Mean & CI \\ 
+\hline  
+Both models correctly specified & 0.0009 & (-0.009, 0.011)\\ 
+$\hat{\mathbf{\alpha}}$ correct, $s_{m-1}$ misspecified & 0.0113 & (-0.001, 0.023)\\ 
+$\hat{\mathbf{\alpha}}$ misspecified, $s_{m-1}$ correct & 0.0079 & (-0.067, 0.082) \\
+Both models misspecified & 0.0156 & (0.003, 0.028) 
+\end{tabular}
+\end{align} 
