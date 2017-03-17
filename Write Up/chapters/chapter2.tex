@@ -67,6 +67,7 @@ which can be estimated as
 \end{align} 
 where the respective $\bar{a} = \bar{1}$ and $\bar{a} = \bar{0}$ signify constant treatment and no treatment over the entire time period.  
 
+%% SINCE I CHANGED TO LOGISTIC, DOES THIS BECOME PRODUCT OF THE PROBABILITIES
 The g-formula seeks to calculate each standardized mean using the following, 
 \begin{align} \label{eq:3} 
 \mathbb{E}[Y^{\bar{a}= \bar{1}}] &= \sum_{l_i} \mathbb{E} \big[Y \mid  \overline{L}_{t}, \overline{A}_{t} \big]\cdot \prod_{k=0}^t P[L_k = l_k \mid \overline{L}_{k-1}, \overline{A}_{k-1}]
@@ -92,8 +93,8 @@ The method is performed in several steps, as follows
 
 In this case, the following models were chosen for $Y \mid  \overline{A}_t, \overline{L}_t$ and $L_k \mid \overline{L}_{k-1}, \overline{A}_{k-1}$, 
 \begin{align} 
-\mathbb{E} \big[Y \mid \overline{A}_t, \overline{L}_t \big] &= \theta_{0} + \theta_1 A_{t} + \cdots + \theta_j A_0 + \theta_{j+1} L_t + \cdots + \theta_{j+k} L_0 \label{eq:2} \\ 
-logit[L_k \mid \overline{L}_{k-1}, \overline{A}_{k-1}] &= \gamma_0 + \gamma_1 L_{k-1} + \gamma_2 L_{k-2} + \gamma_3 L_{k-3}  + \gamma_4 A_{k-1} + \gamma_5 A_{k-2} + \gamma_6 A_{k-3} \label{eq:3} 
+Logit \big[Y \mid \overline{A}_t, \overline{L}_t \big] &= \theta_{0} + \theta_1 A_{t} + \cdots + \theta_j A_0 + \theta_{j+1} L_t + \cdots + \theta_{j+k} L_0 \label{eq:4} \\ 
+logit[L_k \mid \overline{L}_{k-1}, \overline{A}_{k-1}] &= \gamma_0 + \gamma_1 L_{k-1} + \gamma_2 L_{k-2} + \gamma_3 L_{k-3}  + \gamma_4 A_{k-1} + \gamma_5 A_{k-2} + \gamma_6 A_{k-3} \label{eq:5} 
 \end{align} 
 A time lag of only three historical values was deemed sufficient for the model of $L_k$ because ... 
 %% PUT SOME REASONS IN HERE DISCUSSING HOW THESE MODELS WERE CHOSEN... SHOULD I BE USING QUADRATIC TERMS OR INTERACTION TERMS??!?!?!?!
@@ -102,34 +103,31 @@ A time lag of only three historical values was deemed sufficient for the model o
 \vspace{1cm}
 Note that for initial time points where there was insufficient history for the full model, smaller models were created as follows 
 \begin{align} 
-Logit[L_1 \mid L_0, A_0]  &= \gamma'_0 + \gamma'_1 L_0 +  \gamma'_2 A_0 \label{eq:4} \\
-Logit[L_2 \mid L_0, L_1, A_0, A_1] &= \gamma''_0 + \gamma''_1 L_{k-1} + \gamma''_2 L_{k-2}   + \gamma''_3 A_{k-1} + \gamma''_4 A_{k-2} \label{eq:5}
+Logit[L_1 \mid L_0, A_0]  &= \gamma'_0 + \gamma'_1 L_0 +  \gamma'_2 A_0 \label{eq:6} \\
+Logit[L_2 \mid L_0, L_1, A_0, A_1] &= \gamma''_0 + \gamma''_1 L_{k-1} + \gamma''_2 L_{k-2}   + \gamma''_3 A_{k-1} + \gamma''_4 A_{k-2} \label{eq:7}
 \end{align}
 
 
 \item \underline{Predict using Monte Carlo}: Using the model created in step 2, predict the outcome $Y$ for the two new datasets created in step 1, conditioned on the given $A$ and $L$ values.  
 
-Using expressions \ref{eq:2} through \ref{eq:5}, a Monte Carlo simulation must be performed to gain prediction values.  This is because it is impractical to calculate expression \ref{eq:3} directly for a continuous $L$.  This process is done as follows for time $k = \{ 0, \dots, K \}$, and $i = \{ 1, \dots, n \}$ keeping the test treatment regimen of interest $\bar{a}$ in mind through the process.  
+Using expressions \ref{eq:4} through \ref{eq:7}, a Monte Carlo simulation must be performed to gain prediction values.  This is because it is impractical to calculate expression \ref{eq:5} directly for a continuous $L$.  This process is done as follows for time $k = \{ 0, \dots, K \}$, and individuals $i = \{ 1, \dots, n \}$ keeping the test treatment regimen of interest $\bar{a}$ in mind through the process.  
 \begin{enumerate} 
 \item Select the $L_0$ value from a random individual from $i \in  \{ 1, \dots, n \}$. \label{step1}  
-\item Obtain a probability of $L_1$ using this $L_0$ and $a_0$ in expression \ref{eq:4} and then obtain a sample $L_1$ by pulling from a binomial distribution.  
-\item Obtain a probability of $L_2$ using the $L_0, L_1, a_0$, and $a_1$ in expression \ref{eq:5} and then obtain a sample $L_2$ by pulling from a binomial distribution.  
-\item Continue the above process until time $K$ using expression \ref{eq:3} to get a full history $\overline{L}_K$ and all the probabilities $P[L_k = l_k \mid  \overline{L}_{k-1}, \overline{A}_{k-1}]$ 
-\item Using expression \ref{eq:2}, $\bar{a}$ and the above solved for $\overline{L}_K$, calculate $\mathbb{E} \big[Y \mid \overline{A}_t, \overline{L}_t \big]$ 
-\item Take the product of all the probabilities $P[L_k = l_k \mid  \overline{L}_{k-1}, \overline{A}_{k-1}]$ for $k = 0, \dots, K$ and $\mathbb{E} \big[Y \mid \overline{A}_t, \overline{L}_t \big]$ to get a final estimate.  \label{laststep}
+\item Obtain a probability of $L_1$ using this $L_0$ and $a_0$ in expression \ref{eq:6} and then obtain a sample value of $L_1$ by pulling from a binomial distribution.  
+\item Obtain a probability of $L_2$ using the $L_0, L_1, a_0$, and $a_1$ in expression \ref{eq:7} and then obtain a sample value of $L_2$ by pulling from a binomial distribution.  
+\item Continue the same process until time $K$ using expression \ref{eq:5} to get a full history $\overline{L}_K$ and all the probabilities $P[L_k = l_k \mid  \overline{L}_{k-1}, \overline{A}_{k-1}]$ 
+\item Using expression \ref{eq:4}, $\bar{a}$ and the above solved for $\overline{L}_K$, calculate $P \big[Y \mid \overline{A}_K, \overline{L}_K \big]$ 
+\item Take the product of all the probabilities $P[L_k = l_k \mid  \overline{L}_{k-1}, \overline{A}_{k-1}]$ for $k = 0, \dots, K$ and $\mathbb{P} \big[Y \mid \overline{A}_K, \overline{L}_K \big]$ to get a final estimate.  \label{laststep}
 \item Repeat steps (\ref{step1}) through (\ref{laststep}) for as many simulations as desired.  In this study, 10,000 individuals were simulated.    
 \item Take the mean of all simulation values to obtain $\mathbb{E}[Y^{\bar{a}}]$ 
-\item Repeat all above steps for the opposing treatment regimen of interest $\bar{a}'$ and take difference $\mathbb{E}[Y^{\bar{a}}] - \mathbb{E}[Y^{\bar{a}'}]$ to get the average causal treatment effect.  
+\item Repeat all above steps for the opposing treatment regimen of interest $\bar{a}'$ and take the difference $\mathbb{E}[Y^{\bar{a}}] - \mathbb{E}[Y^{\bar{a}'}]$ to get the average causal treatment effect.  
 \end{enumerate}
 \end{enumerate} 
 
-To do this process using non-parametric estimates, the Monte Carlo simulation is unnecessary.  Instead, the methodology would be to create two new simulated datasets, the first having all individuals under no treatment ($A=0$) and the second having all individuals treated ($A=1$).  Each of these new datasets has the same size as the original and the same ``individuals'', just changed values for $A$.  For these two datasets, delete the outcome values for $Y$ to treat it as a missing data.  Then, the outcome models would be calculated as above.  The prediction step, however, would differ, instead using the models directly to get predicted values for each individual in the extra two datasets.  Finally, the standardized means could be obtained by creating a weighted average for $E[Y^{a=0}]$ from the first new dataset and one for $E[Y^{a=1}]$ from the second new dataset.  
+To do this process using non-parametric estimates, the Monte Carlo simulation is unnecessary.  Instead, the methodology would be to create two new simulated datasets, the first having all individuals under no treatment ($A=0$) and the second having all individuals treated ($A=1$).  Each of these new datasets has the same size as the original and the same ``individuals'', meaning the same covariate $L$ distribution, just changed values for $A$.  For these two datasets, delete the outcome values for $Y$ to treat it as a missing data point.  Then, the outcome models would be calculated as above.  The prediction step, however, would differ, instead using the models directly to get predicted values for each individual in the extra two datasets, rather than a Monte Carlo simulation.  Finally, the standardized means could be obtained by creating a weighted average for $E[Y^{a=0}]$ from the first new dataset and one for $E[Y^{a=1}]$ from the second new dataset.  
 
 \section{Doubly Robust Estimation} 
-The method of doubly robust estimation, as proposed by Bang and Robins \cite{bang2005doubly}, combines the two previously discussed methods of IP weighting and standardization.  
-
-IP weighting and standardization techniques are expected to provide different answers, unless there are no models used to create estimates.\cite{hernan_robins_2016}  
-IP weighting estimates $P[A=a \mid L =l]$ using $P[A =a \mid L= l]$, while standardization estimates $E[Y \mid A = a, L=l]$  
+The method of doubly robust estimation, as proposed by Bang and Robins,\cite{bang2005doubly} combines the two previously discussed methods of IP weighting and standardization.  IP weighting and standardization techniques are expected to provide different answers, unless there are no models used to create estimates as would be the case if all estimates were non-parametric.  \cite{hernan_robins_2016}   IP weighting estimates $P[A=a \mid L =l]$, while standardization estimates $P[Y \mid A = a, L=l]$ and $P[\overline{L}_k =l_k \mid \overline{L}_{k-1}, \overline{A}_{k-1}]$ 
 
 - does not use the observed data treatment density \\
 - estimators are consistent if either the model for treatment given the past (as in IP weighting) is correctly specified or the models for the outcome and covariates given the past (as needed to implement the parametric g-formula) are correctly specified, without knowing which is correct\\
@@ -198,8 +196,8 @@ where $a_{m-1}$ is our treatment value of interest, the lowercase letter indicat
 \end{enumerate}
 
 
-\section{Variance Estimate} 
-In order to compute the variance of the estimates obtained using the above two methods, a bootstrapping simulation was conducted.  
+\section{Variance Estimate} \label{VarianceBootStrap}
+In order to compute the variance of the estimates obtained using the above two methods, a bootstrapping simulation was conducted.  This was done by repeating the above processes 1,000 times and collecting all of the resulting estimates.  The variance of these estimates was then obtained.  
 
 \subsection{Protocol}
 \begin{enumerate} 

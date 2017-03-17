@@ -5,20 +5,45 @@
 \newthought{Lorem ipsum dolor sit amet}, 
 
 \section{Natural Course} 
-In order to test the models used for the g-formula method, a natural course study was performed.  This involved simulating the data directly from the models being used in the g-formula method.  Additionally, a model for the treatment variable had to be created as well, giving the following three models, 
-
+In order to test the models used for the g-formula method, a natural course study was performed.  This involved simulating the data directly using the models being used in the g-formula method.  Additionally, a model for the treatment variable had to be created as well, giving the following three models, 
 \begin{align} 
-\begin{tabular}{c | c c c} 
-Variable & True Mean & Natural Course Average Mean & Natural Course 95\% CI \\ 
-\hline 
-Y & 0.714 & 0.719 & (0.705, 0.733) \\
-A & 0.848 & 0.847 & (0.840, 0.854) \\
-L1 & 0.833 & 0.811 & (0.793, 0.830) \\
-\end{tabular} 
+Logit \big[Y \mid \overline{A}_t, \overline{L}_t \big] &= \theta_{0} + \theta_1 A_{t} + \cdots + \theta_j A_0 + \theta_{j+1} L_t + \cdots + \theta_{j+k} L_0  \\ 
+logit[L_k \mid \overline{L}_{k-1}, \overline{A}_{k-1}] &= \gamma_0 + \gamma_1 L_{k-1} + \gamma_2 L_{k-2} + \gamma_3 L_{k-3}  + \gamma_4 A_{k-1} + \gamma_5 A_{k-2} + \gamma_6 A_{k-3} \\ 
+logit[A_k \mid \overline{L}_{k}, \overline{A}_{k-1}] &= \delta_0 + \delta_1 L_{k} + \delta_2 L_{k-1} + \delta_3 A_{k-1} + \delta_4 A_{k-2} 
 \end{align} 
 
-\section{Simulation of the Two Methods} 
+Five new data populations were simulated to determine the natural course of these models.  Table \ref{naturalcourse} below compares the true mean of the original data frame and the average across the five simulated dataframes.  
 
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{c | c c c}
+Variable & True Mean & \shortstack{Natural Course\\ Average Mean} & \shortstack{Natural Course \\95\% CI} \\ 
+\hline \\
+$\mathbb{E}[Y]$ & 0.714 & 0.719 & (0.705, 0.733) \\ \\
+$\mathbb{E}[A]$ & 0.848 & 0.847 & (0.840, 0.854) \\ \\
+$\mathbb{E}[L]$ & 0.833 & 0.811 & (0.793, 0.830) 
+\end{tabular} \\
+\centering
+\caption{Hi? \label{naturalcourse}}
+\end{table}
+
+The results of the natural course show that the models chosen appear to estimate the data quite well.  Not only are the means close to the true mean, but the variance is low enough that our confidence intervals all cover the true mean.  Therefore, it can be concluded that these models are a good choice for use in the g-formula.  
+
+\section{Simulation of the Two Methods} 
+As discussed in Section \ref{VarianceBootStrap}, a simulation of 1,000 iterations was performed.  Each iteration of this simulation consisted of creating a new dataset and obtaining both the g-formula estimate and the doubly robust estimate for the causal treatment effect.  The results of these simulations can be seen below in Table \ref{simdata} 
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{c | c c c }
+Method & \shortstack{Average Causal \\ Treatment Effect} & \shortstack{Variance\\ of Estimate} & \shortstack{95\% Conf. Int.\\ of Estimate} \\ 
+\hline \\
+G-Formula & 0.0033 & 0.00024&(-0.00063,0.00128)\\ \\ 
+Doubly Robust & 0.00026 &0.00079 & (-0.00149, 0.00212)
+\end{tabular} \\
+\centering
+\caption{Hi? \label{simdata}}
+\end{table}
 
 
 \section{Confirming Double Robustness} 
@@ -36,13 +61,16 @@ f(A_m \mid \overline{L}_m, \overline{A}_{m-1}; \hat{\mathbf{\alpha}}) &= \alpha'
 s_{m}(\overline{L}_{m}, \overline{A}_{m};\mathbf{\beta}_{m}) &= \theta'_0 + \theta'_1 A_{m} +\theta'_2 A_{m-4} + \theta'_3 L_{m-4} 
  \end{align} 
 
-\begin{align} 
+\begin{table}[h!]
+\centering
 \begin{tabular} {c | c  c}
 Models & Mean & CI \\ 
-\hline  
-Both models correctly specified & 0.0009 & (-0.009, 0.011)\\ 
-$\hat{\mathbf{\alpha}}$ correct, $s_{m-1}$ misspecified & 0.0113 & (-0.001, 0.023)\\ 
-$\hat{\mathbf{\alpha}}$ misspecified, $s_{m-1}$ correct & 0.0079 & (-0.067, 0.082) \\
+\hline  \\
+Both models correctly specified & 0.0009 & (-0.009, 0.011)\\ \\
+$\hat{\mathbf{\alpha}}$ correct, $s_{m-1}$ misspecified & 0.0113 & (-0.001, 0.023)\\ \\
+$\hat{\mathbf{\alpha}}$ misspecified, $s_{m-1}$ correct & 0.0079 & (-0.067, 0.082) \\ \\
 Both models misspecified & 0.0156 & (0.003, 0.028) 
-\end{tabular}
-\end{align} 
+\end{tabular} \\
+\centering
+\caption{Hi?}
+\end{table}
