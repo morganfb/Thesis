@@ -45,6 +45,14 @@ Doubly Robust & 0.00026 &0.00079 & (-0.00149, 0.00212)
 \caption{Hi? \label{simdata}}
 \end{table}
 
+\begin{figure}
+\includegraphics[width = \linewidth]{figures/overlaid_histogram.jpeg}
+\caption{}
+\label{bighistogram}
+\end{figure} 
+
+
+
 
 \section{Confirming Double Robustness} 
 Ten simulations were performed in order to test the double robustness of the ``doubly'' robust estimator.  Four different setups were tested: 
@@ -63,45 +71,60 @@ s_{m}(\overline{L}_{m}, \overline{A}_{m};\mathbf{\beta}_{m}) &= \theta'_0 + \the
 
 \begin{table}[h!]
 \centering
-\begin{tabular} {c | c  c}
-Models & Mean & CI \\ 
+\begin{tabular} {c | c  c c}
+Models & Mean & Variance & CI \\ 
 \hline  \\
-Both models correctly specified & 0.0009 & (-0.009, 0.011)\\ \\
-$\hat{\mathbf{\alpha}}$ correct, $s_{m-1}$ misspecified & 0.0113 & (-0.001, 0.023)\\ \\
-$\hat{\mathbf{\alpha}}$ misspecified, $s_{m-1}$ correct & 0.0079 & (-0.067, 0.082) \\ \\
-Both models misspecified & 0.0156 & (0.003, 0.028) 
+Both models correctly specified & 0.0061 & 0.001& (-0.007, 0.019)\\ \\
+$\hat{\mathbf{\alpha}}$ correct, $s_{m-1}$ misspecified & 0.011 & 0.001& (-0.003, 0.025)\\ \\
+$\hat{\mathbf{\alpha}}$ misspecified, $s_{m-1}$ correct & 0.012 & 0.001& (-0.002, 0.026) \\ \\
+Both models misspecified & 0.048 & 0.047 & (-0.037, 0.133) 
 \end{tabular} \\
 \centering
 \caption{Hi?}
 \end{table}
+
+\begin{figure}
+\includegraphics[width = \linewidth]{figures/boxplot.jpg}
+\caption{}
+\label{boxplot}
+\end{figure} 
+
+
 
 
 \section{Testing Multiple Robustness} 
 
 \begin{table}[h!]
 \centering
-\begin{tabular} {c | c  c}
-Model Correctly Specified & \shortstack{Average Causal \\ Treatment Effect}  & \shortstack{95\% Conf. Int.\\ of Estimate} \\ 
+\begin{tabular} {c | c  c c}
+Model Correctly Specified & \shortstack{Average Causal \\ Treatment Effect}  & Variance & \shortstack{95\% Conf. Int.\\ of Estimate} \\ 
 \hline  \\
-$\pi_3, \dots, \pi_K$ & -0.0174 & \\ 
-$\pi_3, \dots, \pi_{K-1}, s_K$ & -0.020 & \\ 
-$\pi_3, \dots, \pi_{K-2}, s_{K-1}, s_K$ & -0.021 & \\ 
-$\pi_3, \dots, \pi_{K-3}, s_{K-2} , s_{K-1}, s_K$ & -0.019& \\ 
-$\pi_3, \dots, \pi_{K-4}, s_{K-3}, \dots s_K $ & -0.018 & \\ 
-$\pi_3, \dots, \pi_{K-5}, s_{K-4}, \dots s_K $ & -0.017 & \\ 
-$\pi_3, \dots, \pi_{K-6}, s_{K-5}, \dots s_K $ & -0.016  & \\ 
-$\pi_3, \dots, \pi_{K-7}, s_{K-6}, \dots s_K $ & -0.015& \\ 
-$\pi_3, s_{4}, \dots s_K $ & -0.017 & \\ 
-$s_3, \pi_4, \dots \pi_K$ & -0.017& \\ 
-$s_3, s_4, \pi_5, \dots \pi_K$ & -0.017 & \\ 
-$s_3, s_4, s_5, \pi_6, \dots \pi_K$ & -0.018 & \\ 
-$s_3, \dots s_6, \pi_7, \dots \pi_K$ & -0.003& \\ 
-$s_3, \dots s_7, \pi_8, \dots \pi_K$ & -0.013 & \\ 
-$s_3, \dots s_8, \pi_9, \dots \pi_K$ & -0.016 & \\ 
-$s_3, \dots s_9, \pi_{10}, \pi_K$ & -0.041& \\ 
-$s_3, \dots s_10, \pi_K$ & 0.014 & \\
-$s_3, \dots \s_K$ & 0.033 & \\ 
+$\pi_3, \dots, \pi_K$ & -0.0025 & 0.0013 & (-0.009, 0.005)  \\ 
+$\pi_3, \dots, \pi_{K-1}, s_K$ & -0.0054 & 0.0010& (-0.012, 0.001)\\ 
+$\pi_3, \dots, \pi_{K-2}, s_{K-1}, s_K$ & -0.0046 & 0.0010&(-0.011, 0.002)\\ 
+$\pi_3, \dots, \pi_{K-3}, s_{K-2} , s_{K-1}, s_K$ & -0.0045 &0.0009 & (-0.010, 0.001)\\ 
+$\pi_3, \dots, \pi_{K-4}, s_{K-3}, \dots s_K $ & -0.0044 &0.0009& (-0.010, 0.002) \\ 
+$\pi_3, \dots, \pi_{K-5}, s_{K-4}, \dots s_K $ & -0.039 &0.0009& (-0.010, 0.002)\\ 
+$\pi_3, \dots, \pi_{K-6}, s_{K-5}, \dots s_K $ & -0.0029 & 0.0009&(-0.009, 0.003) \\ 
+$\pi_3, \dots, \pi_{K-7}, s_{K-6}, \dots s_K $ & -0.0006 & 0.0010& (-0.007, 0.006)\\ 
+$\pi_3, s_{4}, \dots s_K $ & 0.0025 & 0.0011 & (-0.004, 0.009) \\ 
+$s_3, \pi_4, \dots \pi_K$ & 0.0033 & 0.0881 & (-0.055, 0.061)\\ 
+$s_3, s_4, \pi_5, \dots \pi_K$ & 0.0262 & 0.0214  & (-0.002, 0.055)\\ 
+$s_3, s_4, s_5, \pi_6, \dots \pi_K$ & 0.0035 & 0.0100 & (-0.016,0.023) \\ 
+$s_3, \dots s_6, \pi_7, \dots \pi_K$ & 0.0209 &0.0206 & (-0.007, 0.049)\\ 
+$s_3, \dots s_7, \pi_8, \dots \pi_K$ & 0.0129 &  0.0195   & (-0.014, 0.040) \\ 
+$s_3, \dots s_8, \pi_9, \dots \pi_K$ & -0.0145 &0.0129   & (-0.037, 0.008) \\ 
+$s_3, \dots s_9, \pi_{10}, \pi_K$ & -0.0020 & 0.0015 & (-0.009, 0.006)\\ 
+$s_3, \dots s_{10}, \pi_K$ & -0.0018& 0.0013 & (-0.009,  0.005)\\
+$s_3, \dots s_K$ & -0.0024 & 0.0013& (-0.009, 0.005)\\ 
 \end{tabular} \\
 \centering
 \caption{Hi?}
 \end{table}
+
+\begin{figure}
+\includegraphics[width = \linewidth]{figures/multiplerobust.png}
+\caption{}
+\label{multirobust}
+\end{figure} 
+
