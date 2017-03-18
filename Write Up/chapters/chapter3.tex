@@ -74,3 +74,34 @@ Both models misspecified & 0.0156 & (0.003, 0.028)
 \centering
 \caption{Hi?}
 \end{table}
+
+
+\section{Testing Multiple Robustness} 
+
+\begin{table}[h!]
+\centering
+\begin{tabular} {c | c  c}
+Model Correctly Specified & \shortstack{Average Causal \\ Treatment Effect}  & \shortstack{95\% Conf. Int.\\ of Estimate} \\ 
+\hline  \\
+$\pi_3, \dots, \pi_K$ & -0.0174 & \\ 
+$\pi_3, \dots, \pi_{K-1}, s_K$ & -0.020 & \\ 
+$\pi_3, \dots, \pi_{K-2}, s_{K-1}, s_K$ & -0.021 & \\ 
+$\pi_3, \dots, \pi_{K-3}, s_{K-2} , s_{K-1}, s_K$ & -0.019& \\ 
+$\pi_3, \dots, \pi_{K-4}, s_{K-3}, \dots s_K $ & -0.018 & \\ 
+$\pi_3, \dots, \pi_{K-5}, s_{K-4}, \dots s_K $ & -0.017 & \\ 
+$\pi_3, \dots, \pi_{K-6}, s_{K-5}, \dots s_K $ & -0.016  & \\ 
+$\pi_3, \dots, \pi_{K-7}, s_{K-6}, \dots s_K $ & -0.015& \\ 
+$\pi_3, s_{4}, \dots s_K $ & -0.017 & \\ 
+$s_3, \pi_4, \dots \pi_K$ & -0.017& \\ 
+$s_3, s_4, \pi_5, \dots \pi_K$ & -0.017 & \\ 
+$s_3, s_4, s_5, \pi_6, \dots \pi_K$ & -0.018 & \\ 
+$s_3, \dots s_6, \pi_7, \dots \pi_K$ & -0.003& \\ 
+$s_3, \dots s_7, \pi_8, \dots \pi_K$ & -0.013 & \\ 
+$s_3, \dots s_8, \pi_9, \dots \pi_K$ & -0.016 & \\ 
+$s_3, \dots s_9, \pi_{10}, \pi_K$ & -0.041& \\ 
+$s_3, \dots s_10, \pi_K$ & 0.014 & \\
+$s_3, \dots \s_K$ & 0.033 & \\ 
+\end{tabular} \\
+\centering
+\caption{Hi?}
+\end{table}

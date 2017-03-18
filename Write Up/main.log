@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.5.22)  18 MAR 2017 10:02
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.5.22)  18 MAR 2017 13:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1733,12 +1733,16 @@ LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(3)/m/n' will be
  [27] [28]
 LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(3)/m/it' will be
 (Font)              scaled to size 12.0pt on input line 70.
-) [29]
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) [29] [30]
 \openout2 = `chapters/conclusion.aux'.
 
  (./chapters/conclusion.tex
 Chapter 5.
-) [30
+) [31
 
 
 
@@ -1747,7 +1751,7 @@ Chapter 5.
 
  (./chapters/appendixA.tex
 Appendix A.
-) [31
+) [32
 
 
 
@@ -1760,11 +1764,11 @@ t line 6.
 
 LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(1)/m/it' will be
 (Font)              scaled to size 10.95pt on input line 12.
-[32
+[33
 
 
 
-]) [33]
+]) [34]
 \openout2 = `endmatter/colophon.aux'.
 
  (./endmatter/colophon.tex)
@@ -1780,6 +1784,9 @@ Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 51.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
  31101 strings out of 493591
@@ -1790,4 +1797,4 @@ Here is how much of TeX's memory you used:
  1347 hyphenation exceptions out of 8191
  75i,21n,107p,10481b,591s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (40 pages).
+Output written on main.pdf (41 pages).
