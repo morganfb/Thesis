@@ -2,17 +2,17 @@
 
 \chapter{Results Discussion}
 
-\newthought{Lorem ipsum dolor sit amet}, 
+\newthought{The methods} described in Chapter 3 were implemented and tested for their efficacy at evaluating average causal treatment effect.  Results and discussion are presented here.  
 
 \section{Natural Course} 
-In order to test the models used for the g-formula method, a natural course study was performed.  This involved simulating the data directly using the models being used in the g-formula method.  Additionally, a model for the treatment variable had to be created as well, giving the following three models, 
+In order to test the specified models used for the g-formula method, a natural course study was performed.  This involved simulating the data directly using the models specified for the g-formula method.  Additionally, a model for the treatment variable had to be created as well, giving the following three models,\footnote{Abbreviated models, like those specified in expressions \ref{eq:6} and \ref{eq:7}, were used for time points $t=0,1,2$ since adequate historical data is not available.} 
 \begin{align} 
 Logit \big[Y \mid \overline{A}_t, \overline{L}_t \big] &= \theta_{0} + \theta_1 A_{t} + \cdots + \theta_j A_0 + \theta_{j+1} L_t + \cdots + \theta_{j+k} L_0  \\ 
 logit[L_k \mid \overline{L}_{k-1}, \overline{A}_{k-1}] &= \gamma_0 + \gamma_1 L_{k-1} + \gamma_2 L_{k-2} + \gamma_3 L_{k-3}  + \gamma_4 A_{k-1} + \gamma_5 A_{k-2} + \gamma_6 A_{k-3} \\ 
 logit[A_k \mid \overline{L}_{k}, \overline{A}_{k-1}] &= \delta_0 + \delta_1 L_{k} + \delta_2 L_{k-1} + \delta_3 A_{k-1} + \delta_4 A_{k-2} 
 \end{align} 
 
-Five new data populations were simulated to determine the natural course of these models.  Table \ref{naturalcourse} below compares the true mean of the original data frame and the average across the five simulated dataframes.  
+Five new data sets were simulated to determine the natural course of these models.  Table \ref{naturalcourse} below compares the true mean of the original data frame and the average across the five simulated dataframes.  
 
 
 \begin{table}[h!]
@@ -25,39 +25,47 @@ $\mathbb{E}[A]$ & 0.848 & 0.847 & (0.840, 0.854) \\ \\
 $\mathbb{E}[L]$ & 0.833 & 0.811 & (0.793, 0.830) 
 \end{tabular} \\
 \centering
-\caption{Hi? \label{naturalcourse}}
+\caption{A table outlining the results of the natural course test of the methods.  True mean is specified using the underlying dataset which the models are created off of.  The natural course average mean is the mean of means from the five datasets.  The 95\% confidence interval is centered at this mean of means and based on the five datasets. \label{naturalcourse}}
 \end{table}
 
-The results of the natural course show that the models chosen appear to estimate the data quite well.  Not only are the means close to the true mean, but the variance is low enough that our confidence intervals all cover the true mean.  Therefore, it can be concluded that these models are a good choice for use in the g-formula.  
+The results of the natural course in Table \ref{naturalcourse} show that the models chosen appear to estimate the data quite well.  Not only are the means close to the true mean, but the variance is low enough that our confidence intervals all cover the true mean.  Therefore, it can be concluded that these models are a good choice for adequately modeling the underlying data in the g-formula.  
 
 \section{Simulation of the Two Methods} 
-As discussed in Section \ref{VarianceBootStrap}, a simulation of 1,000 iterations was performed.  Each iteration of this simulation consisted of creating a new dataset and obtaining both the g-formula estimate and the doubly robust estimate for the causal treatment effect.  The results of these simulations can be seen below in Table \ref{simdata} 
+As discussed in Section \ref{VarianceBootStrap}, a simulation of 1,000 iterations was performed.  Each iteration of this simulation consisted of creating a new dataset and obtaining both the g-formula estimate and the doubly robust estimate for the causal treatment effect.  
+
+The results of these simulations can be seen below in Table \ref{simdata} and Figure \ref{bighistogram}.  Both indicate that the doubly robust method has a more precise average causal treatment effect across simulations.\footnote{As discussed in Section \ref{data}, no effect of $A$ on $Y$ was included in this study, so the true causal treatment effect should be zero.}  However, this improvement comes with higher variance and bias, as shown in the wider confidence interval and the larger spread on the histogram.  
+
+Furthermore, the relationship between the data and the causal effect estimates was examined in Figure \ref{correlation}.  Of note, the doubly robust method is able to capture correlation between $Y$ and $A$ which the g-formula method does not, an important indicator that it successfully picks up treatment effect.  This likely contributes to the more precise causal treatment effect measure.  
 
 \begin{table}[h!]
 \centering
-\begin{tabular}{c | c c c }
-Method & \shortstack{Average Causal \\ Treatment Effect} & \shortstack{Variance\\ of Estimate} & \shortstack{95\% Conf. Int.\\ of Estimate} \\ 
+\begin{tabular}{c | c c c c }
+Method & \shortstack{Average Causal \\ Treatment Effect} & Average Bias & \shortstack{Variance of \\ Effect Estimate} & \shortstack{95\% Conf. Int.\\ of Effect Estimate} \\ 
 \hline \\
-G-Formula & 0.0033 & 0.00024&(-0.00063,0.00128)\\ \\ 
-Doubly Robust & 0.00026 &0.00079 & (-0.00149, 0.00212)
+G-Formula & 0.0033 & 0.016 & 0.00024&(-0.00063,0.00128)\\ \\ 
+Doubly Robust & 0.00026 & 0.031& 0.00079 & (-0.00149, 0.00212)
 \end{tabular} \\
 \centering
-\caption{Hi? \label{simdata}}
+\caption{A table presenting the results of 1,000 data simulations, within which the g-formula and doubly robust estimators of average causal effect were each obtained.  Average causal treatment effect is the mean of the causal treatment effect across the simulations.  The variance and confidence intervals reflect the variability in that causal treatment effect over 1,000 simulations. \label{simdata}}
 \end{table}
 
-\begin{figure}
+\begin{figure}[h!]
 \includegraphics[width = \linewidth]{figures/overlaid_histogram.jpeg}
-\caption{}
+\caption{A histogram showing the results of the 1,000 simulations.  The y-axis shows frequency of value and the x-axis shows the causal treatment effect value measured.}
 \label{bighistogram}
 \end{figure} 
 
+\begin{figure}[h!]
+\includegraphics[width = 1.1\linewidth]{figures/correlation.png}
+\caption{Various plots showing the relationship between underlying data correlations and estimated causal treatment effects using the two methods.  Each data point is representative of one dataset.  The same 1,000 datasets are used for each effect estimation.}
+\label{correlation}
+\end{figure}
 
-
-
+\newpage
 \section{Confirming Double Robustness} 
-Ten simulations were performed in order to test the double robustness of the ``doubly'' robust estimator.  Four different setups were tested: 
+Twenty-five simulations were performed in order to test the double robustness of the ``doubly'' robust estimator.  Four different setups were tested: 
 \begin{itemize} 
-\item Using the correct model for both user specified functions, $\hat{\mathbf{\alpha}}$ and $s_{m-1}$ 
+\item Using the correctly specified model for both user specified functions, $\hat{\mathbf{\alpha}}$ and $s_{m-1}$ 
 \item Using an intentionally misspecified model for $\hat{\mathbf{\alpha}}$ while keeping the correct model for $s_{m-1}$ 
 \item Using an intentionally misspecified model for $s_{m-1}$ while keeping the correct model for $\hat{\mathbf{\alpha}}$
 \item Using intentionally misspecified models for both $\hat{\mathbf{\alpha}}$ and $s_{m-1}$ 
@@ -66,24 +74,28 @@ Ten simulations were performed in order to test the double robustness of the ``d
 The misspecified models used were as follows, 
 \begin{align} 
 f(A_m \mid \overline{L}_m, \overline{A}_{m-1}; \hat{\mathbf{\alpha}}) &= \alpha'_{0} + \alpha'_{1} \cdot L_{m-3} + \alpha'_{2} \cdot A_{m-3} \\ 
-s_{m}(\overline{L}_{m}, \overline{A}_{m};\mathbf{\beta}_{m}) &= \theta'_0 + \theta'_1 A_{m} +\theta'_2 A_{m-4} + \theta'_3 L_{m-4} 
+s_{m}(\overline{L}_{m}, \overline{A}_{m};\mathbf{\beta}_{m}) &= \theta'_0 + \theta'_1 A_{m} +\theta'_2 L_m  +\theta'_3 A_{m-4} +  \theta'_4 L_{m-4} 
  \end{align} 
+These models were chosen because they are quite random, and it would be unlikely based on the knowledge of how the data was created that these would be strong models for prediction.  
+
+The results of this testing are shown in Table \ref{doubletest} and this shows evidence that the method is indeed doubly robust.  This means that when one model is incorrect, but the other is correct, then the estimate should not be biased.  The average causal treatment effect across the simulations is not significantly impacted when either the $\hat{\mathbf{\alpha}}$ model or the $s_{m-1}$ model is incorrectly specified.  When both models are misspecified, statistically significant bias is introduced (p-value 0.005).  Furthermore, both Table \ref{doubletest} and Figure \ref{boxplot} show that the variance is significantly higher when both models are misspecified.  From the boxplot, it can be seen that the variance stays quite consistent when only one model is misspecified but is much larger when both are misspecified.  
+
 
 \begin{table}[h!]
 \centering
 \begin{tabular} {c | c  c c}
-Models & Mean & Variance & CI \\ 
+Models & \shortstack{Average Bias in Causal \\ Treatment Effect} & p-value & \shortstack{Standard Error\\ of Bias} \\ 
 \hline  \\
-Both models correctly specified & 0.0061 & 0.001& (-0.007, 0.019)\\ \\
-$\hat{\mathbf{\alpha}}$ correct, $s_{m-1}$ misspecified & 0.011 & 0.001& (-0.003, 0.025)\\ \\
-$\hat{\mathbf{\alpha}}$ misspecified, $s_{m-1}$ correct & 0.012 & 0.001& (-0.002, 0.026) \\ \\
-Both models misspecified & 0.048 & 0.047 & (-0.037, 0.133) 
+Both models correctly specified &0.027 & NA  & 0.0039\\ \\
+$\hat{\mathbf{\alpha}}$ correct, $s_{m-1}$ misspecified & 0.030 & 0.579 & 0.0041\\ \\
+$\hat{\mathbf{\alpha}}$ misspecified, $s_{m-1}$ correct & 0.030 & 0.521 &0.0042 \\ \\
+Both models misspecified & 0.133 & 0.005 & 0.0355 
 \end{tabular} \\
 \centering
-\caption{Hi?}
+\caption{Table showing the results of testing the double robustness of the model.  The p-value is from a two-sample t-test comparing the bias from misspecified versions with the bias results from having both models correctly specified. \label{doubletest}}
 \end{table}
 
-\begin{figure}
+\begin{figure}[h!] 
 \includegraphics[width = \linewidth]{figures/boxplot.jpg}
 \caption{}
 \label{boxplot}
@@ -91,7 +103,7 @@ Both models misspecified & 0.048 & 0.047 & (-0.037, 0.133)
 
 
 
-
+\newpage
 \section{Testing Multiple Robustness} 
 
 \begin{table}[h!]

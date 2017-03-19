@@ -53,7 +53,7 @@ logit[A_{1,i}] &= \beta_0 + \beta_1 L_{k,i} + \beta_2 L_{k-1,i} + \beta_3 A_{k-1
 \item Obtain a final $Y_i$ value for each individual where $Y_i \sim \mathcal{N}(\mu = U, \sigma = 1)$ 
 \end{enumerate} 
 
-
+Note that the final outcome $Y$ value is independent of $A$ and therefore, the treatment has no impact on the outcome.  This was done to ensure that the causal treatment effect would be zero and bias could be easily measured throughout the study.  
 
 
 %% Testing under the null of full treatment, but using data on time varying treatment 

@@ -23,8 +23,8 @@
 \contentsline {chapter}{\numberline {4}Results Discussion}{26}{chapter.4}
 \contentsline {section}{\numberline {4.1}Natural Course}{27}{section.4.1}
 \contentsline {section}{\numberline {4.2}Simulation of the Two Methods}{28}{section.4.2}
-\contentsline {section}{\numberline {4.3}Confirming Double Robustness}{28}{section.4.3}
-\contentsline {section}{\numberline {4.4}Testing Multiple Robustness}{30}{section.4.4}
-\contentsline {chapter}{\numberline {5}Conclusion}{34}{chapter.5}
-\contentsline {chapter}{Appendix \numberline {A}Code}{35}{Appendix.1.A}
-\contentsline {chapter}{References}{37}{chapter*.12}
+\contentsline {section}{\numberline {4.3}Confirming Double Robustness}{30}{section.4.3}
+\contentsline {section}{\numberline {4.4}Testing Multiple Robustness}{33}{section.4.4}
+\contentsline {chapter}{\numberline {5}Conclusion}{35}{chapter.5}
+\contentsline {chapter}{Appendix \numberline {A}Code}{36}{Appendix.1.A}
+\contentsline {chapter}{References}{38}{chapter*.13}
