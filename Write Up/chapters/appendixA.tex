@@ -3,3 +3,17 @@
 \label{AppendixA}
 
 % \input{../Final_Iteration.tex}
+
+\includepdf[
+    pages=-,
+    %% make this page have the usual page style
+    %% (you can change it to plain etc). By default pdfpages
+    %% sets the pagecommand to \pagestyle{empty}
+    pagecommand={\pagestyle{headings}}, 
+    offset=0 25, 
+    width = 155mm, 
+    height = 220mm, 
+    %% Add a "section" entry to the ToC with the heading
+    %% "Quilling Shapes" and the label "sec:shapes"
+    addtotoc={1,section,1,Quilling Shapes,sec:shapes}]
+    {../FinalThesisFunctions.pdf}

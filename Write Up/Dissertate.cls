@@ -81,6 +81,7 @@
 \usepackage{array}   % for \newcolumntype macro
 \newcolumntype{L}{>{$}l<{$}} % math-mode version of "l" column type
 \usepackage{listings}
+\usepackage{pdfpages}
 
 % Fonts.
 \RequirePackage{color}
