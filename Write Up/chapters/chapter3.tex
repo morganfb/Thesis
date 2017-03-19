@@ -76,7 +76,7 @@ The misspecified models used were as follows,
 f(A_m \mid \overline{L}_m, \overline{A}_{m-1}; \hat{\mathbf{\alpha}}) &= \alpha'_{0} + \alpha'_{1} \cdot L_{m-3} + \alpha'_{2} \cdot A_{m-3} \\ 
 s_{m}(\overline{L}_{m}, \overline{A}_{m};\mathbf{\beta}_{m}) &= \theta'_0 + \theta'_1 A_{m} +\theta'_2 L_m  +\theta'_3 A_{m-4} +  \theta'_4 L_{m-4} 
  \end{align} 
-These models were chosen because they are quite random, and it would be unlikely based on the knowledge of how the data was created that these would be strong models for prediction.  
+These models were chosen because they are quite random, and it would be unlikely based on the knowledge of how the data was created that these would be strong models for prediction.  In practice, one would hope that the researcher using these methods would be wiser as not to use such terrible models, particularly for both models.  
 
 The results of this testing are shown in Table \ref{doubletest} and this shows evidence that the method is indeed doubly robust.  This means that when one model is incorrect, but the other is correct, then the estimate should not be biased.  The average causal treatment effect across the simulations is not significantly impacted when either the $\hat{\mathbf{\alpha}}$ model or the $s_{m-1}$ model is incorrectly specified.  When both models are misspecified, statistically significant bias is introduced (p-value 0.005).  Furthermore, both Table \ref{doubletest} and Figure \ref{boxplot} show that the variance is significantly higher when both models are misspecified.  From the boxplot, it can be seen that the variance stays quite consistent when only one model is misspecified but is much larger when both are misspecified.  
 
@@ -108,35 +108,42 @@ Both models misspecified & 0.133 & 0.005 & 0.0355
 
 \begin{table}[h!]
 \centering
-\begin{tabular} {c | c  c c}
-Model Correctly Specified & \shortstack{Average Causal \\ Treatment Effect}  & Variance & \shortstack{95\% Conf. Int.\\ of Estimate} \\ 
+\begin{tabular} {c | c  c}
+Model Correctly Specified & \shortstack{Average Bias \\ of Estimate}  & \shortstack{Variance \\of Estimate} \\ 
 \hline  \\
-$\pi_3, \dots, \pi_K$ & -0.0025 & 0.0013 & (-0.009, 0.005)  \\ 
-$\pi_3, \dots, \pi_{K-1}, s_K$ & -0.0054 & 0.0010& (-0.012, 0.001)\\ 
-$\pi_3, \dots, \pi_{K-2}, s_{K-1}, s_K$ & -0.0046 & 0.0010&(-0.011, 0.002)\\ 
-$\pi_3, \dots, \pi_{K-3}, s_{K-2} , s_{K-1}, s_K$ & -0.0045 &0.0009 & (-0.010, 0.001)\\ 
-$\pi_3, \dots, \pi_{K-4}, s_{K-3}, \dots s_K $ & -0.0044 &0.0009& (-0.010, 0.002) \\ 
-$\pi_3, \dots, \pi_{K-5}, s_{K-4}, \dots s_K $ & -0.039 &0.0009& (-0.010, 0.002)\\ 
-$\pi_3, \dots, \pi_{K-6}, s_{K-5}, \dots s_K $ & -0.0029 & 0.0009&(-0.009, 0.003) \\ 
-$\pi_3, \dots, \pi_{K-7}, s_{K-6}, \dots s_K $ & -0.0006 & 0.0010& (-0.007, 0.006)\\ 
-$\pi_3, s_{4}, \dots s_K $ & 0.0025 & 0.0011 & (-0.004, 0.009) \\ 
-$s_3, \pi_4, \dots \pi_K$ & 0.0033 & 0.0881 & (-0.055, 0.061)\\ 
-$s_3, s_4, \pi_5, \dots \pi_K$ & 0.0262 & 0.0214  & (-0.002, 0.055)\\ 
-$s_3, s_4, s_5, \pi_6, \dots \pi_K$ & 0.0035 & 0.0100 & (-0.016,0.023) \\ 
-$s_3, \dots s_6, \pi_7, \dots \pi_K$ & 0.0209 &0.0206 & (-0.007, 0.049)\\ 
-$s_3, \dots s_7, \pi_8, \dots \pi_K$ & 0.0129 &  0.0195   & (-0.014, 0.040) \\ 
-$s_3, \dots s_8, \pi_9, \dots \pi_K$ & -0.0145 &0.0129   & (-0.037, 0.008) \\ 
-$s_3, \dots s_9, \pi_{10}, \pi_K$ & -0.0020 & 0.0015 & (-0.009, 0.006)\\ 
-$s_3, \dots s_{10}, \pi_K$ & -0.0018& 0.0013 & (-0.009,  0.005)\\
-$s_3, \dots s_K$ & -0.0024 & 0.0013& (-0.009, 0.005)\\ 
+$\pi_3, \dots, \pi_K$ & 0.026 & 0.0013   \\ 
+$\pi_3, \dots, \pi_{K-1}, s_K$ & 0.024 & 0.0010\\ 
+$\pi_3, \dots, \pi_{K-2}, s_{K-1}, s_K$ & 0.023 & 0.0010\\ 
+$\pi_3, \dots, \pi_{K-3}, s_{K-2} , s_{K-1}, s_K$ & 0.023  &0.0009 \\ 
+$\pi_3, \dots, \pi_{K-4}, s_{K-3}, \dots s_K $ & 0.023&0.0009 \\ 
+$\pi_3, \dots, \pi_{K-5}, s_{K-4}, \dots s_K $ &  0.023 &0.0009\\ 
+$\pi_3, \dots, \pi_{K-6}, s_{K-5}, \dots s_K $ &  0.023 & 0.0009 \\ 
+$\pi_3, \dots, \pi_{K-7}, s_{K-6}, \dots s_K $ &  0.024 & 0.0010\\ 
+$\pi_3, s_{4}, \dots s_K $ &  0.025& 0.0011  \\ 
+$s_3, \pi_4, \dots \pi_K$ &  0.196 & 0.0881 \\ 
+$s_3, s_4, \pi_5, \dots \pi_K$ & 0.08 & 0.0214  \\ 
+$s_3, s_4, s_5, \pi_6, \dots \pi_K$ & 0.052 & 0.0100  \\ 
+$s_3, \dots s_6, \pi_7, \dots \pi_K$ & 0.064 &0.0206 \\ 
+$s_3, \dots s_7, \pi_8, \dots \pi_K$ &  0.060 &  0.0195   \\ 
+$s_3, \dots s_8, \pi_9, \dots \pi_K$ & 0.048 &0.0129   \\ 
+$s_3, \dots s_9, \pi_{10}, \pi_K$ &  0.028 & 0.0015 \\ 
+$s_3, \dots s_{10}, \pi_K$ & 0.027 & 0.0013 \\
+$s_3, \dots s_K$ & 0.026 & 0.0013\\ 
 \end{tabular} \\
 \centering
 \caption{Hi?}
 \end{table}
 
 \begin{figure}
-\includegraphics[width = \linewidth]{figures/multiplerobust.png}
+\includegraphics[width = 1.1\linewidth]{figures/multiplerobust.png}
 \caption{}
 \label{multirobust}
 \end{figure} 
+
+\begin{figure}
+\includegraphics[width = 1.1\linewidth]{figures/Tukey.png}
+\caption{A plot of the confidence intervals of each of the model specifications in the testing of multiple robustness.  The y-axis indicates which model, where the number is the value of $j$ in the following models, the before model is $\pi_3,\dots, \pi_{j-1},s_j,...,s_K$ and the after model is $s_3, \dots, s_{j-1}, \pi_j, \dots, \pi_K$.  The before and after notation signifies whether the $\pi$ models are correctly specified in order before or after the $s_m$ models.  The before values correspond to the blue lines in Figure \ref{multirobust} while the after values correspond to the orange line.}
+\label{Tukey}
+\end{figure} 
+
 

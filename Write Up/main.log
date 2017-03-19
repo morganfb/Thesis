@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.5.22)  19 MAR 2017 12:01
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.5.22)  19 MAR 2017 13:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1781,12 +1781,31 @@ LaTeX Warning: Text page 32 contains only floats.
 
 [32]
 File: figures/multiplerobust.png Graphic file (type QTm)
- <use  "figures/multiplerobust.png" >) [33] [34]
+ <use  "figures/multiplerobust.png" >
+Overfull \hbox (41.55779pt too wide) in paragraph at lines 138--139
+[][] 
+ []
+
+File: figures/Tukey.png Graphic file (type QTm)
+<use  "figures/Tukey.png" >
+Overfull \hbox (41.55779pt too wide) in paragraph at lines 144--145
+[][] 
+ []
+
+LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(3)/m/n' will be
+(Font)              scaled to size 10.0pt on input line 145.
+LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(3)/m/it' will be
+(Font)              scaled to size 10.0pt on input line 145.
+LaTeX Font Info:    Font shape `EU1/Lato-Reg.ttf(0)/m/n' will be
+(Font)              scaled to size 5.52814pt on input line 145.
+LaTeX Font Info:    Font shape `EU1/Lato-Reg.ttf(0)/m/n' will be
+(Font)              scaled to size 3.94867pt on input line 145.
+) [33] [34] [35]
 \openout2 = `chapters/conclusion.aux'.
 
  (./chapters/conclusion.tex
 Chapter 5.
-) [35
+) [36
 
 
 
@@ -1795,7 +1814,7 @@ Chapter 5.
 
  (./chapters/appendixA.tex
 Appendix A.
-) [36
+) [37
 
 
 
@@ -1808,11 +1827,11 @@ t line 6.
 
 LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(1)/m/it' will be
 (Font)              scaled to size 10.95pt on input line 12.
-[37
+[38
 
 
 
-]) [38]
+]) [39]
 \openout2 = `endmatter/colophon.aux'.
 
  (./endmatter/colophon.tex)
@@ -1828,14 +1847,17 @@ Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 51.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 31125 strings out of 493591
- 534533 string characters out of 6143546
- 627800 words of memory out of 5000000
- 34049 multiletter control sequences out of 15000+600000
- 30792 words of font info for 148 fonts, out of 8000000 for 9000
+ 31149 strings out of 493591
+ 535618 string characters out of 6143546
+ 628274 words of memory out of 5000000
+ 34067 multiletter control sequences out of 15000+600000
+ 30832 words of font info for 153 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
  75i,21n,107p,10481b,591s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (45 pages).
+Output written on main.pdf (46 pages).
