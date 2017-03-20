@@ -2,7 +2,7 @@
 
 \chapter{Results Discussion} \label{Results}
 
-\newthought{The methods} described in Chapter \ref{Methods} were implemented and tested for their efficacy at evaluating average causal treatment effect.  Results and discussion are presented here.  
+\newthought{The methods} described in Chapter \ref{Methods} were implemented and tested for their efficacy at evaluating average causal treatment effect.  Results and discussion are presented here below.  
 
 \section{Natural Course} 
 In order to test the specified models used for the g-formula method, a natural course study was performed.  This involved simulating the data directly using the models specified for the g-formula method.  Additionally, a model for the treatment variable had to be created as well, giving the following three models,\footnote{Abbreviated models, like those specified in expressions \ref{eq:6} and \ref{eq:7}, were used for time points $t=0,1,2$ since adequate historical data is not available.} 
@@ -12,13 +12,13 @@ logit[L_k \mid \overline{L}_{k-1}, \overline{A}_{k-1}] &= \gamma_0 + \gamma_1 L_
 logit[A_k \mid \overline{L}_{k}, \overline{A}_{k-1}] &= \delta_0 + \delta_1 L_{k} + \delta_2 L_{k-1} + \delta_3 A_{k-1} + \delta_4 A_{k-2} 
 \end{align} 
 
-Five new data sets were simulated to determine the natural course of these models.  Table \ref{naturalcourse} below compares the true mean of the original data frame and the average across the five simulated dataframes.  
+Five new data sets were simulated to determine the natural course of these models.  Table \ref{naturalcourse} below compares the true mean of the original data frame and the average across the five simulated datasets.  
 
 
 \begin{table}[h!]
 \centering
 \begin{tabular}{c | c c c}
-Variable & True Mean & \shortstack{Natural Course\\ Average Mean} & \shortstack{Natural Course \\95\% CI} \\ 
+Variable & True Mean & \shortstack{Natural Course\\ Average Mean} & \shortstack{Natural Course \\95\% Conf. Int.} \\ 
 \hline \\
 $\mathbb{E}[Y]$ & 0.714 & 0.719 & (0.705, 0.733) \\ \\
 $\mathbb{E}[A]$ & 0.848 & 0.847 & (0.840, 0.854) \\ \\
@@ -73,10 +73,10 @@ Twenty-five simulations were performed in order to test the double robustness of
 
 The misspecified models used were as follows, 
 \begin{align} 
-f(A_m \mid \overline{L}_m, \overline{A}_{m-1}; \hat{\mathbf{\alpha}}) &= \alpha'_{0} + \alpha'_{1} \cdot L_{m-3} + \alpha'_{2} \cdot A_{m-3} \\ 
-s_{m}(\overline{L}_{m}, \overline{A}_{m};\mathbf{\beta}_{m}) &= \theta'_0 + \theta'_1 A_{m} +\theta'_2 L_m  +\theta'_3 A_{m-4} +  \theta'_4 L_{m-4} 
+&f(A_m \mid \overline{L}_m, \overline{A}_{m-1}; \hat{\mathbf{\alpha}}) = \alpha'_{0} + \alpha'_{1} \cdot L_{m-3} + \alpha'_{2} \cdot A_{m-3} \\ 
+&s_{m}(\overline{L}_{m}, \overline{A}_{m};\mathbf{\beta}_{m}) = \beta'_0 + \beta'_1 A_{m} +\beta'_2 L_m  +\beta'_3 A_{m-4} +  \beta'_4 L_{m-4} 
  \end{align} 
-These models were chosen because they are quite random, and it would be unlikely based on the knowledge of how the data was created that these would be strong models for prediction.  In practice, one would hope that the researcher using these methods would be wiser as not to use such terrible models, particularly for both models.  
+These models were chosen because they are quite random, and it would be unlikely based on the knowledge of how the data was created that these would be strong models for prediction.  In practice, one would hope that the researcher using these methods would be wiser as not to use such terrible models, particularly for both models.  This testing is to demonstrate how robust the method is to misspecification, or how accessible the method is to those with less versed statistical knowledge as they may be more inclined to make minor mis-specifications in the model.  
 
 The results of this testing are shown in Table \ref{doubletest} and this shows evidence that the method is indeed doubly robust.  This means that when one model is incorrect, but the other is correct, then the estimate should not be biased.  The average causal treatment effect across the simulations is not significantly impacted when either the $\hat{\mathbf{\alpha}}$ model or the $s_{m-1}$ model is incorrectly specified.  When both models are misspecified, statistically significant bias is introduced (p-value 0.005).  Furthermore, both Table \ref{doubletest} and Figure \ref{boxplot} show that the variance is significantly higher when both models are misspecified.  From the boxplot, it can be seen that the variance stays quite consistent when only one model is misspecified but is much larger when both are misspecified.  
 
@@ -88,7 +88,7 @@ Models & \shortstack{Average Bias in Causal \\ Treatment Effect} & p-value & \sh
 \hline  \\
 Both models correctly specified &0.027 & NA  & 0.0039\\ \\
 $\hat{\mathbf{\alpha}}$ correct, $s_{m-1}$ misspecified & 0.030 & 0.579 & 0.0041\\ \\
-$\hat{\mathbf{\alpha}}$ misspecified, $s_{m-1}$ correct & 0.030 & 0.521 &0.0042 \\ \\
+$s_{m-1}$ correct, $\hat{\mathbf{\alpha}}$ misspecified& 0.030 & 0.521 &0.0042 \\ \\
 Both models misspecified & 0.133 & 0.005 & 0.0355 
 \end{tabular} \\
 \centering
@@ -99,13 +99,12 @@ Both models misspecified & 0.133 & 0.005 & 0.0355
 \includegraphics[width = \linewidth]{figures/boxplot.jpg}
 \caption{This boxplot shows the bias in the causal treatment effect estimates for varying combinations of models correctly specified.  The fourth box, when both models are misspecified, shows the strongest bias and the most variance in that bias.  However, the model remains robust when only one model is misspecified.}
 \label{boxplot}
-\end{figure} 
-
+\end{figure}
 
 
 \newpage
 \section{Testing Multiple Robustness} \label{multiplerobust}
-With the evidence that the model was indeed doubly robust, it was then tested to see if it was multiply robust.  Several different combinations of correctly specified models were tested, namely of the form where the below specified models were correct and the models not listed were wrong.  
+Having established that the model was indeed doubly robust, the model was then tested to see if it was multiply robust.  Several different combinations of correctly specified models were tested, namely of the form where the below specified models were correct and the models not listed were incorrect.  
 \begin{align} 
 & \pi_3, \dots, \pi_{j-1}, s_j, \dots, s_K \text{ for } j \in \{3, \dots, 12 \} \\
 & s_3, \dots, s_{j-1}, \pi_j, \dots, \pi_K\text{ for } j \in \{3, \dots, 12 \}   \\
@@ -113,16 +112,16 @@ With the evidence that the model was indeed doubly robust, it was then tested to
 & \pi_3, s_4, \pi_5, s_6, \pi_7, s_8, \pi_9, s_{10}, \pi_{11}
 \end{align} 
 
-Twenty five simulations were performed, for which the causal treatment effect was estimated for each of these varying combinations of correctly specified models using the doubly robust method.   Then, the bias was obtained across the twenty five estimates.  The results in Figure \ref{multirobust} show that when the correctly specified models are of the form $s_3, \dots, s_{j-1}, \pi_j, \dots, \pi_K$ for $j \in \{4, \dots, 12 \} $, significant bias is introduced.\footnote{More specific values for the bias across all these models can be seen in Table \ref{MultipleTable} in Appendix \ref{AppendixB}.}  However, no bias is introduced when the correctly specified models are of the form $\pi_3, \dots, \pi_{j-1}, s_j, \dots, s_K $ for  $j \in \{4, \dots, 12 \}$.  This implies that the doubly robust method is actually robust more than just doubly.  A Tukey test was also performed to test this, and the results are shown in Figure \ref{Tukey}.  The statistically significantly biased model combinations confirm the above observations.  
+Twenty-five simulations were performed, for which the causal treatment effect was estimated for each of these varying combinations of correctly specified models using the doubly robust method.   Then, the bias was obtained across the twenty-five estimates.  The results in Figure \ref{multirobust} show that when the correctly specified models are of the form $s_3, \dots, s_{j-1}, \pi_j, \dots, \pi_K$ for $\forall j \in \{4, \dots, 12 \} $, significant bias is introduced.\footnote{More specific values for the bias across all these models can be seen in Table \ref{MultipleTable} in Appendix \ref{AppendixB}.}  However, no bias is introduced when the correctly specified models are of the form $\pi_3, \dots, \pi_{j-1}, s_j, \dots, s_K $ for  $\forall j \in \{4, \dots, 12 \}$.  This implies that the doubly robust method is actually more robust than just doubly.  A Tukey test was also performed to test this, and the results are shown in Figure \ref{Tukey}.  The statistically significantly biased model combinations confirm the above observations.  
 
 \begin{figure}[h!]
-\includegraphics[width = .9\linewidth]{figures/multiplerobust.png}
+\centering
+\includegraphics[width = .95\linewidth]{figures/multiplerobust.png}
 \caption{Plot showing the results of testing for multi-robustness.  The models are correctly specified as given in the legend.  Note that the end points of $j=3$ and $j=12$ correspond to the opposite end for the other line and represent the model where only one of the two models is correctly specified throughout.}
 \label{multirobust}
-\end{figure} 
 
-\begin{figure}[h!]
-\includegraphics[width = .9\linewidth]{figures/Tukey.png}
+\centering
+\includegraphics[width = .8\linewidth]{figures/Tukey.png}
 \caption{A plot of the confidence intervals of each of the model specifications in the testing of multiple robustness.  The y-axis indicates which model, where the number is the value of $j$ in the following models, the before model is $\pi_3,\dots, \pi_{j-1},s_j,...,s_K$ and the after model is $s_3, \dots, s_{j-1}, \pi_j, \dots, \pi_K$.  The before and after notation signifies whether the $\pi$ models are correctly specified in order before or after the $s_m$ models.  The before values correspond to the blue lines in Figure \ref{multirobust} while the after values correspond to the orange line.}
 \label{Tukey}
 \end{figure} 

@@ -25,12 +25,12 @@ because the average of differences is equal to the difference of averages.\cite{
 Not all treatment regimens consist of constant treatment over a set period of time.  Therefore, a more complicated time-varying treatment can be considered.  This would be written for a single individual as $\overline{A}_k = \{A_0, A_1, \cdots, A_k \}$, with time point $k \in \{ 0, 1, \dots K\}$, given $K$ as the maximum time value.  The overline on $\overline{A}_k$ indicates the history of values up to and including time point $k$, and the notation $\overline{A}$ represents the full history.  As an example of this, a patient with continuous treatment throughout the whole study would have data $\overline{A} = \{A_0 = 1, A_1 = 1, \dots, A_K = 1 \}  = \{1,1,\dots 1 \}$, which can also be written as $\overline{A} = \overline{1}$.  In this scenario, the average causal effect is instead defined as 
 \begin{align} \mathbb{E}\bigg[Y^{\bar{a} = \bar{1}}\bigg] -  \mathbb{E}\bigg[Y^{\bar{a} = \bar{0}}\bigg] \end{align} 
 
-\subsection{Deterministic Treatment Regimes} 
+\subsection{Deterministic Treatment Regimens} 
 This time-varying framework of the treatment variable can also be considered for the covariate, $L$.  From this, a dynamic treatment strategy can also be created, such that each possible realization $\bar{a}_{k}$ is dependent on the treatment and covariate history, $\overline{L}_k$ and $\overline{A}_{k-1}$.  This can be written as a set of functions $\{g_k (\bar{a}_{k-1}, \bar{l}_k )\}$ where $g_k$ is the function making the treatment decision.  
 
 
 \subsection{Sequentially Randomized Trial} 
-The sequentially randomized trial is a specific type of deterministic treatment regime is , in which a subject's treatment is chosen at each time from an associated density $f (a_k \mid \bar{l}_k, \bar{a}_{k-1})$ for $\bar{a}_k \in \overline{\mathcal{A}}_k$ where $\overline{\mathcal{A}}_k$ is the support of $\overline{A}_k$ in time period $k$.\cite{young2011comparative}  In this type of randomized trial, each $A_k$ for all subjects is chosen as an independent random draw from this type of distribution density.  Sequentially randomized trials guarantee the identifiability assumptions of exchangeability and consistency to be discussed in Section \ref{assumptions}.  This is significantly important because the g-formula and doubly robust estimators are the only methods which can derive causal effect for data with a sequentially randomized trial, particularly important considering how frequently treatments are given in a sequentially randomized fashion in modern medicine.
+The sequentially randomized trial is a specific type of deterministic treatment regimen is , in which a subject's treatment is chosen at each time from an associated density $f (a_k \mid \bar{l}_k, \bar{a}_{k-1})$ for $\bar{a}_k \in \overline{\mathcal{A}}_k$ where $\overline{\mathcal{A}}_k$ is the support of $\overline{A}_k$ in time period $k$.\cite{young2011comparative}  In this type of randomized trial, each $A_k$ for all subjects is chosen as an independent random draw from this type of distribution density.  Sequentially randomized trials guarantee the identifiability assumptions of exchangeability and consistency to be discussed in Section \ref{assumptions}.  This is significantly important because the g-formula and doubly robust estimators are the only methods which can derive causal effect for data with a sequentially randomized trial, particularly important considering how frequently treatments are given in a sequentially randomized fashion in modern medicine.
 
 \section{Confounding} 
 %% WHAT IS IT AND WHY DO WE CARE 
@@ -55,6 +55,7 @@ This idea can be expanded to time-varying treatment and covariate variables, as 
 \begin{align} 
 \text{If } \overline{A}_k = \bar{a}^g _k, \text{ then, } \overline{Y}_{k+1} =  \bar{Y}^g_{k+1} \text{ and } \overline{L}_k = \bar{L}^g_k
 \end{align}
+where $g$ is the function that specifies treatment over time.\footnote{Note that this $g$ is the derivation of the term g-formula.}
 
 \subsection{Exchangeability} \label{exchangeability} 
 Exchangeability is the idea that individuals in either group of a randomized experiment would have had the same response given the other treatment. \cite{hernan_robins_2016}  There should be no bias to either group to respond favorably or not to treatment or lack thereof; in short, the results should be equivalent if any subject is moved from one group to the other.  

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.5.22)  19 MAR 2017 23:35
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.5.22)  20 MAR 2017 00:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1573,10 +1573,16 @@ LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(1)/m/n' will be
  [2]
 LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(1)/m/n' will be
 (Font)              scaled to size 17.28pt on input line 14.
- (./frontmatter/abstract.tex) [3]
-LaTeX Font Info:    Try loading font information for T1+ppl on input line 14.
+ (./frontmatter/abstract.tex)
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/t1ppl.fd
+Package Fancyhdr Warning: \headheight is too small (15.0pt): 
+ Make it at least 27.32204pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[3]
+LaTeX Font Info:    Try loading font information for T1+ppl on input line 14.
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/microtype/mt-ppl.cfg
@@ -1686,7 +1692,7 @@ fy possible values of the random variable, in comparison to uppercase
 LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(1)/m/n' will be
 (Font)              scaled to size 6.0pt on input line 49.
  [10] [11] [12]
-Overfull \hbox (3.4711pt too wide) in paragraph at lines 97--98
+Overfull \hbox (3.4711pt too wide) in paragraph at lines 98--99
 \EU1/EBGaramond12-Regular.otf(1)/bx/n/10.95 Many of the concerns discussed abov
 e can be addressed by using the method of IP weighting through 
  []
@@ -1825,32 +1831,20 @@ Overfull \vbox (0.51651pt too high) has occurred while \output is active []
 
 
 [34]
-LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(1)/bx/n' will be
-(Font)              scaled to size 10.0pt on input line 116.
-
-
-LaTeX Warning: Reference `AppendixB' on page 35 undefined on input line 116.
-
 File: figures/multiplerobust.png Graphic file (type QTm)
-<use  "figures/multiplerobust.png" >
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
+ <use  "figures/multiplerobust.png" >
 File: figures/Tukey.png Graphic file (type QTm)
-<use  "figures/Tukey.png" >
+ <use  "figures/Tukey.png" >
 LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(3)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 126.
+(Font)              scaled to size 10.0pt on input line 125.
 LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(3)/m/it' will be
-(Font)              scaled to size 10.0pt on input line 126.
+(Font)              scaled to size 10.0pt on input line 125.
 LaTeX Font Info:    Font shape `EU1/Lato-Reg.ttf(0)/m/n' will be
-(Font)              scaled to size 5.52814pt on input line 126.
+(Font)              scaled to size 5.52814pt on input line 125.
 LaTeX Font Info:    Font shape `EU1/Lato-Reg.ttf(0)/m/n' will be
-(Font)              scaled to size 3.94867pt on input line 126.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-) [35] [36]
+(Font)              scaled to size 3.94867pt on input line 125.
+ [35])
+[36]
 \openout2 = `chapters/conclusion.aux'.
 
  (./chapters/conclusion.tex
@@ -1994,15 +1988,12 @@ Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 52.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: There were undefined references.
-
  ) 
 Here is how much of TeX's memory you used:
- 31832 strings out of 493591
- 546583 string characters out of 6143546
- 643232 words of memory out of 5000000
- 34727 multiletter control sequences out of 15000+600000
+ 31830 strings out of 493591
+ 546496 string characters out of 6143546
+ 643304 words of memory out of 5000000
+ 34725 multiletter control sequences out of 15000+600000
  30832 words of font info for 153 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
  75i,21n,107p,10481b,625s stack positions out of 5000i,500n,10000p,200000b,80000s

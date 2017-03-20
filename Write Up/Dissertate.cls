@@ -263,7 +263,7 @@
 	\pagenumbering{roman}
 	\setcounter{page}{3}
 	\pagestyle{fancy}
-	\lhead{Thesis advisor: Professors \@coadvisorOne   and \@coadvisorTwo} \rhead{\@author}
+	\lhead{Thesis Advisors: Professors \@coadvisorOne   and \@coadvisorTwo \\ Department Advisor: Professor  \@committeeInternalOne} \rhead{\@author \\}
 	\renewcommand{\headrulewidth}{0.0pt}
 	\vspace*{35pt}
 	\begin{center}
