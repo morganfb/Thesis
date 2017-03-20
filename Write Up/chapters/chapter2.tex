@@ -1,6 +1,6 @@
 %!TEX root = ../dissertation.tex
 
-\chapter{Methods}
+\chapter{Methods} \label{Methods}
 
 
 \newthought{Two formal methods for estimating}, causal effect were used in this study: g-formula estimation and doubly robust estimation.  These two methods are developments of standardization and IP weighting as discussed in the previous section.  They were implemented and studied using simulated data according to the following methods.  
@@ -58,10 +58,7 @@ Note that the final outcome $Y$ value is independent of $A$ and therefore, the t
 
 %% Testing under the null of full treatment, but using data on time varying treatment 
 \section{Parametric G-formula} 
-Similar to IP weighting, parametric estimates can be obtained for standardized estimates.  An efficient method for doing this is the generalization of standardization to time-varying treatments and confounders, coined the g-formula method by Robins in 1986.\cite{robins1986new, wright2015international, hernan_robins_2016}  The method can be used for fixed and time-varying treatments in longitudinal studies, and it seeks to estimate the average causal effect of treatment.  
-
-%%finish this sentence/thought below here 
-which can be estimated as 
+Similar to IP weighting, parametric estimates can be obtained for standardized estimates.  An efficient method for doing this is the generalization of standardization to time-varying treatments and confounders, coined the g-formula method by Robins in 1986.\cite{robins1986new, wright2015international, hernan_robins_2016}  The method can be used for fixed and time-varying treatments in longitudinal studies, and it seeks to estimate the average causal effect of treatment, which can be estimated as 
 \begin{align} 
 \mathbb{E}[Y^{\bar{a} = \bar{1}}] - \mathbb{E}[Y^{\bar{a} = \bar{0}}] 
 \end{align} 
@@ -70,9 +67,11 @@ where the respective $\bar{a} = \bar{1}$ and $\bar{a} = \bar{0}$ signify constan
 %% SINCE I CHANGED TO LOGISTIC, DOES THIS BECOME PRODUCT OF THE PROBABILITIES
 The g-formula seeks to calculate each standardized mean using the following, 
 \begin{align} \label{eq:3} 
-\mathbb{E}[Y^{\bar{a}= \bar{1}}] &= \sum_{l_i} \mathbb{E} \big[Y \mid  \overline{L}_{t}, \overline{A}_{t} \big]\cdot \prod_{k=0}^t P[L_k = l_k \mid \overline{L}_{k-1}, \overline{A}_{k-1}]
+Logit[Y^{\bar{a}= \bar{1}}] &= \sum_{l_i} \mathbb{E} \big[Y \mid  \overline{L}_{t}, \overline{A}_{t} \big]\cdot \prod_{k=0}^t P[L_k = l_k \mid \overline{L}_{k-1}, \overline{A}_{k-1}]
 \end{align}
-where $\overline{L}_k = \{L_{0} = l_0, L_{1} = l_1,  \cdots, \; L_{k} = l_k\}$ and $\overline{A}_k = \{a_{0} = 1, a_{1} = 1,  \cdots, \; a_{k} = 1\}$ are the history of the treatment and covariate variables up to and including time $k$.  The equivalent formula can be derived for $ \mathbb{E}[Y^{\bar{a} = \bar{0}}]$.   In expression \ref{eq:3}, the summation term is %% finish this sentence
+where $\overline{L}_k = \{L_{0} = l_0, L_{1} = l_1,  \cdots, \; L_{k} = l_k\}$ and $\overline{A}_k = \{a_{0} = 1, a_{1} = 1,  \cdots, \; a_{k} = 1\}$ are the history of the treatment and covariate variables up to and including time $k$.  The equivalent formula can be derived for $ \mathbb{E}[Y^{\bar{a} = \bar{0}}]$.   
+
+%In expression \ref{eq:3}, the summation term is %% finish this sentence
 %% come back here to discuss more about why you would use this method, how it was developed, details from Jamie's original paper, etc
 
 One of the key reasons for using the g-formula method is that it is able to account for time-varying confounders which have feedback to each other.  This is equivalent to each $L_k$ being dependent on $A_{k-1}$.\cite{robins1986new}  In these scenarios, traditional methods for adjusting for the confounder, such as stratification, regression, and matching, may introduce bias; however, the g-formula method (as well as IP weighting) will not.\cite{wright2015international}  This is because these other methods are unable to estimate the joint effect of all treatment values $\{A_0, A_1 \dots A_K \}$ simultaneously and without bias.\cite{fitzmaurice2008longitudinal}  
@@ -95,7 +94,7 @@ In this case, the following models were chosen for $Y \mid  \overline{A}_t, \ove
 Logit \big[Y \mid \overline{A}_t, \overline{L}_t \big] &= \theta_{0} + \theta_1 A_{t} + \cdots + \theta_j A_0 + \theta_{j+1} L_t + \cdots + \theta_{j+k} L_0 \label{eq:4} \\ 
 logit[L_k \mid \overline{L}_{k-1}, \overline{A}_{k-1}] &= \gamma_0 + \gamma_1 L_{k-1} + \gamma_2 L_{k-2} + \gamma_3 L_{k-3}  + \gamma_4 A_{k-1} + \gamma_5 A_{k-2} + \gamma_6 A_{k-3} \label{eq:5} 
 \end{align} 
-A time lag of only three historical values was deemed sufficient for the model of $L_k$ because ... 
+A time lag of only three historical values was deemed sufficient for the model of $L_k$ because each of the $L_k$ are dependent on previous time history so three historical values should be sufficient to capture that. 
 %% PUT SOME REASONS IN HERE DISCUSSING HOW THESE MODELS WERE CHOSEN... SHOULD I BE USING QUADRATIC TERMS OR INTERACTION TERMS??!?!?!?!
 
 
@@ -126,11 +125,9 @@ Using expressions \ref{eq:4} through \ref{eq:7}, a Monte Carlo simulation must b
 To do this process using non-parametric estimates, the Monte Carlo simulation is unnecessary.  Instead, the methodology would be to create two new simulated datasets, the first having all individuals under no treatment ($A=0$) and the second having all individuals treated ($A=1$).  Each of these new datasets has the same size as the original and the same ``individuals'', meaning the same covariate $L$ distribution, just changed values for $A$.  For these two datasets, delete the outcome values for $Y$ to treat it as a missing data point.  Then, the outcome models would be calculated as above.  The prediction step, however, would differ, instead using the models directly to get predicted values for each individual in the extra two datasets, rather than a Monte Carlo simulation.  Finally, the standardized means could be obtained by creating a weighted average for $E[Y^{a=0}]$ from the first new dataset and one for $E[Y^{a=1}]$ from the second new dataset.  
 
 \section{Doubly Robust Estimation} 
-The method of doubly robust estimation, as proposed by Bang and Robins,\cite{bang2005doubly} combines the two previously discussed methods of IP weighting and standardization.  IP weighting and standardization techniques are expected to provide different answers, unless there are no models used to create estimates as would be the case if all estimates were non-parametric.  \cite{hernan_robins_2016}   IP weighting estimates $P[A=a \mid L =l]$, while standardization estimates $P[Y \mid A = a, L=l]$ and $P[\overline{L}_k =l_k \mid \overline{L}_{k-1}, \overline{A}_{k-1}]$ 
+The method of doubly robust estimation, as proposed by Bang and Robins,\cite{bang2005doubly} combines the two previously discussed methods of IP weighting and standardization.  IP weighting and standardization techniques are expected to provide different answers, unless there are no models used to create estimates as would be the case if all estimates were non-parametric.  \cite{hernan_robins_2016}   IP weighting estimates $P[A=a \mid L =l]$, while standardization estimates $P[Y \mid A = a, L=l]$ and $P[\overline{L}_k =l_k \mid \overline{L}_{k-1}, \overline{A}_{k-1}]$.  
 
-- does not use the observed data treatment density \\
-- estimators are consistent if either the model for treatment given the past (as in IP weighting) is correctly specified or the models for the outcome and covariates given the past (as needed to implement the parametric g-formula) are correctly specified, without knowing which is correct\\
-- 
+Some important improvements of the method of doubly robust estimation include that it does not make use of the observed data treatment density, as the methods of IP weighting and standardization do, allowing for missing data to be properly accounted for and a lack of skewing due to overrepresented populations in the data.  It will be shown in Chapter \ref{Results} that the estimators derived are consistent if either the model for treatment given the past (as in IP weighting) is correctly specified or the models for the outcome and covariates given the past (as needed to implement the parametric g-formula) are correctly specified, without knowing which is correct.  This is the derivation of the term doubly robust.  Furthermore, however, will be evidence pointing to what order combinations of correctly and incorrectly specified models lead to the introduction of bias.  
 
 \subsection{Protocol} 
 The method can be performed recursively using the following steps, 
@@ -162,15 +159,13 @@ The known function $s_{m}$ is specified on a case by case basis, and in this cas
 \begin{align}
 s_{m}(\overline{L}_{m}, \overline{A}_{m};\mathbf{\beta}_{m}) = \theta_0 + \theta_1 L_{m} +\theta_2 A_{m} + \theta_3 L_{m-1} +\theta_4 A_{m-1}+ \theta_5 L_{m-2} +\theta_6 A_{m-2}
 \end{align}
-%% I ALSO TRIED OUT s_m USING INTERACTION TERMS BUT DIDNT SEE ANY HUGE VALUE ADD, DOES THAT MAKE SENSE??? 
+
 Furthermore, the function $\overline{\pi}_m(\hat{\mathbf{\alpha}})$ is the propensity score model and is specified as follows
 \begin{align} 
 \overline{\pi}_m(\hat{\mathbf{\alpha}}) &= \prod_{j=1}^m f(A_m \mid \overline{L}_m, \overline{A}_{m-1}; \hat{\mathbf{\alpha}}) \\
 &= \zeta_0 + \zeta_1 L_m + \zeta_2 L_{m-1} + \zeta_3 A_{m-1} + \zeta_4 A_{m-2}
 \end{align}
-The given $\Psi$ is the canonical link function of the chosen GLM.  The desired method to do this is using a GLM with an underlying distribution (or family) of a Gaussian normal and a logit link.  However, python does not have the capacity to do it this way, so alternatives had to be tested and considered, including basic linear regression with an expit applied after step \ref{stepc} as well as using a logistic regression and taking the predicted probability to pull 1000 samples from a binomial distribution for each individual and regressing off that new data in the next step. 
-%% COME BACK HERE AND WRITE IN WHAT I END UP CHOOSING
-%% NEED TO UPDATE TO REFLECT THAT I ADDED INTERACTION TERMS 
+The given $\Psi$ is the canonical link function of the chosen GLM.  The desired method to do this is using a GLM with an underlying distribution (or family) of a Gaussian normal and a logit link.  However, python does not have the capacity to do it this way, so alternatives had to be tested and considered, including logistic regression, basic linear regression with an expit applied after step \ref{stepc} as well as using a logistic regression and taking the predicted probability to pull 1000 samples from a binomial distribution for each individual and regressing off that new data in the next step. However, through much testing, it was concluded that the best means to do this was using a GLM with an underlying binomial distribution and a logit link.  
 
 \item Let $ \hat{h}_{m-1}(\overline{L}_{m-1}, \overline{A}_{m-1}; \hat{\mathbf{\beta}}_{m-1}, \hat{\phi}_{m-1})$ be the predicted model derived in step \ref{modcreate}.  This implies that $(\hat{\mathbf{\beta}}'_{m-1}, \hat{\phi}_{m-1}')$ is a solution of 
 \begin{align}
@@ -193,7 +188,6 @@ where $a_{m-1}$ is our treatment value of interest, the lowercase letter indicat
 
 \item Repeat all above steps for the opposing treatment regimen of interest $\bar{a}'$ and take difference $\mathbb{E}[Y^{\bar{a}}] - \mathbb{E}[Y^{\bar{a}'}]$ to get the average causal treatment effect.  
 \end{enumerate}
-
 
 \section{Variance Estimate} \label{VarianceBootStrap}
 In order to compute the variance of the estimates obtained using the above two methods, a bootstrapping simulation was conducted.  This was done by repeating the above processes 1,000 times and collecting all of the resulting estimates.  The variance of these estimates was then obtained.  

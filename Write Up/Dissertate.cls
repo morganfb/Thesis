@@ -128,6 +128,7 @@
 
 % Endmatter
 \renewcommand{\setthesection}{\arabic{chapter}.A\arabic{section}}
+% \renewcommand{\setthesection}{\arabic{chapter}.B\arabic{section}}
 
 % References.
 \renewcommand\bibname{References}
