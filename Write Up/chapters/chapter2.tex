@@ -3,10 +3,10 @@
 \chapter{Methods} \label{Methods}
 
 
-\newthought{Two formal methods for estimating}, causal effect were used in this study: g-formula estimation and doubly robust estimation.  These two methods are developments of standardization and IP weighting as discussed in the previous section.  They were implemented and studied using simulated data according to the following methods.  
+\newthought{Two formal methods for estimating} causal effect were used in this study: g-formula estimation and doubly robust estimation.  These two methods are developments of standardization and IP weighting as discussed in the previous section.  They were implemented and studied using simulated data according to the following methods.  
 
 \section{Data Creation} \label{data}
-For the purposes of this study, a data generating algorithm was created to provide consistent and easily accessible data for many simulations.  The data generated was time-varying and sequentially randomized according to the following schematic.  
+Specifically for the purposes of this study, a data generating algorithm was engineered to provide consistent and easily accessible data for many simulations.  The data generated was time-varying and sequentially randomized according to the following schematic.  
 
 \begin{figure}[h!]
   \begin{displaymath}
@@ -35,22 +35,22 @@ The algorithm to generate datasets is as follows for each individual, of which 1
  \alpha_5 = 2.46365403 & 
 \end{tabular} 
 \end{align*}  
-These coefficients were created by pulling each from $\vec{\mathbf{\alpha}} \sim Uniform(-1.0, 1.0)$ and $\vec{\mathbf{\beta}} \sim Uniform(-1.0, 1.0)$.  The one change made was that $\alpha_5$ had 1.5 added to the randomly generated value to ensure that the underlying covariate had significant impact.  
+These coefficients were created by pulling each from $\vec{\mathbf{\alpha}},\vec{\mathbf{\beta}} \sim Uniform(-1.0, 1.0)$.  The one change made was that $\alpha_5$ had 1.5 added to the randomly generated value to ensure that the underlying covariate had significant impact for testing purposes.  
 
-\item Create the underlying confounder, $U_i$ from $U_i \sim Unif(0.1, 1)$ 
+\item Create the underlying confounder, $U_i$ from $U_i \sim Unif(0.1, 1)$. 
 \item Using the following logistic expressions, probabilities for each $L_{k,i}$ and $A_{k,i}$ can be obtained where $k$ is the time and $i$ is the individual, conditional on $\overline{L}_{k-1,i}$ and $\overline{A}_{k-1,i}$.  These probabilities are then used to obtain values for $L_{k,i}$ and $A_{k,i}$ using a binomial distribution with the respective probabilities.  
 \begin{align} 
-logitP[L_{k,i}] &= \alpha_0 + \alpha_1 \cdot L_{k-1,i} + \alpha_2 \cdot L_{k-2,i} + \alpha_3 A_{k-1,i} + \alpha_4 A_{k-2,i} + \alpha_5 U_i\\ 
-logit[A_{k,i}] &= \beta_0 + \beta_1 L_{k,i} + \beta_2 L_{k-1,i} + \beta_3 A_{k-1,i} + \beta_4 A_{k-2,i}
+Logit[L_{k,i}] &= \alpha_0 + \alpha_1 \cdot L_{k-1,i} + \alpha_2 \cdot L_{k-2,i} + \alpha_3 A_{k-1,i} + \alpha_4 A_{k-2,i} + \alpha_5 U_i\\ 
+Logit[A_{k,i}] &= \beta_0 + \beta_1 L_{k,i} + \beta_2 L_{k-1,i} + \beta_3 A_{k-1,i} + \beta_4 A_{k-2,i}
 \end{align} 
-Note that for low time values when history is limited, the above expressions are slightly modified as follows, 
+Note that for lower values of time when history is limited, the above expressions are slightly modified as follows, 
 \begin{align} 
-logitP[L_{0,i}] &= \alpha_0 + \alpha_5 U_i\\ 
-logit[A_{0,i}] &= \beta_0 + \beta_1 L_{k,i} \\
-logitP[L_{1,i}] &= \alpha_0 + \alpha_1 \cdot L_{k-1,i} + \alpha_3 A_{k-1,i}  + \alpha_5 U_i\\ 
-logit[A_{1,i}] &= \beta_0 + \beta_1 L_{k,i} + \beta_2 L_{k-1,i} + \beta_3 A_{k-1,i} 
+Logit[L_{0,i}] &= \alpha_0 + \alpha_5 U_i\\ 
+Logit[A_{0,i}] &= \beta_0 + \beta_1 L_{k,i} \\
+Logit[L_{1,i}] &= \alpha_0 + \alpha_1 \cdot L_{k-1,i} + \alpha_3 A_{k-1,i}  + \alpha_5 U_i\\ 
+Logit[A_{1,i}] &= \beta_0 + \beta_1 L_{k,i} + \beta_2 L_{k-1,i} + \beta_3 A_{k-1,i} 
 \end{align} 
-\item Obtain a final $Y_i$ value for each individual where $Y_i \sim \mathcal{N}(\mu = U, \sigma = 1)$ 
+\item Obtain a final $Y_i$ value for each individual where $Y_i \sim \mathcal{N}(\mu = U_i, \sigma = 1)$.  
 \end{enumerate} 
 
 Note that the final outcome $Y$ value is independent of $A$ and therefore, the treatment has no impact on the outcome.  This was done to ensure that the causal treatment effect would be zero and bias could be easily measured throughout the study.  
@@ -58,7 +58,7 @@ Note that the final outcome $Y$ value is independent of $A$ and therefore, the t
 
 %% Testing under the null of full treatment, but using data on time varying treatment 
 \section{Parametric G-formula} 
-Similar to IP weighting, parametric estimates can be obtained for standardized estimates.  An efficient method for doing this is the generalization of standardization to time-varying treatments and confounders, coined the g-formula method by Robins in 1986.\cite{robins1986new, wright2015international, hernan_robins_2016}  The method can be used for fixed and time-varying treatments in longitudinal studies, and it seeks to estimate the average causal effect of treatment, which can be estimated as 
+Similar to IP weighting, parametric estimates can be obtained for standardized estimates.  An efficient method for doing this is the generalization of standardization to time-varying treatments and confounders, coined the g-formula method by Robins in 1986.\cite{hernan_robins_2016, robins1986new, wright2015international}  The method can be used for fixed and time-varying treatments in longitudinal studies, and it seeks to estimate the average causal effect of treatment, which can be estimated as 
 \begin{align} 
 \mathbb{E}[Y^{\bar{a} = \bar{1}}] - \mathbb{E}[Y^{\bar{a} = \bar{0}}] 
 \end{align} 
@@ -67,16 +67,16 @@ where the respective $\bar{a} = \bar{1}$ and $\bar{a} = \bar{0}$ signify constan
 %% SINCE I CHANGED TO LOGISTIC, DOES THIS BECOME PRODUCT OF THE PROBABILITIES
 The g-formula seeks to calculate each standardized mean using the following, 
 \begin{align} \label{eq:3} 
-Logit[Y^{\bar{a}= \bar{1}}] &= \sum_{l_i} \mathbb{E} \big[Y \mid  \overline{L}_{t}, \overline{A}_{t} \big]\cdot \prod_{k=0}^t P[L_k = l_k \mid \overline{L}_{k-1}, \overline{A}_{k-1}]
+\mathbb{E}[Y^{\bar{a}= \bar{1}}] &= \sum_{l_i} Logit \big[Y \mid  \overline{L}_{t}, \overline{A}_{t} \big]\cdot \prod_{k=0}^t P[L_k = l_k \mid \overline{L}_{k-1}, \overline{A}_{k-1}]
 \end{align}
 where $\overline{L}_k = \{L_{0} = l_0, L_{1} = l_1,  \cdots, \; L_{k} = l_k\}$ and $\overline{A}_k = \{a_{0} = 1, a_{1} = 1,  \cdots, \; a_{k} = 1\}$ are the history of the treatment and covariate variables up to and including time $k$.  The equivalent formula can be derived for $ \mathbb{E}[Y^{\bar{a} = \bar{0}}]$.   
 
 %In expression \ref{eq:3}, the summation term is %% finish this sentence
 %% come back here to discuss more about why you would use this method, how it was developed, details from Jamie's original paper, etc
 
-One of the key reasons for using the g-formula method is that it is able to account for time-varying confounders which have feedback to each other.  This is equivalent to each $L_k$ being dependent on $A_{k-1}$.\cite{robins1986new}  In these scenarios, traditional methods for adjusting for the confounder, such as stratification, regression, and matching, may introduce bias; however, the g-formula method (as well as IP weighting) will not.\cite{wright2015international}  This is because these other methods are unable to estimate the joint effect of all treatment values $\{A_0, A_1 \dots A_K \}$ simultaneously and without bias.\cite{fitzmaurice2008longitudinal}  
+One of the key reasons for using the g-formula method is that it is able to account for time-varying confounders which have feedback to each other.  This is equivalent to each $L_k$ being dependent on $A_{k-1}$.\cite{robins1986new}  In these scenarios, traditional methods for adjusting for the confounder, such as stratification, regression, and matching may introduce bias. However, the g-formula method (as well as IP weighting) will not.\cite{wright2015international}  This is because these other methods are unable to estimate the joint effect of all treatment values $\{A_0, A_1 \dots A_K \}$ simultaneously and without bias.\cite{fitzmaurice2008longitudinal}  
 
-The g-formula method has been shown to have a smaller variance than IP weighting methods, but this comes with added parametric modeling assumptions.\cite{young2011comparative} The smaller variance is due to the fact that the g-formula uses maximum likelihood estimates, in comparioson to the semi-parametic estimator used in IP weighting. Furthermore, IP weighting does fault and become quite unstable under violations (or close violations) of the positivity assumption, due to division by a near zero probability $P[A_k=a_k \mid \overline{L}_k, \overline{A}_{k-1}]$.  
+The g-formula method has been shown to have a smaller variance than IP weighting methods, but this comes with added parametric modeling assumptions.\cite{young2011comparative} The smaller variance is due to the fact that the g-formula uses maximum likelihood estimates, in comparison to the semi-parametric estimator used in IP weighting. Furthermore, IP weighting does fault and become quite unstable under violations (or close violations) of the positivity assumption, due to division by a potentially near zero probability $P[A_k=a_k \mid \overline{L}_k, \overline{A}_{k-1}]$.  
 
 These improvements are, however, under the assumption of exchangeability, and the fact that the g-formula relies more heavily on parametric assumptions, which can lead to bias.  The presence of bias is dependent on the accuracy of the models for $Y$, $A_k$ and $L_k$ for all $k$.  IP weighting methods are also dependent on the accuracy of their models, just different models such as for $A_k$ conditional on $\overline{L}_k, \overline{A}_{k-1}$.  
 
@@ -92,13 +92,12 @@ The method is performed in several steps, as follows
 In this case, the following models were chosen for $Y \mid  \overline{A}_t, \overline{L}_t$ and $L_k \mid \overline{L}_{k-1}, \overline{A}_{k-1}$, 
 \begin{align} 
 Logit \big[Y \mid \overline{A}_t, \overline{L}_t \big] &= \theta_{0} + \theta_1 A_{t} + \cdots + \theta_j A_0 + \theta_{j+1} L_t + \cdots + \theta_{j+k} L_0 \label{eq:4} \\ 
-logit[L_k \mid \overline{L}_{k-1}, \overline{A}_{k-1}] &= \gamma_0 + \gamma_1 L_{k-1} + \gamma_2 L_{k-2} + \gamma_3 L_{k-3}  + \gamma_4 A_{k-1} + \gamma_5 A_{k-2} + \gamma_6 A_{k-3} \label{eq:5} 
+Logit[L_k \mid \overline{L}_{k-1}, \overline{A}_{k-1}] &= \gamma_0 + \gamma_1 L_{k-1} + \gamma_2 L_{k-2} + \gamma_3 L_{k-3}  + \gamma_4 A_{k-1} + \gamma_5 A_{k-2} + \gamma_6 A_{k-3} \label{eq:5} 
 \end{align} 
 A time lag of only three historical values was deemed sufficient for the model of $L_k$ because each of the $L_k$ are dependent on previous time history so three historical values should be sufficient to capture that. 
 %% PUT SOME REASONS IN HERE DISCUSSING HOW THESE MODELS WERE CHOSEN... SHOULD I BE USING QUADRATIC TERMS OR INTERACTION TERMS??!?!?!?!
 
 
-\vspace{1cm}
 Note that for initial time points where there was insufficient history for the full model, smaller models were created as follows 
 \begin{align} 
 Logit[L_1 \mid L_0, A_0]  &= \gamma'_0 + \gamma'_1 L_0 +  \gamma'_2 A_0 \label{eq:6} \\
@@ -113,11 +112,11 @@ Using expressions \ref{eq:4} through \ref{eq:7}, a Monte Carlo simulation must b
 \item Select the $L_0$ value from a random individual from $i \in  \{ 1, \dots, n \}$. \label{step1}  
 \item Obtain a probability of $L_1$ using this $L_0$ and $a_0$ in expression \ref{eq:6} and then obtain a sample value of $L_1$ by pulling from a binomial distribution.  
 \item Obtain a probability of $L_2$ using the $L_0, L_1, a_0$, and $a_1$ in expression \ref{eq:7} and then obtain a sample value of $L_2$ by pulling from a binomial distribution.  
-\item Continue the same process until time $K$ using expression \ref{eq:5} to get a full history $\overline{L}_K$ and all the probabilities $P[L_k = l_k \mid  \overline{L}_{k-1}, \overline{A}_{k-1}]$ 
-\item Using expression \ref{eq:4}, $\bar{a}$ and the above solved for $\overline{L}_K$, calculate $P \big[Y \mid \overline{A}_K, \overline{L}_K \big]$ 
+\item Continue the same process until time $K$ using expression \ref{eq:5} to get a full history $\overline{L}_K$ and all the probabilities $P[L_k = l_k \mid  \overline{L}_{k-1}, \overline{A}_{k-1}]$.  
+\item Using expression \ref{eq:4}, $\bar{a}$ and the above solved for $\overline{L}_K$, calculate $P \big[Y \mid \overline{A}_K, \overline{L}_K \big]$.  
 \item Take the product of all the probabilities $P[L_k = l_k \mid  \overline{L}_{k-1}, \overline{A}_{k-1}]$ for $k = 0, \dots, K$ and $\mathbb{P} \big[Y \mid \overline{A}_K, \overline{L}_K \big]$ to get a final estimate.  \label{laststep}
 \item Repeat steps (\ref{step1}) through (\ref{laststep}) for as many simulations as desired.  In this study, 10,000 individuals were simulated.    
-\item Take the mean of all simulation values to obtain $\mathbb{E}[Y^{\bar{a}}]$ 
+\item Take the mean of all simulation values to obtain $\mathbb{E}[Y^{\bar{a}}]$.  
 \item Repeat all above steps for the opposing treatment regimen of interest $\bar{a}'$ and take the difference $\mathbb{E}[Y^{\bar{a}}] - \mathbb{E}[Y^{\bar{a}'}]$ to get the average causal treatment effect.  
 \end{enumerate}
 \end{enumerate} 
@@ -138,12 +137,12 @@ The method can be performed recursively using the following steps,
 logit\{P[A_{m,i} = 1 \mid \overline{l}_{m,i}, \overline{a}_{m-1,i}; \mathbf{\alpha}]\} &= w_m [\overline{l}_{m,i}, \overline{a}_{m-1,i}; \mathbf{\alpha}]
 \end{align} 
 
-This model can be rewritten as the following.  
+This model can be rewritten as the following,  
 \begin{align} 
 f(A_m \mid \overline{L}_m, \overline{A}_{m-1}; \hat{\mathbf{\alpha}}) = \alpha_{0} + \alpha_{1} \cdot L_{m} + \alpha_{2} \cdot A_{m-1} + \alpha_{3} \cdot L_{m-1} + \alpha_{4} \cdot L_{m-2} + \alpha_{5} \cdot A_{m-2} 
 \end{align} 
 
-\item Set $\hat{T}_{K+1} = Y$ 
+\item Set $\hat{T}_{K+1} = Y$.  
 
 \item Recurse for $m = K+1, \dots, 2$ 
 \begin{enumerate}
@@ -157,7 +156,7 @@ which gives the conditional expectation of
 \end{align} 
 The known function $s_{m}$ is specified on a case by case basis, and in this case was chosen to be as follows for the unknown parameter $\mathbf{\beta}$.  
 \begin{align}
-s_{m}(\overline{L}_{m}, \overline{A}_{m};\mathbf{\beta}_{m}) = \theta_0 + \theta_1 L_{m} +\theta_2 A_{m} + \theta_3 L_{m-1} +\theta_4 A_{m-1}+ \theta_5 L_{m-2} +\theta_6 A_{m-2}
+s_{m}(\overline{L}_{m}, \overline{A}_{m};\mathbf{\beta}_{m}) = \beta_0 + \beta_1 L_{m} +\beta_2 A_{m} + \beta_3 L_{m-1} +\beta_4 A_{m-1}+ \beta_5 L_{m-2} +\beta_6 A_{m-2}
 \end{align}
 
 Furthermore, the function $\overline{\pi}_m(\hat{\mathbf{\alpha}})$ is the propensity score model and is specified as follows

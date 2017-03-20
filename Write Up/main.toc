@@ -8,25 +8,25 @@
 \contentsline {section}{\numberline {2.3}Identifiability Assumptions}{10}{section.2.3}
 \contentsline {subsection}{\numberline {2.3.1}Consistency}{10}{subsection.2.3.1}
 \contentsline {subsection}{\numberline {2.3.2}Exchangeability}{11}{subsection.2.3.2}
-\contentsline {subsection}{\numberline {2.3.3}Positivity}{12}{subsection.2.3.3}
+\contentsline {subsection}{\numberline {2.3.3}Positivity}{13}{subsection.2.3.3}
 \contentsline {section}{\numberline {2.4}IP Weighting}{13}{section.2.4}
-\contentsline {subsection}{\numberline {2.4.1}Parametric Estimates}{14}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.1}Parametric Estimates}{15}{subsection.2.4.1}
 \contentsline {section}{\numberline {2.5}Standardization}{15}{section.2.5}
-\contentsline {chapter}{\numberline {3}Methods}{16}{chapter.3}
-\contentsline {section}{\numberline {3.1}Data Creation}{17}{section.3.1}
-\contentsline {section}{\numberline {3.2}Parametric G-formula}{18}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Protocol}{20}{subsection.3.2.1}
-\contentsline {section}{\numberline {3.3}Doubly Robust Estimation}{22}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Protocol}{23}{subsection.3.3.1}
-\contentsline {section}{\numberline {3.4}Variance Estimate}{25}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}Protocol}{25}{subsection.3.4.1}
-\contentsline {chapter}{\numberline {4}Results Discussion}{27}{chapter.4}
-\contentsline {section}{\numberline {4.1}Natural Course}{28}{section.4.1}
-\contentsline {section}{\numberline {4.2}Simulation of the Two Methods}{29}{section.4.2}
-\contentsline {section}{\numberline {4.3}Confirming Double Robustness}{31}{section.4.3}
-\contentsline {section}{\numberline {4.4}Testing Multiple Robustness}{34}{section.4.4}
-\contentsline {chapter}{\numberline {5}Conclusion}{36}{chapter.5}
-\contentsline {chapter}{Appendix \numberline {A}Code}{38}{Appendix.1.A}
-\contentsline {section}{\numberline {A.1}\ignorespaces Python Functions}{39}{section.1.A.1}
-\contentsline {chapter}{Appendix \numberline {B}Extra Math}{48}{Appendix.1.B}
-\contentsline {chapter}{References}{51}{chapter*.14}
+\contentsline {chapter}{\numberline {3}Methods}{17}{chapter.3}
+\contentsline {section}{\numberline {3.1}Data Creation}{18}{section.3.1}
+\contentsline {section}{\numberline {3.2}Parametric G-formula}{19}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Protocol}{21}{subsection.3.2.1}
+\contentsline {section}{\numberline {3.3}Doubly Robust Estimation}{23}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Protocol}{24}{subsection.3.3.1}
+\contentsline {section}{\numberline {3.4}Variance Estimate}{26}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Protocol}{26}{subsection.3.4.1}
+\contentsline {chapter}{\numberline {4}Results Discussion}{28}{chapter.4}
+\contentsline {section}{\numberline {4.1}Natural Course}{29}{section.4.1}
+\contentsline {section}{\numberline {4.2}Simulation of the Two Methods}{30}{section.4.2}
+\contentsline {section}{\numberline {4.3}Confirming Double Robustness}{32}{section.4.3}
+\contentsline {section}{\numberline {4.4}Testing Multiple Robustness}{35}{section.4.4}
+\contentsline {chapter}{\numberline {5}Conclusion}{37}{chapter.5}
+\contentsline {chapter}{Appendix \numberline {A}Code}{39}{Appendix.1.A}
+\contentsline {section}{\numberline {A.1}\ignorespaces Python Functions}{40}{section.1.A.1}
+\contentsline {chapter}{Appendix \numberline {B}Extra Math}{49}{Appendix.1.B}
+\contentsline {chapter}{References}{52}{chapter*.14}
