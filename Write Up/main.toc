@@ -1,32 +1,32 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
-\contentsline {chapter}{\numberline {2}Background}{5}{chapter.2}
-\contentsline {section}{\numberline {2.1}Causal Effects}{6}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Time Varying Data}{8}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}Deterministic Treatment Regimens}{8}{subsection.2.1.2}
-\contentsline {subsection}{\numberline {2.1.3}Sequentially Randomized Trial}{9}{subsection.2.1.3}
-\contentsline {section}{\numberline {2.2}Confounding}{9}{section.2.2}
-\contentsline {section}{\numberline {2.3}Identifiability Assumptions}{10}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}Consistency}{10}{subsection.2.3.1}
-\contentsline {subsection}{\numberline {2.3.2}Exchangeability}{11}{subsection.2.3.2}
-\contentsline {subsection}{\numberline {2.3.3}Positivity}{13}{subsection.2.3.3}
-\contentsline {section}{\numberline {2.4}IP Weighting}{13}{section.2.4}
-\contentsline {subsection}{\numberline {2.4.1}Parametric Estimates}{15}{subsection.2.4.1}
-\contentsline {section}{\numberline {2.5}Standardization}{15}{section.2.5}
-\contentsline {chapter}{\numberline {3}Methods}{17}{chapter.3}
-\contentsline {section}{\numberline {3.1}Data Creation}{18}{section.3.1}
-\contentsline {section}{\numberline {3.2}Parametric G-formula}{19}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Protocol}{21}{subsection.3.2.1}
-\contentsline {section}{\numberline {3.3}Doubly Robust Estimation}{23}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Protocol}{24}{subsection.3.3.1}
-\contentsline {section}{\numberline {3.4}Variance Estimate}{26}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}Protocol}{26}{subsection.3.4.1}
-\contentsline {chapter}{\numberline {4}Results Discussion}{28}{chapter.4}
-\contentsline {section}{\numberline {4.1}Natural Course}{29}{section.4.1}
-\contentsline {section}{\numberline {4.2}Simulation of the Two Methods}{30}{section.4.2}
-\contentsline {section}{\numberline {4.3}Confirming Double Robustness}{32}{section.4.3}
-\contentsline {section}{\numberline {4.4}Testing Multiple Robustness}{35}{section.4.4}
-\contentsline {chapter}{\numberline {5}Conclusion}{37}{chapter.5}
-\contentsline {chapter}{Appendix \numberline {A}Code}{39}{Appendix.1.A}
-\contentsline {section}{\numberline {A.1}\ignorespaces Python Functions}{40}{section.1.A.1}
-\contentsline {chapter}{Appendix \numberline {B}Extra Math}{49}{Appendix.1.B}
-\contentsline {chapter}{References}{52}{chapter*.13}
+\contentsline {chapter}{\numberline {2}Background}{6}{chapter.2}
+\contentsline {section}{\numberline {2.1}Causal Effects}{7}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Time Varying Data}{9}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Deterministic Treatment Regimens}{9}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}Sequentially Randomized Trial}{10}{subsection.2.1.3}
+\contentsline {section}{\numberline {2.2}Confounding}{10}{section.2.2}
+\contentsline {section}{\numberline {2.3}Identifiability Assumptions}{11}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Consistency}{11}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Exchangeability}{12}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.3}Positivity}{14}{subsection.2.3.3}
+\contentsline {section}{\numberline {2.4}IP Weighting}{14}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Parametric Estimates}{16}{subsection.2.4.1}
+\contentsline {section}{\numberline {2.5}Standardization}{16}{section.2.5}
+\contentsline {chapter}{\numberline {3}Methods}{18}{chapter.3}
+\contentsline {section}{\numberline {3.1}Data Creation}{19}{section.3.1}
+\contentsline {section}{\numberline {3.2}Parametric G-formula}{20}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Protocol}{22}{subsection.3.2.1}
+\contentsline {section}{\numberline {3.3}Doubly Robust Estimation}{24}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Protocol}{25}{subsection.3.3.1}
+\contentsline {section}{\numberline {3.4}Variance Estimate}{27}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Protocol}{27}{subsection.3.4.1}
+\contentsline {chapter}{\numberline {4}Results Discussion}{29}{chapter.4}
+\contentsline {section}{\numberline {4.1}Natural Course}{30}{section.4.1}
+\contentsline {section}{\numberline {4.2}Simulation of the Two Methods}{31}{section.4.2}
+\contentsline {section}{\numberline {4.3}Confirming Double Robustness}{33}{section.4.3}
+\contentsline {section}{\numberline {4.4}Testing Multiple Robustness}{36}{section.4.4}
+\contentsline {chapter}{\numberline {5}Conclusion}{38}{chapter.5}
+\contentsline {chapter}{Appendix \numberline {A}Code}{40}{Appendix.1.A}
+\contentsline {section}{\numberline {A.1}\ignorespaces Python Functions}{41}{section.1.A.1}
+\contentsline {chapter}{Appendix \numberline {B}Extra Math}{50}{Appendix.1.B}
+\contentsline {chapter}{References}{53}{chapter*.13}

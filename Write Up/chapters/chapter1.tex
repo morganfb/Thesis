@@ -2,16 +2,16 @@
 
 \chapter{Background}
 
-%% FIGURE OUT HOW TO START HTIS CHAPTER HERE 
-\newthought{A traditional understanding of causation} comes from the field of medicine, where researchers can perform a controlled experiment to prove causation.  This type of study contains two sample groups, one which receives no treatment (the placebo group) and one which receives the treatment (the treatment group).  Individuals are randomly allocated into one group, and by comparing the outcome of these two groups, the researchers can demonstrate whether the outcome for patients receiving treatment differs significantly from the controls.  By quantifying the difference in outcomes between the groups, researchers can demonstrate an association between treatment and outcome.  However, because of the randomized nature of the trial, association is causation.\footnote{This idea is discussed further in Section \ref{assumptions}.}\cite{hernan2006estimating}  
+\newthought{The sequentially randomized} clinical trial discussed in the Introduction is helpful to illustrate the circumstances under which the g-formula and doubly robust estimators can be utilized.  These methods have several assumptions which must be satisfied in order for their results to be valid.  Firstly, 
+
+
 
 \section{Causal Effects} 
-
 To translate this idea into statistical terms, some notation must be introduced.  The random variable $A$ represents the treatment status, where a value of $1$ indicates treated and a value of $0$ indicates untreated.  A fixed $A$, which has constant treatment over time, is written as $A_i$ for an individual $i \in \{0,1,2,\dots n\}$ with $n$ the total number of individuals.\footnote{Non-fixed $A$ representations are common and discussed in greater detail in Section \ref{Time-varying}.} The random variable $Y$ is the outcome variable, often with a value of $0$ indicating survival and a value of $1$ indicating death.  These interpretations of $A$ and $Y$ correspond to the above understanding of causation studies, but for various causal inference studies, the form of $Y$ and $A$ in particular can change depending on the question of interest.  For example, $Y$ can be a continuous variable, such as the weight difference of an individual in a weight loss trial or the change in HDL levels in a cholesterol study. 
 
-To study the causal effect of $A$ on $Y$, the desired value is the difference in $Y$ under the varying conditions of $A$.  Notationally, this is the difference between $Y^{\, a=1}$ \footnote{Note that lowercase letters signify possible values of the random variable, in comparison to uppercase letters which represent actual observed values},  the outcome that would be observed under treatment, and $Y^{\, a=0}$, the outcome that would be observed under no treatment.  This is in comparison to the observed outcome of $Y$ or $Y^A$.  
+To study the causal effect of $A$ on $Y$, the desired value is the difference in $Y$ under the varying conditions of $A$.  Notationally, this is the difference between $Y^{\, a=1}$ \footnote{Note that lowercase letters signify possible values of the random variable, in comparison to uppercase letters which represent actual observed values}, the outcome that would be observed under treatment, and $Y^{\, a=0}$, the outcome that would be observed under no treatment.  This is in comparison to the observed outcome of $Y$ or $Y^A$.  
 
-A causal effect can be seen on an individual level if the difference $\; Y_i^{\, a=1} \neq Y_i^{\, a=0}$ is signifcant.  By considering how each individual's responses to varying treatments differ, causation (or lack thereof) can easily be determined using paired differences of the form 
+A causal effect can be seen on an individual level if the difference $\; Y_i^{\, a=1} \neq Y_i^{\, a=0}$ is significant.  By considering how each individual's responses to varying treatments differ, causation (or lack thereof) can easily be determined using paired differences of the form 
 \begin{align} \; Y_i^{\, a=1} - Y_i^{\, a=0}\end{align} 
 These differences would be tested against the null hypothesis of zero difference in outcome for varying treatments.  
 
@@ -27,7 +27,6 @@ Not all treatment regimens consist of constant treatment over a set period of ti
 
 \subsection{Deterministic Treatment Regimens} 
 This time-varying framework of the treatment variable can also be considered for the covariate, $L$.  From this, a dynamic treatment strategy can also be created, such that each possible realization $\bar{a}_{k}$ is dependent on the treatment and covariate history, $\overline{L}_k$ and $\overline{A}_{k-1}$.  This can be written as a set of functions $\{g_k (\bar{a}_{k-1}, \bar{l}_k )\}$ where $g_k$ is the function making the treatment decision.  
-
 
 \subsection{Sequentially Randomized Trial} 
 The sequentially randomized trial is a specific type of deterministic treatment regimen is , in which a subject's treatment is chosen at each time from an associated density $f (a_k \mid \bar{l}_k, \bar{a}_{k-1})$ for $\bar{a}_k \in \overline{\mathcal{A}}_k$ where $\overline{\mathcal{A}}_k$ is the support of $\overline{A}_k$ in time period $k$.\cite{young2011comparative}  In this type of randomized trial, each $A_k$ for all subjects is chosen as an independent random draw from this type of distribution density.  Sequentially randomized trials guarantee the identifiability assumptions of exchangeability and consistency to be discussed in Section \ref{assumptions}.  This is significantly important because the g-formula and doubly robust estimators are the only methods which can derive causal effect for data with a sequentially randomized trial, particularly important considering how frequently treatments are given in a sequentially randomized fashion in modern medicine.
