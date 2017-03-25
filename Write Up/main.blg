@@ -9,51 +9,52 @@ A level-1 auxiliary file: chapters/conclusion.aux
 A level-1 auxiliary file: chapters/appendixA.aux
 The style file: apalike2.bst
 A level-1 auxiliary file: endmatter/colophon.aux
-Illegal, another \bibstyle command---line 44 of file main.aux
+Illegal, another \bibstyle command---line 49 of file main.aux
  : \bibstyle
  :          {apalike2}
 I'm skipping whatever remains of this command
 Database file #1: references.bib
+Warning--empty journal in drugapproval
 Warning--empty journal in wright2015international
-You've used 12 entries,
+You've used 22 entries,
             2229 wiz_defined-function locations,
-            594 strings with 6396 characters,
-and the built_in function-call counts, 4928 in all, are:
-= -- 481
-> -- 208
-< -- 10
-+ -- 74
-- -- 70
-* -- 426
-:= -- 853
-add.period$ -- 35
-call.type$ -- 12
-change.case$ -- 91
-chr.to.int$ -- 12
-cite$ -- 13
-duplicate$ -- 180
-empty$ -- 342
-format.name$ -- 94
-if$ -- 957
+            656 strings with 7911 characters,
+and the built_in function-call counts, 8465 in all, are:
+= -- 835
+> -- 306
+< -- 22
++ -- 106
+- -- 100
+* -- 693
+:= -- 1464
+add.period$ -- 64
+call.type$ -- 22
+change.case$ -- 155
+chr.to.int$ -- 22
+cite$ -- 24
+duplicate$ -- 338
+empty$ -- 605
+format.name$ -- 138
+if$ -- 1663
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 15
-newline$ -- 62
-num.names$ -- 36
-pop$ -- 85
+missing$ -- 25
+newline$ -- 111
+num.names$ -- 66
+pop$ -- 135
 preamble$ -- 1
-purify$ -- 94
+purify$ -- 158
 quote$ -- 0
-skip$ -- 139
+skip$ -- 275
 stack$ -- 0
-substring$ -- 355
-swap$ -- 20
-text.length$ -- 1
+substring$ -- 602
+swap$ -- 50
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 66
-warning$ -- 1
-while$ -- 41
+type$ -- 126
+warning$ -- 2
+while$ -- 74
 width$ -- 0
-write$ -- 153
+write$ -- 278
 (There was 1 error message)
