@@ -16,7 +16,7 @@ Specifically for the purposes of this study, a data generating algorithm was eng
         & & & & & \ar[lllllu] \ar[lllu]  \ar[lu] \mathbb{U}  \ar[ruu]  & 
         }
 \end{displaymath}
-  \centering{\caption{Diagram of conditional dependencies in data generating process.}}
+  \centering{\caption{Diagram of conditional dependencies in data generating process.} \label{schematic}}
  \end{figure}
 
 
@@ -50,7 +50,7 @@ Logit[A_{0,i}] &= \beta_0 + \beta_1 L_{k,i} \\
 Logit[L_{1,i}] &= \alpha_0 + \alpha_1 \cdot L_{k-1,i} + \alpha_3 A_{k-1,i}  + \alpha_5 U_i\\ 
 Logit[A_{1,i}] &= \beta_0 + \beta_1 L_{k,i} + \beta_2 L_{k-1,i} + \beta_3 A_{k-1,i} 
 \end{align} 
-\item Obtain a final $Y_i$ value for each individual where $Y_i \sim \mathcal{N}(\mu = U_i, \sigma = 1)$.  
+\item Obtain a final $Y_i$ value for each individual where $Y_i \sim Binom(p=expit(0.5+U_i))$.  \label{datastep4} 
 \end{enumerate} 
 
 Note that the final outcome $Y$ value is independent of $A$ and therefore, the treatment has no impact on the outcome.  This was done to ensure that the causal treatment effect would be zero and bias could be easily measured throughout the study.  

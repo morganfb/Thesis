@@ -33,9 +33,14 @@ The results of the natural course in Table \ref{naturalcourse} show that the mod
 \section{Simulation of the Two Methods} 
 As discussed in Section \ref{VarianceBootStrap}, a simulation of 1,000 iterations was performed.  Each iteration of this simulation consisted of creating a new dataset and obtaining both the g-formula estimate and the doubly robust estimate for the causal treatment effect.  
 
-The results of these simulations can be seen below in Table \ref{simdata} and Figure \ref{bighistogram}.  Both indicate that the doubly robust method has a more precise average causal treatment effect across simulations.\footnote{As discussed in Section \ref{data}, no effect of $A$ on $Y$ was included in this study, so the true causal treatment effect should be zero.}  However, this improvement comes with higher variance and bias, as shown in the wider confidence interval and the larger spread on the histogram.  
+\subsection{Under the Null Hypothesis of No Treatment Effect} 
+This was first tested under the null hypothesis of no treatment effect, as detailed by the data generating algorithm in Section \ref{data}.  The results of these simulations can be seen below in Table \ref{simdata} and Figure \ref{bighistogram}.  Both indicate that the doubly robust method has a more precise average causal treatment effect across simulations.\footnote{As discussed in Section \ref{data}, no effect of $A$ on $Y$ was included in this study, so the true causal treatment effect should be zero.}  However, this improvement comes with higher variance and bias, as shown in the wider confidence interval and the larger spread on the histogram.  
 
-Furthermore, the relationship between the data and the causal effect estimates was examined in Figure \ref{correlation}.  Of note, the doubly robust method is able to capture correlation between $Y$ and $A$ which the g-formula method does not, an important indicator that it successfully picks up treatment effect.  This likely contributes to the more precise causal treatment effect measure.  
+\begin{figure}[h!]
+\includegraphics[width = \linewidth]{figures/overlaid_histogram.jpeg}
+\caption{A histogram showing the results of the 1,000 simulations.  The y-axis shows frequency of value and the x-axis shows the causal treatment effect value measured.}
+\label{bighistogram}
+\end{figure} 
 
 \begin{table}[h!]
 \centering
@@ -46,20 +51,50 @@ G-Formula & 0.0033 & 0.016 & 0.00024&(-0.00063,0.00128)\\ \\
 Doubly Robust & 0.00026 & 0.031& 0.00079 & (-0.00149, 0.00212)
 \end{tabular} \\
 \centering
-\caption{A table presenting the results of 1,000 data simulations, within which the g-formula and doubly robust estimators of average causal effect were each obtained.  Average causal treatment effect is the mean of the causal treatment effect across the simulations.  The variance and confidence intervals reflect the variability in that causal treatment effect over 1,000 simulations. \label{simdata}}
+\caption{A table presenting the results of 1,000 data simulations under the null hypothesis, within which the g-formula and doubly robust estimators of average causal effect were each obtained.  Average causal treatment effect is the mean of the causal treatment effect across the simulations.  The variance and confidence intervals reflect the variability in that causal treatment effect over 1,000 simulations. \label{simdata}}
 \end{table}
 
-\begin{figure}[h!]
-\includegraphics[width = \linewidth]{figures/overlaid_histogram.jpeg}
-\caption{A histogram showing the results of the 1,000 simulations.  The y-axis shows frequency of value and the x-axis shows the causal treatment effect value measured.}
-\label{bighistogram}
-\end{figure} 
+
+Furthermore, the relationship between the data and the causal effect estimates was examined in Figure \ref{correlation}.  Of note, the doubly robust method is able to capture correlation between $Y$ and $A$ which the g-formula method does not, an important indicator that it successfully picks up treatment effect.  This likely contributes to the more precise causal treatment effect measure.  
+
+
 
 \begin{figure}[h!]
-\includegraphics[width = 1.1\linewidth]{figures/correlation.png}
+\includegraphics[width = \linewidth]{figures/correlation.png}
 \caption{Various plots showing the relationship between underlying data correlations and estimated causal treatment effects using the two methods.  Each data point is representative of one dataset.  The same 1,000 datasets are used for each effect estimation.}
 \label{correlation}
 \end{figure}
+
+\subsection{Under the Alternative Hypothesis of Treatment} 
+The above simulation was also tested under an alternative hypothesis of some treatment effect.  The effect was induced in the data creation algorithm by changing step \ref{datastep4} to instead be $Y_i \sim Binom(p = expit(-1+U_i + A_K + \mathbb{E}(A)))$ where $\mathbb{E}(A) = \frac{1}{K} \sum_{i=1}^K A_i $ is the computational mean of the treatments throughout history.  This was in order to guarantee that $Y$ is dependent on $\overline{A}$, inducing a significant treatment effect.  
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{c | c c c }
+Method & \shortstack{Average Causal \\ Treatment Effect} & \shortstack{Variance of \\ Effect Estimate} & \shortstack{95\% Conf. Int.\\ of Effect Estimate} \\ 
+\hline \\
+G-Formula & 4.32$e^{-8}$ & 1.69$e^{-14}$ &(3.5$e^{-8}$,5.13$e^{-8}$) \\ \\ 
+Doubly Robust & 0.186 & 0.0037  & (0.182, 0.19)
+\end{tabular} \\
+\centering
+\caption{A table presenting the results of 1,000 data simulations under the alternative hypothesis, over which the g-formula and doubly robust estimators of average causal effect were each obtained.\label{simdata2}}
+\end{table}
+
+This second set of simulation testing was performed in order to determine if the methods break under the alternative hypothesis.  Unfortunately, because of the way the treatment effect can be induced, it is impossible to get a confirmed unbiased measure for the treatment effect, so no biases could be calculated.  However, the results do present a few interesting findings.  Firstly, the results in Table \ref{simdata2} and Figure \ref{correlation2} show that there appears to be significant issues with the g-formula, notably that the estimates are all zero with extreme precision and no variance.  Considering that the method calculated quite similar, and seemingly more accurate, estimates under the null hypothesis, these results indicate a breakage in the g-formula method.  This is in line with the fact that under the null, the g-formula was capturing almost none of the correlation between $Y$ and $A$.  
+%% CONFIRM WHAT IS GOING ON HERE 
+
+On the other hand, the doubly robust estimator appears to display a reasonable but unclear how accurate estimate for the causal effect.  Furthermore, Figure \ref{correlation2} demonstrates that under the alternative, this method is again strongly capturing correlation between $Y$ and $A$.  
+
+\begin{figure}[h!]
+\includegraphics[width = \linewidth]{figures/correlation2.png}
+\caption{Various plots showing the relationship between underlying data correlations and estimated causal treatment effects using the two methods.  Each data point is representative of one dataset.  The same 1,000 datasets are used for each effect estimation.}
+\label{correlation2}
+\end{figure}
+
+
+
+
+
 
 \newpage
 \section{Confirming Double Robustness} 

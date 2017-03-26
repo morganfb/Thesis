@@ -97,6 +97,13 @@ Rubin, D.~B. (1978).
 \newblock Bayesian inference for causal effects: The role of randomization.
 \newblock {\em The Annals of statistics}, (pp.\ 34--58).
 
+\bibitem[Rubin, 1980]{rubin1980randomization}
+Rubin, D.~B. (1980).
+\newblock Randomization analysis of experimental data: The fisher randomization
+  test comment.
+\newblock {\em Journal of the American Statistical Association}, 75(371),
+  591--593.
+
 \bibitem[Rubin, 1984]{rubin1984william}
 Rubin, D.~B. (1984).
 \newblock William g. cochran?s contributions to the design, analysis, and
@@ -113,6 +120,12 @@ Splawa-Neyman, J., Dabrowska, D.~M., Speed, T.~P., et~al. (1990).
 VanderWeele, T.~J. (2009).
 \newblock Concerning the consistency assumption in causal inference.
 \newblock {\em Epidemiology}, 20(6), 880--883.
+
+\bibitem[VanderWeele \& Arah, 2011]{vanderweele2011unmeasured}
+VanderWeele, T.~J. \& Arah, O.~A. (2011).
+\newblock Unmeasured confounding for general outcomes, treatments, and
+  confounders: bias formulas for sensitivity analysis.
+\newblock {\em Epidemiology (Cambridge, Mass.)}, 22(1), 42.
 
 \bibitem[Wright, 2015]{wright2015international}
 Wright, J.~D. (2015).
