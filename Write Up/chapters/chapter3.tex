@@ -65,7 +65,7 @@ Furthermore, the relationship between the data and the causal effect estimates w
 \label{correlation}
 \end{figure}
 
-\subsection{Under the Alternative Hypothesis of Treatment} 
+\subsection{Under the Alternative Hypothesis of Treatment} \label{alternative}
 The above simulation was also tested under an alternative hypothesis of some treatment effect.  The effect was induced in the data creation algorithm by changing step \ref{datastep4} to instead be $Y_i \sim Binom(p = expit(-1+U_i + A_K + \mathbb{E}(A)))$ where $\mathbb{E}(A) = \frac{1}{K} \sum_{i=1}^K A_i $ is the computational mean of the treatments throughout history.  This was in order to guarantee that $Y$ is dependent on $\overline{A}$, inducing a significant treatment effect.  
 
 \begin{table}[h!]

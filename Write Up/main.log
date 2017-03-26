@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.5.22)  25 MAR 2017 23:16
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.5.22)  26 MAR 2017 13:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1707,19 +1707,13 @@ sumption no individual’s treatment impacts the outcome of any other
  []
 
 LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(1)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 48.
-[14] [15] [16] [17]
-Overfull \hbox (3.4711pt too wide) in paragraph at lines 97--98
-\EU1/EBGaramond12-Regular.otf(1)/bx/n/10.95 Many of the concerns discussed abov
-e can be addressed by using the method of IP weighting through 
- []
-
-[18] [19]) [20]
+(Font)              scaled to size 6.0pt on input line 50.
+[14] [15] [16] [17] [18] [19] [20]) [21]
 \openout2 = `chapters/chapter2.aux'.
 
  (./chapters/chapter2.tex
 Chapter 3.
-[21
+[22
 
 
 
@@ -1753,10 +1747,10 @@ LaTeX Font Warning: Font shape `EU1/Lato-Reg.ttf(1)/m/it' undefined
 (Font)              using `EU1/Lato-Reg.ttf(1)/m/n' instead on input line 25.
 
 
-LaTeX Font Warning: Command \normalsize invalid in math mode on input line 37.
+LaTeX Font Warning: Command \normalsize invalid in math mode on input line 43.
 
 
-LaTeX Font Warning: Command \normalsize invalid in math mode on input line 37.
+LaTeX Font Warning: Command \normalsize invalid in math mode on input line 43.
 
 .................................................
 . fontspec info: "defining-font"
@@ -1775,23 +1769,23 @@ xt;+onum;+liga;mapping=tex-text;+tnum;"
 xt;+onum;+liga;mapping=tex-text;+tnum;+smcp;"
 .................................................
 LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(3)/m/n' will be
-(Font)              scaled to size 10.95pt on input line 37.
+(Font)              scaled to size 10.95pt on input line 43.
 
 LaTeX Font Warning: Font shape `EU1/EBGaramond12-Regular.otf(3)/m/it' undefined
 
 (Font)              using `EU1/EBGaramond12-Regular.otf(3)/m/n' instead on inpu
-t line 37.
+t line 43.
 
 LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(3)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 37.
+(Font)              scaled to size 8.0pt on input line 43.
 LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(3)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 37.
-[22] [23] [24] [25] [26] [27] [28] [29]) [30] [31]
+(Font)              scaled to size 6.0pt on input line 43.
+[23] [24] [25] [26] [27] [28] [29] [30] [31]) [32]
 \openout2 = `chapters/chapter3.aux'.
 
  (./chapters/chapter3.tex
 Chapter 4.
-[32
+[33
 
 
 
@@ -1802,7 +1796,7 @@ LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(3)/m/n' will be
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[33]
+[34]
 Underfull \hbox (badness 10000) in paragraph at lines 37--37
 [][][]\EU1/EBGaramond12-Regular.otf(1)/m/n/10 As discussed in Section [][]3.1[]
 [], no effect of $[]$ on $[]$ was included in this study, so the true causal tr
@@ -1822,16 +1816,16 @@ Overfull \hbox (8.63948pt too wide) in paragraph at lines 47--52
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[34]
+[35]
 File: figures/correlation.png Graphic file (type QTm)
- <use  "figures/correlation.png" > [35] [36]
+ <use  "figures/correlation.png" > [36] [37]
 File: figures/correlation2.png Graphic file (type QTm)
 
 <use  "figures/correlation2.png" >
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[37] [38]
+[38] [39]
 LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(3)/m/it' will be
 (Font)              scaled to size 12.0pt on input line 125.
 
@@ -1843,15 +1837,15 @@ File: figures/boxplot.jpg Graphic file (type QTm)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[39]
+[40]
 
-LaTeX Warning: Text page 40 contains only floats.
+LaTeX Warning: Text page 41 contains only floats.
 
 
 Overfull \vbox (0.51651pt too high) has occurred while \output is active []
 
 
-[40]
+[41]
 File: figures/multiplerobust.png Graphic file (type QTm)
  <use  "figures/multiplerobust.png" >
 File: figures/Tukey.png Graphic file (type QTm)
@@ -1864,17 +1858,17 @@ LaTeX Font Info:    Font shape `EU1/Lato-Reg.ttf(0)/m/n' will be
 (Font)              scaled to size 5.52814pt on input line 160.
 LaTeX Font Info:    Font shape `EU1/Lato-Reg.ttf(0)/m/n' will be
 (Font)              scaled to size 3.94867pt on input line 160.
- [41])
-[42]
+ [42])
+[43]
 \openout2 = `chapters/conclusion.aux'.
 
  (./chapters/conclusion.tex
 Chapter 5.
-[43
+[44
 
 
 
-]) [44]
+]) [45]
 \openout2 = `chapters/appendixA.aux'.
 
  (./chapters/appendixA.tex
@@ -1888,7 +1882,7 @@ File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 <use  "../FinalThesisFunctions.pdf"  page1>
 File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 
-<use  "../FinalThesisFunctions.pdf"  page1> [45
+<use  "../FinalThesisFunctions.pdf"  page1> [46
 
 
 
@@ -1901,7 +1895,7 @@ File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 <use  "../FinalThesisFunctions.pdf"  page1>
 File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 
-<use  "../FinalThesisFunctions.pdf"  page1> [46]
+<use  "../FinalThesisFunctions.pdf"  page1> [47]
 File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 
 <use  "../FinalThesisFunctions.pdf"  page2>
@@ -1910,7 +1904,7 @@ File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 <use  "../FinalThesisFunctions.pdf"  page2>
 File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 
-<use  "../FinalThesisFunctions.pdf"  page2> [47]
+<use  "../FinalThesisFunctions.pdf"  page2> [48]
 File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 
 <use  "../FinalThesisFunctions.pdf"  page3>
@@ -1919,7 +1913,7 @@ File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 <use  "../FinalThesisFunctions.pdf"  page3>
 File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 
-<use  "../FinalThesisFunctions.pdf"  page3> [48]
+<use  "../FinalThesisFunctions.pdf"  page3> [49]
 File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 
 <use  "../FinalThesisFunctions.pdf"  page4>
@@ -1928,7 +1922,7 @@ File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 <use  "../FinalThesisFunctions.pdf"  page4>
 File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 
-<use  "../FinalThesisFunctions.pdf"  page4> [49]
+<use  "../FinalThesisFunctions.pdf"  page4> [50]
 File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 
 <use  "../FinalThesisFunctions.pdf"  page5>
@@ -1937,7 +1931,7 @@ File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 <use  "../FinalThesisFunctions.pdf"  page5>
 File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 
-<use  "../FinalThesisFunctions.pdf"  page5> [50]
+<use  "../FinalThesisFunctions.pdf"  page5> [51]
 File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 
 <use  "../FinalThesisFunctions.pdf"  page6>
@@ -1946,7 +1940,7 @@ File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 <use  "../FinalThesisFunctions.pdf"  page6>
 File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 
-<use  "../FinalThesisFunctions.pdf"  page6> [51]
+<use  "../FinalThesisFunctions.pdf"  page6> [52]
 File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 
 <use  "../FinalThesisFunctions.pdf"  page7>
@@ -1955,7 +1949,7 @@ File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 <use  "../FinalThesisFunctions.pdf"  page7>
 File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 
-<use  "../FinalThesisFunctions.pdf"  page7> [52]
+<use  "../FinalThesisFunctions.pdf"  page7> [53]
 File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 
 <use  "../FinalThesisFunctions.pdf"  page8>
@@ -1964,7 +1958,7 @@ File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 <use  "../FinalThesisFunctions.pdf"  page8>
 File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 
-<use  "../FinalThesisFunctions.pdf"  page8> [53]
+<use  "../FinalThesisFunctions.pdf"  page8> [54]
 File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 
 <use  "../FinalThesisFunctions.pdf"  page9>
@@ -1973,14 +1967,14 @@ File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 <use  "../FinalThesisFunctions.pdf"  page9>
 File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 
-<use  "../FinalThesisFunctions.pdf"  page9> [54]
+<use  "../FinalThesisFunctions.pdf"  page9> [55]
 Appendix B.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [55
+) [56
 
-] [56] (./endmatter/personalize.tex) (./main.bbl
+] [57] (./endmatter/personalize.tex) (./main.bbl
 
 LaTeX Font Warning: Font shape `EU1/EBGaramond12-Regular.otf(1)/m/it' undefined
 
@@ -1989,11 +1983,11 @@ t line 6.
 
 LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(1)/m/it' will be
 (Font)              scaled to size 10.95pt on input line 11.
-[57
+[58
 
 
 
-] [58]) [59]
+] [59]) [60]
 \openout2 = `endmatter/colophon.aux'.
 
  (./endmatter/colophon.tex)
@@ -2009,17 +2003,14 @@ Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 52.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 31868 strings out of 493591
- 547429 string characters out of 6143546
- 644331 words of memory out of 5000000
- 34763 multiletter control sequences out of 15000+600000
+ 31871 strings out of 493591
+ 547456 string characters out of 6143546
+ 646571 words of memory out of 5000000
+ 34766 multiletter control sequences out of 15000+600000
  30824 words of font info for 152 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
  75i,21n,107p,10481b,625s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (65 pages).
+Output written on main.pdf (66 pages).

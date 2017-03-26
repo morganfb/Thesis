@@ -3,7 +3,7 @@
 \chapter{Methods} \label{Methods}
 
 
-\newthought{Two formal methods for estimating} causal effect were used in this study: g-formula estimation and doubly robust estimation.  These two methods are developments of standardization and IP weighting as discussed in the previous section.  They were implemented and studied using simulated data according to the following methods.  
+\newthought{Two formal methods for estimating} causal effect are considered in this study: g-formula estimation and doubly robust estimation.  These two methods are developments of standardization and IP weighting as discussed in the previous section.  They were implemented and studied using simulated data according to the following methods.  
 
 \section{Data Creation} \label{data}
 Specifically for the purposes of this study, a data generating algorithm was engineered to provide consistent and easily accessible data for many simulations.  The data generated was time-varying and sequentially randomized according to the following schematic.  
@@ -22,7 +22,13 @@ Specifically for the purposes of this study, a data generating algorithm was eng
 
 The algorithm to generate datasets is as follows for each individual, of which 1,000 were simulated in this study.  The time variable $k$ took on values $\{0, \dots K=11\}$.  
 \begin{enumerate} 
-\item Take the predetermined coefficients $\vec{\mathbf{\alpha}}$ and $\vec{\mathbf{\beta}} $, which are generated outside the data generating process to provide consistency.  In this study, the values were as follows, 
+\item Determine the coefficients $\vec{\mathbf{\alpha}}$ and $\vec{\mathbf{\beta}} $, which are the parameters that define the data generating process in the following models, 
+\begin{align} 
+Logit[L_{k,i}] &= \alpha_0 + \alpha_1 \cdot L_{k-1,i} + \alpha_2 \cdot L_{k-2,i} + \alpha_3 A_{k-1,i} + \alpha_4 A_{k-2,i} + \alpha_5 U_i \label{eq:10}\\ 
+Logit[A_{k,i}] &= \beta_0 + \beta_1 L_{k,i} + \beta_2 L_{k-1,i} + \beta_3 A_{k-1,i} + \beta_4 A_{k-2,i} \label{eq:11}
+\end{align} 
+
+These parameters are generated outside the data generating process to provide consistency.  In this study, the values were as follows, 
 \begin{align*}   
 \begin{tabular}{L|L}
 \; \; \; \;\; \; \; \;\; \; \; \; \vec{\mathbf{\alpha}} &\; \; \; \;\; \; \; \; \; \; \; \;  \vec{\mathbf{\beta}} \\ 
@@ -35,14 +41,11 @@ The algorithm to generate datasets is as follows for each individual, of which 1
  \alpha_5 = 2.46365403 & 
 \end{tabular} 
 \end{align*}  
-These coefficients were created by pulling each from $\vec{\mathbf{\alpha}},\vec{\mathbf{\beta}} \sim Uniform(-1.0, 1.0)$.  The one change made was that $\alpha_5$ had 1.5 added to the randomly generated value to ensure that the underlying covariate had significant impact for testing purposes.  
+These coefficients were created by pulling each from $\vec{\mathbf{\alpha}},\vec{\mathbf{\beta}} \sim Uniform(-1.0, 1.0)$ in order to get a variety of positive and negative parameters.  The one change made was that $\alpha_5$ had 1.5 added to the randomly generated value to ensure that the underlying, unmeasured covariate, $U$, had significant impact for testing purposes.  
 
 \item Create the underlying confounder, $U_i$ from $U_i \sim Unif(0.1, 1)$. 
-\item Using the following logistic expressions, probabilities for each $L_{k,i}$ and $A_{k,i}$ can be obtained where $k$ is the time and $i$ is the individual, conditional on $\overline{L}_{k-1,i}$ and $\overline{A}_{k-1,i}$.  These probabilities are then used to obtain values for $L_{k,i}$ and $A_{k,i}$ using a binomial distribution with the respective probabilities.  
-\begin{align} 
-Logit[L_{k,i}] &= \alpha_0 + \alpha_1 \cdot L_{k-1,i} + \alpha_2 \cdot L_{k-2,i} + \alpha_3 A_{k-1,i} + \alpha_4 A_{k-2,i} + \alpha_5 U_i\\ 
-Logit[A_{k,i}] &= \beta_0 + \beta_1 L_{k,i} + \beta_2 L_{k-1,i} + \beta_3 A_{k-1,i} + \beta_4 A_{k-2,i}
-\end{align} 
+\item Using the logistic expressions \ref{eq:10} and \ref{eq:11}, probabilities for each $L_{k,i}$ and $A_{k,i}$ can be obtained where $k$ is the time and $i$ is the individual, conditional on $\overline{L}_{k-1,i}$ and $\overline{A}_{k-1,i}$.  These probabilities are then used to obtain values for $L_{k,i}$ and $A_{k,i}$ using a binomial distribution with the respective probabilities.  
+
 Note that for lower values of time when history is limited, the above expressions are slightly modified as follows, 
 \begin{align} 
 Logit[L_{0,i}] &= \alpha_0 + \alpha_5 U_i\\ 
@@ -53,10 +56,10 @@ Logit[A_{1,i}] &= \beta_0 + \beta_1 L_{k,i} + \beta_2 L_{k-1,i} + \beta_3 A_{k-1
 \item Obtain a final $Y_i$ value for each individual where $Y_i \sim Binom(p=expit(0.5+U_i))$.  \label{datastep4} 
 \end{enumerate} 
 
-Note that the final outcome $Y$ value is independent of $A$ and therefore, the treatment has no impact on the outcome.  This was done to ensure that the causal treatment effect would be zero and bias could be easily measured throughout the study.  
+Note that the unmeasured, underlying covariate, $U$ directly influences each $L_k$ and $Y$, but does not directly influence $A_k$.  This is an important assumption so that $Y$ can be independent of $A_k \mid \overline{A}_{k-1}, \overline{L}_k$ such that $\overline{L}_k$ is adjusting for $U$.  This is an assumption that is difficult to guarantee in true observational data.  
 
+Furthermore, the final outcome $Y$ value is independent of $A$ and therefore, the treatment has no impact on the outcome under the null hypothesis.  This was done to ensure that the causal treatment effect would be zero and bias could be easily measured throughout the study.  In reality, it is unlikely that one would be testing truly under the null, so a few tests were performed under an alternative hypothesis of treatment effect in Section \ref{alternative}.  In order to induce such a treatment effect, step \ref{datastep4} was change to $Y_i \sim Binom(p = expit(-1+U_i + A_K + \mathbb{E}(A)))$ where $\mathbb{E}(A) = \frac{1}{K} \sum_{i=1}^K A_i $ is the computational mean of the treatments throughout history.  
 
-%% Testing under the null of full treatment, but using data on time varying treatment 
 \section{Parametric G-formula} 
 Similar to IP weighting, parametric estimates can be obtained for standardized estimates.  An efficient method for doing this is the generalization of standardization to time-varying treatments and confounders, coined the g-formula method by Robins in 1986.\cite{hernan_robins_2016, robins1986new, wright2015international}  The method can be used for fixed and time-varying treatments in longitudinal studies, and it seeks to estimate the average causal effect of treatment, which can be estimated as 
 \begin{align} 
