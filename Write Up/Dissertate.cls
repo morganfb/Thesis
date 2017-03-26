@@ -118,7 +118,7 @@
 \RequirePackage{titling}
 
 % Front matter.
-\setcounter{tocdepth}{1}
+\setcounter{tocdepth}{4}
 \usepackage[titles]{tocloft}
 \usepackage[titletoc]{appendix}
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
