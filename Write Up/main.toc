@@ -20,20 +20,19 @@
 \contentsline {subsection}{\numberline {3.3.1}Protocol}{32}{subsection.3.3.1}
 \contentsline {section}{\numberline {3.4}Variance Estimate}{34}{section.3.4}
 \contentsline {subsection}{\numberline {3.4.1}Protocol}{34}{subsection.3.4.1}
-\contentsline {chapter}{\numberline {4}Results Discussion}{35}{chapter.4}
-\contentsline {section}{\numberline {4.1}Natural Course}{36}{section.4.1}
-\contentsline {section}{\numberline {4.2}Simulation of the Two Methods}{37}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Under the Null Hypothesis of No Treatment Effect}{37}{subsection.4.2.1}
+\contentsline {chapter}{\numberline {4}Results Discussion}{36}{chapter.4}
+\contentsline {section}{\numberline {4.1}Natural Course}{37}{section.4.1}
+\contentsline {section}{\numberline {4.2}Simulation of the Two Methods}{39}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Under the Null Hypothesis of No Treatment Effect}{39}{subsection.4.2.1}
 \contentsline {subsection}{\numberline {4.2.2}Under the Alternative Hypothesis of Treatment}{40}{subsection.4.2.2}
-\contentsline {section}{\numberline {4.3}Confirming Double Robustness}{42}{section.4.3}
-\contentsline {section}{\numberline {4.4}Testing Multiple Robustness}{44}{section.4.4}
-\contentsline {chapter}{\numberline {5}Conclusion}{47}{chapter.5}
-\contentsline {section}{\numberline {5.1}Summary}{49}{section.5.1}
-\contentsline {section}{\numberline {5.2}Contributions}{49}{section.5.2}
-\contentsline {section}{\numberline {5.3}Implications}{49}{section.5.3}
-\contentsline {section}{\numberline {5.4}Limitations}{49}{section.5.4}
-\contentsline {section}{\numberline {5.5}Extensions}{49}{section.5.5}
-\contentsline {chapter}{Appendix \numberline {A}Code}{50}{Appendix.1.A}
-\contentsline {section}{\numberline {A.1}\ignorespaces Python Functions}{51}{section.1.A.1}
-\contentsline {chapter}{Appendix \numberline {B}Extra Math}{60}{Appendix.1.B}
-\contentsline {chapter}{References}{64}{chapter*.17}
+\contentsline {section}{\numberline {4.3}Confirming Double Robustness}{43}{section.4.3}
+\contentsline {section}{\numberline {4.4}Testing Multiple Robustness}{46}{section.4.4}
+\contentsline {chapter}{\numberline {5}Conclusion}{48}{chapter.5}
+\contentsline {section}{\numberline {5.1}Contributions}{49}{section.5.1}
+\contentsline {section}{\numberline {5.2}Implications}{49}{section.5.2}
+\contentsline {section}{\numberline {5.3}Limitations}{49}{section.5.3}
+\contentsline {section}{\numberline {5.4}Extensions}{50}{section.5.4}
+\contentsline {chapter}{Appendix \numberline {A}Code}{51}{Appendix.1.A}
+\contentsline {section}{\numberline {A.1}\ignorespaces Python Functions}{52}{section.1.A.1}
+\contentsline {chapter}{Appendix \numberline {B}Extra Results}{62}{Appendix.1.B}
+\contentsline {chapter}{References}{67}{chapter*.17}

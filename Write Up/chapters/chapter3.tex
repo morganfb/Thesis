@@ -7,12 +7,14 @@
 \section{Natural Course} 
 In order to test the specified models used for the g-formula method, a natural course study was performed.  This involved simulating the data directly using the models specified for the g-formula method.  Additionally, a model for the treatment variable had to be created as well, giving the following three models,\footnote{Abbreviated models, like those specified in expressions \ref{eq:6} and \ref{eq:7}, were used for time points $t=0,1,2$ since adequate historical data is not available.} 
 \begin{align} 
-Logit \big[Y \mid \overline{A}_t, \overline{L}_t \big] &= \theta_{0} + \theta_1 A_{t} + \cdots + \theta_j A_0 + \theta_{j+1} L_t + \cdots + \theta_{j+k} L_0  \\ 
-logit[L_k \mid \overline{L}_{k-1}, \overline{A}_{k-1}] &= \gamma_0 + \gamma_1 L_{k-1} + \gamma_2 L_{k-2} + \gamma_3 L_{k-3}  + \gamma_4 A_{k-1} + \gamma_5 A_{k-2} + \gamma_6 A_{k-3} \\ 
-logit[A_k \mid \overline{L}_{k}, \overline{A}_{k-1}] &= \delta_0 + \delta_1 L_{k} + \delta_2 L_{k-1} + \delta_3 A_{k-1} + \delta_4 A_{k-2} 
+Logit \big[Y \mid \overline{A}_t, \overline{L}_t \big] &= \theta_{0} + \theta_1 A_{t} + \cdots + \theta_j A_0 + \theta_{j+1} L_t + \cdots + \theta_{j+k} L_0  \label{eq:12} \\ 
+logit[L_k \mid \overline{L}_{k-1}, \overline{A}_{k-1}] &= \gamma_0 + \gamma_1 L_{k-1} + \gamma_2 L_{k-2} + \gamma_3 L_{k-3}  + \gamma_4 A_{k-1} + \gamma_5 A_{k-2} + \gamma_6 A_{k-3} \label{eq:13} \\ 
+logit[A_k \mid \overline{L}_{k}, \overline{A}_{k-1}] &= \delta_0 + \delta_1 L_{k} + \delta_2 L_{k-1} + \delta_3 L_{k-2}  + \delta_4 A_{k-1} + \delta_5 A_{k-2} + \delta_6 A_{k-2} \label{eq:14}
 \end{align} 
 
-Ten thousand new individuals were simulated to determine the natural course of these models.  Table \ref{naturalcourse} below compares the true mean of the original data frame and the average across the five simulated datasets.  
+Ten thousand new individuals were simulated to determine the natural course of these models.  Several other models were tested as well, such as including more historical terms, less historical terms, interaction terms, squared terms, and cubed terms; however, these models above were the best, showing the least difference between the natural course and the true data.  The majority of the other models tried had highly significant p-values of difference between the natural course and the original data.  
+
+Table \ref{naturalcourse} below compares the true mean of the original data frame and the average from the data simulated under the natural course under both the null and alternative hypotheses.  The models for $Y$ and $L$ in expressions \ref{eq:12} and \ref{eq:13} respectively are particularly good, showing no significant difference between the true data and the natural course under both the null and alternative hypotheses, indicating that these are a good choice to use in the g-formula method.  The model for $A$ was very difficult to pin down, with every model tried showing highly significant differences to the true data, provoking p-values mostly less than $e^{-8}$.  This model in \ref{eq:14} was the only model that had a p-value remotely close to a cutoff of $\alpha = 0.05$, but is still considered significantly different, a point of concern.  However, this model was only created in order to simulate the natural and is not actually used in the g-formula since the treatments are set by the researcher.  Therefore, although this appears concerning, it is irrelevant to the results and the important conclusion of the natural course is the strength of the models for $Y$ and $L$.  
 
 
 \begin{table}[h!]
@@ -21,74 +23,62 @@ Ten thousand new individuals were simulated to determine the natural course of t
 Variable & True Mean & \shortstack{Natural Course\\ Average Mean} & p-value & \shortstack{Natural Course \\95\% Conf. Int.} \\ 
 \hline 
 & \multicolumn{4}{c}{\underline{Under the Null Hypothesis}} \\
-$\mathbb{E}[Y]$ & 0.753 & 0.763 & 0.489 &(0.755, 0.771) \\ \\
-$\mathbb{E}[A]$ & 0.780 & 0.790 & 0.012 &(0.7899, 0.7899) \\ \\
-$\mathbb{E}[L]$ & 0.275 & 0.273 & 0.63 & (0.2727, 0.2727) \\ \\ 
+$\mathbb{E}[Y]$ & 0.736 & 0.742 & 0.687 &(0.733, 0.750) \\ \\
+$\mathbb{E}[A]$ & 0.845 & 0.852 & 0.027 &(0.851, 0.853) \\ \\
+$\mathbb{E}[L]$ & 0.826 & 0.828 & 0.573 & (0.826, 0.830) \\ \\ 
 & \multicolumn{4}{c}{\underline{Under the Alternative Hypothesis}} \\
-$\mathbb{E}[Y]$ & 0.718 & 0.732 &0.362 &(0.723, 0.740) \\ \\
-$\mathbb{E}[A]$ & 0.775 & 0.797 &4.38$e^{-9}$ &(0.797, 0.797) \\ \\
-$\mathbb{E}[L]$ & 0.263 & 0.234 & 8.82$e^{-13}$ & (0.234, 0.234) 
+$\mathbb{E}[Y]$ & 0.753 & 0.765 &0.417 &(0.756, 0.773) \\ \\
+$\mathbb{E}[A]$ & 0.842 & 0.851 &0.012 &(0.850, 0.852) \\ \\
+$\mathbb{E}[L]$ & 0.825 & 0.826 & 0.721 & (0.824, 0.828) 
 \end{tabular} \\
 \centering
-\caption[Natural course of the g-formula simulation]{A table outlining the results of the natural course test of the methods.  True mean is specified using the underlying dataset which the models are created off of.  The natural course average mean is the mean of means from the five datasets.  The 95\% confidence interval is centered at this mean of means and based on the five datasets. \label{naturalcourse}}
+\caption[Natural course of the g-formula simulation]{A table outlining the results of the natural course test of the methods.  True mean is specified using the underlying dataset which was the models for the used to simulate the natural course. \label{naturalcourse}}
 \end{table}
 
-The results of the natural course in Table \ref{naturalcourse} show that the models chosen appear to estimate the data quite well.  Not only are the means close to the true mean, but the variance is low enough that our confidence intervals all cover the true mean.  Therefore, it can be concluded that these models are a good choice for adequately modeling the underlying data in the g-formula.  
+
 
 \section{Simulation of the Two Methods} 
 As discussed in Section \ref{VarianceBootStrap}, a simulation of 1,000 iterations was performed.  Each iteration of this simulation consisted of creating a new dataset and obtaining both the g-formula estimate and the doubly robust estimate for the causal treatment effect.  
 
 \subsection{Under the Null Hypothesis of No Treatment Effect} 
-This was first tested under the null hypothesis of no treatment effect, as detailed by the data generating algorithm in Section \ref{data}.  The results of these simulations can be seen below in Table \ref{simdata} and Figure \ref{bighistogram}.  Both indicate that the doubly robust method has a more precise average causal treatment effect across simulations.\footnote{As discussed in Section \ref{data}, no effect of $A$ on $Y$ was included in this study, so the true causal treatment effect should be zero.}  However, this improvement comes with higher variance and bias, as shown in the wider confidence interval and the larger spread on the histogram.  
+This was first tested under the null hypothesis of no treatment effect, as detailed by the data generating algorithm in Section \ref{data}.  The results of these simulations can be seen below in Table \ref{simdata} and Figure \ref{bighistogram}.  These both indicate that the doubly robust method has a more precise average causal treatment effect across simulations.\footnote{As discussed in Section \ref{data}, no effect of $A$ on $Y$ was included under the null hypothesis, so the true causal treatment effect should be zero.}  However, this improvement comes with higher variance and bias, as shown in the wider confidence interval and the larger spread on the histogram.
 
-\begin{figure}[h!]
-\includegraphics[width = \linewidth]{figures/overlaid_histogram.jpeg}
-\caption[Histogram of simulation results under the null hypothesis]{A histogram showing the results of the 1,000 simulations.  The y-axis shows frequency of value and the x-axis shows the causal treatment effect value measured.}
-\label{bighistogram}
-\end{figure} 
 
 \begin{table}[h!]
 \centering
 \begin{tabular}{c | c c c c }
-Method & \shortstack{Average Causal \\ Treatment Effect} & Average Bias & \shortstack{Variance of \\ Effect Estimate} & \shortstack{95\% Conf. Int.\\ of Effect Estimate} \\ 
-\hline \\
+Method & \shortstack{Average Causal \\ Treatment Effect} & Average Bias & \shortstack{Variance of \\ Effect Estimate} & \shortstack{95\% Conf. Int.\\ of Effect Estimate} \\
+\hline 
+& \multicolumn{4}{c}{\underline{Under the Null Hypothesis}} \\
 G-Formula & 0.0033 & 0.016 & 0.00024&(-0.00063,0.00128)\\ \\ 
-Doubly Robust & 0.00026 & 0.031& 0.00079 & (-0.00149, 0.00212)
+Doubly Robust & 0.00026 & 0.031& 0.00079 & (-0.00149, 0.00212)\\ \\ 
+& \multicolumn{4}{c}{\underline{Under the Alternative Hypothesis}} \\
+G-Formula & 4.32$e^{-8}$ & & 1.69$e^{-14}$ &(3.5$e^{-8}$,5.13$e^{-8}$) \\ \\ 
+Doubly Robust & 0.186 & & 0.0037  & (0.182, 0.19)
 \end{tabular} \\
 \centering
-\caption[Simulation results under the null hypothesis]{A table presenting the results of 1,000 data simulations under the null hypothesis, within which the g-formula and doubly robust estimators of average causal effect were each obtained.  Average causal treatment effect is the mean of the causal treatment effect across the simulations.  The variance and confidence intervals reflect the variability in that causal treatment effect over 1,000 simulations. \label{simdata}}
+\caption[Simulation results]{A table presenting the results of 1,000 data simulations under the null and alternative hypotheses, within which the g-formula and doubly robust estimators of average causal effect were each obtained.  Average causal treatment effect is the mean of the causal treatment effect across the simulations.  The variance and confidence intervals reflect the variability in that causal treatment effect over 1,000 simulations. There is no bias measurement under the alternative hypothesis because of the noted inability to have a true measure of causal effect.\label{simdata}}
 \end{table}
 
-
-Furthermore, the relationship between the data and the causal effect estimates was examined in Figure \ref{correlation}.  Of note, the doubly robust method is able to capture correlation between $Y$ and $A$ which the g-formula method does not, an important indicator that it successfully picks up treatment effect.  This likely contributes to the more precise causal treatment effect measure.  
-
-
-
+ 
 \begin{figure}[h!]
+\begin{centering}
 \includegraphics[width = \linewidth]{figures/correlation.png}
 \caption[Scatterplots of relationships between estimates and data correlations under the null hypothesis]{Various plots showing the relationship between underlying data correlations and estimated causal treatment effects using the two methods.  Each data point is representative of one dataset.  The same 1,000 datasets are used for each effect estimation.}
 \label{correlation}
+\end{centering}
 \end{figure}
 
+Furthermore, the relationships between the data and the causal effect estimates were examined in Figure \ref{correlation}.  Of note, the doubly robust method is able to capture correlation between $Y$ and $A$ which the g-formula method does not, as evidenced by the first row of plots.  This is an important indicator that the doubly robust method more successfully picks up treatment effect.  This likely contributes to the more precise causal treatment effect measure.  Furthermore, the higher variance in the estimate may 
+
+
 \subsection{Under the Alternative Hypothesis of Treatment} \label{alternative}
-The above simulation was also tested under an alternative hypothesis of some treatment effect.  The effect was induced in the data creation algorithm by changing step \ref{datastep4} to instead be $Y_i \sim Binom(p = expit(-1+U_i + A_K + \mathbb{E}(A)))$ where $\mathbb{E}(A) = \frac{1}{K} \sum_{i=1}^K A_i $ is the computational mean of the treatments throughout history.  This was in order to guarantee that $Y$ is dependent on $\overline{A}$, inducing a significant treatment effect.  
+The above simulation was also tested under an alternative hypothesis of some treatment effect.  The effect was induced in the data creation algorithm by changing step \ref{datastep4} to instead be $Y_i \sim Binom(p = expit(-1+U_i + A_K + \tilde{E}(\overline{A})))$ where $\tilde{E}(\overline{A}) = \frac{1}{K} \sum_{i=1}^K A_i $ is the computational mean of the treatments throughout history.  This was in order to guarantee that $Y$ is dependent on $\overline{A}$, inducing a significant treatment effect.  
 
-\begin{table}[h!]
-\centering
-\begin{tabular}{c | c c c }
-Method & \shortstack{Average Causal \\ Treatment Effect} & \shortstack{Variance of \\ Effect Estimate} & \shortstack{95\% Conf. Int.\\ of Effect Estimate} \\ 
-\hline \\
-G-Formula & 4.32$e^{-8}$ & 1.69$e^{-14}$ &(3.5$e^{-8}$,5.13$e^{-8}$) \\ \\ 
-Doubly Robust & 0.186 & 0.0037  & (0.182, 0.19)
-\end{tabular} \\
-\centering
-\caption[Simulation results under the alternative hypothesis]{A table presenting the results of 1,000 data simulations under the alternative hypothesis, over which the g-formula and doubly robust estimators of average causal effect were each obtained.\label{simdata2}}
-\end{table}
-
-This second set of simulation testing was performed in order to determine if the methods break under the alternative hypothesis.  Unfortunately, because of the way the treatment effect can be induced, it is impossible to get a confirmed unbiased measure for the treatment effect, so no biases could be calculated.  However, the results do present a few interesting findings.  Firstly, the results in Table \ref{simdata2} and Figure \ref{correlation2} show that there appears to be significant issues with the g-formula, notably that the estimates are all zero with extreme precision and no variance.  Considering that the method calculated quite similar, and seemingly more accurate, estimates under the null hypothesis, these results indicate a breakage in the g-formula method.  This is in line with the fact that under the null, the g-formula was capturing almost none of the correlation between $Y$ and $A$.  
+This second set of simulation testing was performed in order to determine if the methods become biased under the alternative hypothesis.  As noted in Section \ref{data}, it is not possible to directly calculate a true causal effect of $A$ on $Y$ because of the indirect dependence between $A$ and $U$.  This is at the core of why alternative methods for calculating such effects are necessary.  Because it is impossible to get an unbiased measure of the treatment effect, no biases can be calculated.  However, the results do present a few interesting findings.  Firstly, the results in Table \ref{simdata} and Figure \ref{correlation2} show that there appears to be significant issues with the g-formula under the alternative hypothesis, notably that the estimates are all zero with extreme precision and no variance.  The g-formula seems to fail to detect any treatment effect, despite the data having a definite treatment effect.  The top right graph in Figures \ref{correlation} and \ref{correlation2} show that the estimates seem to be detecting none of the correlation between $Y$ and $A$.  Considering that the method calculated quite similar, and seemingly more accurate, estimates under the alternative hypothesis as under the null, these results indicate a breakage in the g-formula method.  This is in line with the fact that under the null, the g-formula was capturing almost none of the correlation between $Y$ and $A$.  The question of what is causing this could be a mistake in the coding, a fault in the design of the models, or a violation of assumptions.
 %% CONFIRM WHAT IS GOING ON HERE 
 
-On the other hand, the doubly robust estimator appears to display a reasonable but unclear how accurate estimate for the causal effect.  Furthermore, Figure \ref{correlation2} demonstrates that under the alternative, this method is again strongly capturing correlation between $Y$ and $A$.  
+On the other hand, the doubly robust estimator appears to display a reasonable estimate for the causal effect.  It is unclear if there is any bias in this estimate since there is no calculable true causal effect estimate.  Figure \ref{correlation2} demonstrates that under the alternative, this method is again strongly capturing correlation between $Y$ and $A$.  As under the null hypothesis, the estimates seem to show low variance, indicating a low impact of randomness in the outcome.  This is another benefit of the doubly robust estimator over the g-formula, in that it does not require the incorporation of a Monte Carlo simulation which can increase variance due to randomness.  
 
 \begin{figure}[h!]
 \includegraphics[width = \linewidth]{figures/correlation2.png}
