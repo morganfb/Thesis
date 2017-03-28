@@ -25,6 +25,7 @@
 \contentsline {section}{\numberline {4.2}Simulation of the Two Methods}{39}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Under the Null Hypothesis of No Treatment Effect}{39}{subsection.4.2.1}
 \contentsline {subsection}{\numberline {4.2.2}Under the Alternative Hypothesis of Treatment}{40}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Run Times}{42}{subsection.4.2.3}
 \contentsline {section}{\numberline {4.3}Confirming Double Robustness}{43}{section.4.3}
 \contentsline {section}{\numberline {4.4}Testing Multiple Robustness}{46}{section.4.4}
 \contentsline {chapter}{\numberline {5}Conclusion}{48}{chapter.5}
@@ -35,4 +36,4 @@
 \contentsline {chapter}{Appendix \numberline {A}Code}{51}{Appendix.1.A}
 \contentsline {section}{\numberline {A.1}\ignorespaces Python Functions}{52}{section.1.A.1}
 \contentsline {chapter}{Appendix \numberline {B}Extra Results}{62}{Appendix.1.B}
-\contentsline {chapter}{References}{67}{chapter*.17}
+\contentsline {chapter}{References}{67}{chapter*.18}

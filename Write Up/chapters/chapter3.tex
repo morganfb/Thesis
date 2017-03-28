@@ -4,7 +4,7 @@
 
 \newthought{The methods} described in Chapter \ref{Methods} were implemented and tested for their efficacy at evaluating average causal treatment effect.  Results and discussion are presented below.  
 
-\section{Natural Course} 
+\section{Natural Course} \label{nattycourse}
 In order to test the specified models used for the g-formula method, a natural course study was performed.  This involved simulating the data directly using the models specified for the g-formula method.  Additionally, a model for the treatment variable had to be created as well, giving the following three models,\footnote{Abbreviated models, like those specified in expressions \ref{eq:6} and \ref{eq:7}, were used for time points $t=0,1,2$ since adequate historical data is not available.} 
 \begin{align} 
 Logit \big[Y \mid \overline{A}_t, \overline{L}_t \big] &= \theta_{0} + \theta_1 A_{t} + \cdots + \theta_j A_0 + \theta_{j+1} L_t + \cdots + \theta_{j+k} L_0  \label{eq:12} \\ 
@@ -85,6 +85,24 @@ On the other hand, the doubly robust estimator appears to display a reasonable e
 \caption[Scatterplots of relationships between estimates and data correlations under the alternative hypothesis]{Various plots showing the relationship between underlying data correlations and estimated causal treatment effects using the two methods.  Each data point is representative of one dataset.  The same 1,000 datasets are used for each effect estimation.}
 \label{correlation2}
 \end{figure}
+
+\subsection{Run Times} 
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{c | c c }
+Method & Total Run Time & Average Run Time\\
+\hline 
+& \multicolumn{2}{c}{\underline{Under the Null Hypothesis}} \\
+G-Formula & 6 min, 19 sec & 0.38 sec \\ \\ 
+Doubly Robust & 33 min, 50 sec & 2.03 sec\\ \\ 
+& \multicolumn{2}{c}{\underline{Under the Alternative Hypothesis}} \\
+G-Formula & & \\ \\ 
+Doubly Robust & & 
+\end{tabular} \\
+\centering
+\caption[Run Times of Simulations]{ \label{runtimes}}
+\end{table}
 
 
 

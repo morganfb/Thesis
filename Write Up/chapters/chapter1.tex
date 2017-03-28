@@ -29,10 +29,10 @@ Not all treatment regimens consist of constant treatment over a set period of ti
 This time-varying framework of the treatment variable can also be considered for the covariate, $L$.  From this, a dynamic treatment strategy can also be created, such that each possible realization $\bar{a}_{k}$ is dependent on the treatment and covariate history, $\overline{L}_k$ and $\overline{A}_{k-1}$.  This can be written as a set of functions $\{g_k (\bar{a}_{k-1}, \bar{l}_k )\}$ where $g_k$ is the function making the treatment decision.  
 
 \subsection{Sequentially Randomized Trial} 
-The sequentially randomized trial is a specific type of deterministic treatment regimen, in which a subject's treatment is chosen at each time from an associated density $f (a_k \mid \bar{l}_k, \bar{a}_{k-1})$ for $\bar{a}_k \in \overline{\mathcal{A}}_k$ where $\overline{\mathcal{A}}_k$ is the support of $\overline{A}_k$ in time period $k$.\cite{young2011comparative}  In this type of randomized trial, each $A_k$ for all subjects is chosen as an independent random draw from this type of distribution density.  Sequentially randomized trials guarantee the identifiability assumptions of exchangeability and consistency to be discussed in Section \ref{assumptions}.  This is significantly important because the g-formula and doubly robust estimators are the only current methods which can derive causal effect for data with a sequentially randomized trial, particularly important considering how frequently treatments are given in a sequentially randomized fashion in modern medicine.
+The sequentially randomized trial is a specific type of treatment regimen, in which a subject's treatment is chosen at each time from an associated density $f (a_k \mid \bar{l}_k, \bar{a}_{k-1})$ for $\bar{a}_k \in \overline{\mathcal{A}}_k$ where $\overline{\mathcal{A}}_k$ is the support of $\overline{A}_k$ in time period $k$.\cite{young2011comparative}  In this type of randomized trial, each $A_k$ for all subjects is chosen as an independent random draw from this type of distribution density.  Sequentially randomized trials guarantee the identifiability assumptions of exchangeability and consistency to be discussed in Section \ref{assumptions}.  This is significantly important because the g-formula and doubly robust estimators are the only current methods which can derive causal effect for data with a sequentially randomized trial, particularly important considering how frequently treatments are given in a sequentially randomized fashion in modern medicine.
 
 \section{Confounding} 
-In observational data, many measured covariates exist, which we call $L$; these could include subject height, weight, age, smoking status, medical history, family history, past treatments, and blood levels.  Each covariate $L$ is something that could possibly be correlated with the outcome $Y$. The covariate $\overline{L}$ is a measurable proxy for an unmeasured, unknown, and underlying confounder, $U$, such as .  This is to prevent $U$ from creating any bias in measures of causal effect; thus, any measured covariate that can be obtained should likely be used with the goal of covering $U$ as much as possible. It has been shown that if an unmeasured confounder is not sufficiently accounted for, there will be bias in the final estimates.\cite{vanderweele2011unmeasured}
+In observational data, many measured covariates exist, which we call $L$; these could include subject height, weight, age, smoking status, medical history, family history, past treatments, and blood levels.  Each covariate $L$ is something that could possibly be correlated with the outcome $Y$. The covariate $\overline{L}$ is a measurable proxy for an unmeasured, unknown, and underlying confounder, $U$, such as a genetic predisposition to specific diseases.  This is to prevent $U$ from creating any bias in measures of causal effect; thus, any measured covariate that can be obtained should likely be used with the goal of covering $U$ as much as possible. It has been shown that if an unmeasured confounder is not sufficiently accounted for, there will be bias in the final estimates.\cite{vanderweele2011unmeasured}
 
 Theoretically, $U$ should directly impact both $L$ and $Y$, but not directly impact $A$ because $A$ is only directly dependent on its own history and the history of $L$.\footnote{See the schematic drawing in Figure \ref{schematic} for a visualization of these connections.}  This indicates that there exists a backdoor path between $A$ and $Y$ through $U$.\cite{wright2015international}  The expected way to account for the backdoor path caused by $U$ would be to condition on it, but because it is unknown and therefore unmeasurable, this is not possible.  Therefore, methods must be used to create this same effect using only $L$, which will allow for the study of just the causal effect of $A$ on $Y$.  If the effect of $U$ on $Y$ is fully accounted for, then there should be no bias in the estimate of causal effect.  Methods for eliminating the effect of $U$ on $Y$ will be discussed in Sections \ref{IP Weighting} and \ref{Standardization}.  
 
@@ -50,17 +50,17 @@ Consistency is the idea that an individual's potential outcome and their observe
 \end{align} 
 where $Y_i^a$ is individual $i$'s potential outcome and $A_i$ is the observed treatment.  
 
-Consistency can deteriorate under the unintentional presence of varying treatment options.  For example, this can be violated if different surgeons perform a procedure, different procedures are performed, or if different drugs or doses are administered to treat the same condition.  There are many reasons doctors could use a non standard treatment causing these inconsistencies could appear, such as a family history, complications with a procedure or a drug, or another condition.  Protection against this is partially in the understanding and reasonable pruning of the data.  Furthermore, this can be addressed with clear and precise questions of interest, and hopefully, detailed data that allows for comprehensive refinement.  However, this is a very difficult assumption to ensure without meticulous data cleaning and research about the data acquisition.  By including as many relevant covariates, $L$, the goal is to eliminate as much inconsistency as possible, but this assumption is impossible to ever fully guarantee.  
+Consistency can deteriorate under the unintentional presence of varying treatment options.  For example, this can be violated if different surgeons perform a procedure, different procedures are performed, or if different drugs or doses are administered to treat the same condition.  There are many reasons doctors could use a non standard treatment causing these inconsistencies to appear, such as a family history, complications with a procedure or a drug, or another condition.  Protection against this is partially in the understanding and reasonable pruning of the data.  Furthermore, this can be addressed with clear and precise questions of interest, and hopefully, detailed data that allows for comprehensive refinement.  However, this is a very difficult assumption to ensure without meticulous data cleaning and research about the data acquisition.  By including as many relevant covariates, $L$, the goal is to eliminate as much inconsistency as possible, but this assumption is impossible to ever fully guarantee.  
 
 This idea can be expanded to time-varying treatment and covariate variables, as follows 
 \begin{align} 
 \text{If } \overline{A}_k = \bar{a}^g _k, \text{ then, } \overline{Y}_{k+1} =  \bar{Y}^g_{k+1} \text{ and } \overline{L}_k = \bar{L}^g_k
 \end{align}
-where $g$ is the function that specifies treatment over time.\footnote{Note that this $g$ is the derivation of the term g-formula.}
+where $g$ is the function that specifies treatment over time.\footnote{Note that this $g$ is the origin of the term g-formula.}
 %% Provide an example here
 
 \subsection{Exchangeability} \label{exchangeability} 
-Exchangeability is the idea that individuals in either group of a randomized experiment would have had the same response given the other treatment. \cite{hernan_robins_2016}  There should be no bias to either group to respond favorably or not to treatment or lack thereof; in short, the results should be equivalent if any subject is moved from one group to the other.  The counterfactual should produce the same results regardless of which individuals actually got treatment and which did not.  Statistically, this is $P[Y^a = 1 \mid A = 1] = P[Y^a = 1 \mid A = 0] = P[Y^a = 1]$ for both $a=0$ and $a=1$.  This means that $Y^a$ is independent of $A$ and that the actual treatment $A$ does not predict the outcome under the counterfactual, $Y^a$.  
+Exchangeability is the idea that individuals in either group of a randomized experiment would have had the same response given the other treatment. \cite{hernan_robins_2016}  There should be no bias to either group to respond favorably or not to treatment or lack thereof; in short, the results should be equivalent if any subject is moved from one group to the other.  The counterfactual mean should produce the same results regardless of which individuals actually got treatment and which did not.  Statistically, this is $P[Y^a = 1 \mid A = 1] = P[Y^a = 1 \mid A = 0] = P[Y^a = 1]$ for both $a=0$ and $a=1$.  This means that $Y^a$ is independent of $A$ and that the actual treatment $A$ does not predict the outcome under the counterfactual, $Y^a$.  
 
 % This independence allows for several conclusions.  Firstly, $E[Y^a \mid A = a'] = E[Y^a]$ by the definition of independence.  
  %% COME BACK HERE -- THIS IS ALL WONKY 
@@ -78,11 +78,11 @@ Although guaranteed for fixed treatments, sequential exchangeability is not guar
 \subsection{Positivity} 
 Positivity is the idea that every possible treatment, covariate condition is represented in the data set.  This is the condition that all specified conditional probabilities are well-defined, meaning that for every value of the covariate $L$, there exist subjects with a specified value of $a$.\cite{hernan2006estimating} 
 \begin{align}
-\forall l, \;  \exists P[A=a \mid L=l] > 0 \;\;  \text{, such that } P[L=l] \neq 0
+\text{If }P[L=l] \neq 0 \; \; \forall l, \text{ then } \;  \exists P[A=a \mid L=l] > 0 \;\;  
 \end{align} 
 This can also be expressed for time-varying treatments as follows, 
 \begin{align} 
-\forall A_k, \; \exists P[A_k = a_k \mid \overline{L}_{k}, \overline{A}_{k-1}] > 0 \;\;   \text{, such that } P[\overline{L}_k = \overline{l}_k, \overline{A}_{k-1} = \overline{a}_{k-1} ] \neq 0
+\text{If } P[\overline{L}_k = \overline{l}_k, \overline{A}_{k-1} = \overline{a}_{k-1} ] \neq 0 \; \; \forall A_k, \text{ then }  \; \exists P[A_k = a_k \mid \overline{L}_{k}, \overline{A}_{k-1}] > 0 
 \end{align} 
 
 
@@ -110,8 +110,8 @@ where $x = X_i$ is the true population data and $N_t(x)$ and $N_c (x)$ are the n
 
 The form in expression \ref{eq:1} can be used to solve for the standardized mean as follows, 
 \begin{align} 
-E[Y^{\,a}] &= \sum_l n \cdot P[Y=y \mid A = a, L= 1] \cdot P[A=a \mid L=l]  \cdot P[L=l] \cdot \frac{1}{P[A = a \mid L = 1]} \\ 
-&=  \sum_l n \cdot P[Y=y \mid A = a, L= 1] \cdot P[L=l]\\ 
+E[Y^{\,a}] &= \sum_l \frac{1}{n} \cdot P[Y=y \mid A = a, L= 1] \cdot P[A=a \mid L=l]  \cdot P[L=l] \cdot \frac{1}{P[A = a \mid L = 1]} \\ 
+&=  \sum_l \frac{1}{n} \cdot P[Y=y \mid A = a, L= 1] \cdot P[L=l]\\ 
 &= \sum_l E[Y \mid A=a, L= l] P[L=l] 
 \end{align} 
 
@@ -125,10 +125,10 @@ The above non-parametric values for $P[A=a\mid L=l]$ are effective for limited d
 Like IP weighting, standardization is a method of calculating the marginal counterfactual risk of $P[Y^a = 1]$.  This method weights the population by  conditioning on the covariates levels in $L$, in order to make the probability of treatment $A$ independent of the covariates.  The weighting can be seen as follows, 
 \begin{align} 
 P[Y^a = 1] &= \sum_l P[Y^a = 1 \mid L=l] P[L = l] \\ 
-&= \sum_l P[Y = 1 \mid L=l] P[L = l]  
+&= \sum_l P[Y = 1 \mid A=1, L=l] P[L = l]  
 \end{align} 
 where the equality holds because of the conditional exchangeability.  This standardization method can be used to obtain an estimate of the standardized mean, 
 \begin{align} 
-E[Y^{\,a}] &= E[Y \mid L = l, A =a ] \cdot P[L=l] 
+E[Y^{\,a}] &= \sum_{l} E[Y \mid L = l, A =a ] \cdot P[L=l] 
 \end{align} 
 Note that this returns the same non-parametric expression for the standardized mean as the method of IP weighting because they are mathematically equivalent.  

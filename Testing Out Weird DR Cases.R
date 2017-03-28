@@ -98,3 +98,7 @@ cor(as.numeric(dr_test100$A), as.numeric(dr_test100$U))
 cor(as.numeric(dr_test132$A), as.numeric(dr_test132$U))
 cor(as.numeric(dr_test135$A), as.numeric(dr_test135$U))
 cor(as.numeric(dr_test218$A), as.numeric(dr_test218$U))
+
+X = rnorm(n = 25)
+mean(X)^2
+mean(X^2)
