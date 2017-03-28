@@ -2,15 +2,15 @@
 \chapter{Code}
 \label{AppendixA}
 \begin{figure}[h!]
-\includegraphics[width = 1.1\linewidth]{figures/schematic.png}
-\caption[Schematic of the Python Functions For Both Methods]{}
+\includegraphics[width = 1.1\linewidth]{figures/schematics.jpeg}
+\caption[Schematic of the Python Functions For Both Methods]{This schematic shows how the above functions in Python can be utilized in relation to each other in order to execute the two methods.  Black rectangles represent functions.  Circles represent inputs/outputs, red showing function outputs and grey showing user inputs.}
 \label{functionschematic}
 \end{figure}
+
 
 The following code are the major functions written to perform the investigation here were written in Python 3.  The functions follow the protocol lain out in Chapter \ref{Methods} and are used according to the schematic following the code in Figure \ref{functionschematic}.  
 
 \newpage
-
 
 \includepdf[
     pages=-,
@@ -30,7 +30,7 @@ The following code are the major functions written to perform the investigation 
 
 \begin{figure}[h!]
 \includegraphics[width = \linewidth]{figures/overlaid_histogram.jpeg}
-\caption[Histogram of simulation results under the null hypothesis]{A histogram showing the results of the 1,000 simulations.  The y-axis shows frequency of value and the x-axis shows the causal treatment effect value measured.}
+\caption[Histogram of simulation results under the null hypothesis]{A histogram showing the results of the 1,000 simulations.  The y-axis shows frequency of value and the x-axis shows the causal treatment effect estimates.}
 \label{bighistogram}
 \end{figure}
 
@@ -38,7 +38,7 @@ The following code are the major functions written to perform the investigation 
 \begin{table}[h!]
 \centering
 \begin{tabular} {c | c  c}
-Model Correctly Specified & \shortstack{Average Bias \\ of Estimate}  & \shortstack{Std. Error \\of Bias} \\ 
+Models Correctly Specified & \shortstack{Average Bias \\ of Estimate}  & \shortstack{Std. Error \\of Bias} \\ 
 \hline  \\
 $\pi_3, \dots, \pi_K$ & 0.026 & 0.005   \\ 
 $\pi_3, \dots, \pi_{K-1}, s_K$ & 0.024 & 0.004\\ 

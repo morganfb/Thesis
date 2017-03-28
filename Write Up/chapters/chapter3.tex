@@ -53,8 +53,8 @@ Method & \shortstack{Average Causal \\ Treatment Effect} & Average Bias & \short
 G-Formula & 0.0033 & 0.016 & 0.00024&(-0.00063,0.00128)\\ \\ 
 Doubly Robust & 0.00026 & 0.031& 0.00079 & (-0.00149, 0.00212)\\ \\ 
 & \multicolumn{4}{c}{\underline{Under the Alternative Hypothesis}} \\
-G-Formula & 4.32$e^{-8}$ & & 1.69$e^{-14}$ &(3.5$e^{-8}$,5.13$e^{-8}$) \\ \\ 
-Doubly Robust & 0.186 & & 0.0037  & (0.182, 0.19)
+G-Formula & 0.0005 & NA& 6.5$e^{-8}$ &(0.00047,0.00050) \\ \\ 
+Doubly Robust & 0.222 & NA & 0.0009& (0.2204, 0.2243)
 \end{tabular} \\
 \centering
 \caption[Simulation results]{A table presenting the results of 1,000 data simulations under the null and alternative hypotheses, within which the g-formula and doubly robust estimators of average causal effect were each obtained.  Average causal treatment effect is the mean of the causal treatment effect across the simulations.  The variance and confidence intervals reflect the variability in that causal treatment effect over 1,000 simulations. There is no bias measurement under the alternative hypothesis because of the noted inability to have a true measure of causal effect.\label{simdata}}
@@ -86,27 +86,29 @@ On the other hand, the doubly robust estimator appears to display a reasonable e
 \label{correlation2}
 \end{figure}
 
+
+\newpage
 \subsection{Run Times} 
+In order to test the true efficiency of running these methods, run times were calculated across the 1000 simulations under both the null and alternative hypotheses.  It has traditionally been the belief that the g-formula is less efficient than the doubly robust estimator because of the Monte Carlo simulation.  However, this new implementation of it in Python was through parallelization, and as a result, it is significantly faster.  Table \ref{runtimes} shows that it takes an average of 0.38 seconds to get a g-formula estimator compared to 2.03 seconds for the doubly robust estimator.  
 
 \begin{table}[h!]
 \centering
 \begin{tabular}{c | c c }
 Method & Total Run Time & Average Run Time\\
 \hline 
+Data Generating Algorithm & 2 min, 15 sec & 0.14 sec\\ \\ 
 & \multicolumn{2}{c}{\underline{Under the Null Hypothesis}} \\
 G-Formula & 6 min, 19 sec & 0.38 sec \\ \\ 
 Doubly Robust & 33 min, 50 sec & 2.03 sec\\ \\ 
 & \multicolumn{2}{c}{\underline{Under the Alternative Hypothesis}} \\
-G-Formula & & \\ \\ 
-Doubly Robust & & 
+G-Formula & 6 min, 27 sec & 0.39 sec\\ \\ 
+Doubly Robust & 34 min, 5 sec & 2.05 sec
 \end{tabular} \\
 \centering
-\caption[Run Times of Simulations]{ \label{runtimes}}
+\caption[Run times of simulations]{This table shows the run times of the two methods implemented in Python, as well as the data generating algorithm. \label{runtimes}}
 \end{table}
 
 
-
-\newpage
 \section{Confirming Double Robustness} \label{doublerobust}
 Twenty-five simulations were performed in order to test the double robustness of the ``doubly'' robust estimator.  Four different setups were tested: 
 \begin{itemize} 
@@ -141,9 +143,11 @@ Both models misspecified & 0.133 & 0.005 & 0.0355
 \end{table}
 
 \begin{figure}[h!] 
-\includegraphics[width = \linewidth]{figures/boxplot.jpg}
+\begin{centering}
+\includegraphics[width = .9\linewidth]{figures/boxplot.jpg}
 \caption[Boxplot of test of double robustness]{This boxplot shows the bias in the causal treatment effect estimates for varying combinations of models correctly specified.  The fourth box, when both models are misspecified, shows the strongest bias and the most variance in that bias.  However, the model remains robust when only one model is misspecified.}
 \label{boxplot}
+\end{centering}
 \end{figure}
 
 

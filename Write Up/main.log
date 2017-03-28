@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.5.22)  28 MAR 2017 11:23
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.5.22)  28 MAR 2017 18:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1848,56 +1848,51 @@ File: figures/correlation2.png Graphic file (type QTm)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[42] [43]
+[42] [43] [44] [45]
 LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(3)/m/it' will be
-(Font)              scaled to size 12.0pt on input line 135.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
+(Font)              scaled to size 12.0pt on input line 137.
 File: figures/boxplot.jpg Graphic file (type QTm)
-<use  "figures/boxplot.jpg" >
+ <use  "figures/boxplot.jpg" >
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[44]
-
-LaTeX Warning: Text page 45 contains only floats.
-
-
-Overfull \vbox (0.51651pt too high) has occurred while \output is active []
-
-
-[45]
+[46] [47]
 File: figures/multiplerobust.png Graphic file (type QTm)
  <use  "figures/multiplerobust.png" >
 File: figures/Tukey.png Graphic file (type QTm)
  <use  "figures/Tukey.png" >
 LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(3)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 170.
+(Font)              scaled to size 10.0pt on input line 174.
 LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(3)/m/it' will be
-(Font)              scaled to size 10.0pt on input line 170.
+(Font)              scaled to size 10.0pt on input line 174.
 LaTeX Font Info:    Font shape `EU1/Lato-Reg.ttf(0)/m/n' will be
-(Font)              scaled to size 5.52814pt on input line 170.
+(Font)              scaled to size 5.52814pt on input line 174.
 LaTeX Font Info:    Font shape `EU1/Lato-Reg.ttf(0)/m/n' will be
-(Font)              scaled to size 3.94867pt on input line 170.
- [46])
-[47]
+(Font)              scaled to size 3.94867pt on input line 174.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) [48]
+
+LaTeX Warning: Text page 49 contains only floats.
+
+[49]
 \openout2 = `chapters/conclusion.aux'.
 
  (./chapters/conclusion.tex
 Chapter 5.
-[48
+[50
 
 
 
-]) [49] [50]
+] [51] [52] [53]) [54]
 \openout2 = `chapters/appendixA.aux'.
 
  (./chapters/appendixA.tex
 Appendix A.
-File: figures/schematic.png Graphic file (type QTm)
-<use  "figures/schematic.png" >
+File: figures/schematics.jpeg Graphic file (type QTm)
+<use  "figures/schematics.jpeg" >
 Overfull \hbox (41.55779pt too wide) in paragraph at lines 5--6
 [][] 
  []
@@ -1905,7 +1900,7 @@ Overfull \hbox (41.55779pt too wide) in paragraph at lines 5--6
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[51
+[55
 
 
 
@@ -1929,7 +1924,7 @@ File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 <use  "../FinalThesisFunctions.pdf"  page1>
 File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 
-<use  "../FinalThesisFunctions.pdf"  page1> [52]
+<use  "../FinalThesisFunctions.pdf"  page1> [56]
 File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 
 <use  "../FinalThesisFunctions.pdf"  page2>
@@ -1938,7 +1933,7 @@ File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 <use  "../FinalThesisFunctions.pdf"  page2>
 File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 
-<use  "../FinalThesisFunctions.pdf"  page2> [53]
+<use  "../FinalThesisFunctions.pdf"  page2> [57]
 File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 
 <use  "../FinalThesisFunctions.pdf"  page3>
@@ -1947,7 +1942,7 @@ File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 <use  "../FinalThesisFunctions.pdf"  page3>
 File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 
-<use  "../FinalThesisFunctions.pdf"  page3> [54]
+<use  "../FinalThesisFunctions.pdf"  page3> [58]
 File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 
 <use  "../FinalThesisFunctions.pdf"  page4>
@@ -1956,7 +1951,7 @@ File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 <use  "../FinalThesisFunctions.pdf"  page4>
 File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 
-<use  "../FinalThesisFunctions.pdf"  page4> [55]
+<use  "../FinalThesisFunctions.pdf"  page4> [59]
 File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 
 <use  "../FinalThesisFunctions.pdf"  page5>
@@ -1965,7 +1960,7 @@ File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 <use  "../FinalThesisFunctions.pdf"  page5>
 File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 
-<use  "../FinalThesisFunctions.pdf"  page5> [56]
+<use  "../FinalThesisFunctions.pdf"  page5> [60]
 File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 
 <use  "../FinalThesisFunctions.pdf"  page6>
@@ -1974,7 +1969,7 @@ File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 <use  "../FinalThesisFunctions.pdf"  page6>
 File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 
-<use  "../FinalThesisFunctions.pdf"  page6> [57]
+<use  "../FinalThesisFunctions.pdf"  page6> [61]
 File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 
 <use  "../FinalThesisFunctions.pdf"  page7>
@@ -1983,7 +1978,7 @@ File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 <use  "../FinalThesisFunctions.pdf"  page7>
 File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 
-<use  "../FinalThesisFunctions.pdf"  page7> [58]
+<use  "../FinalThesisFunctions.pdf"  page7> [62]
 File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 
 <use  "../FinalThesisFunctions.pdf"  page8>
@@ -1992,7 +1987,7 @@ File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 <use  "../FinalThesisFunctions.pdf"  page8>
 File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 
-<use  "../FinalThesisFunctions.pdf"  page8> [59]
+<use  "../FinalThesisFunctions.pdf"  page8> [63]
 File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 
 <use  "../FinalThesisFunctions.pdf"  page9>
@@ -2001,7 +1996,25 @@ File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 <use  "../FinalThesisFunctions.pdf"  page9>
 File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
 
-<use  "../FinalThesisFunctions.pdf"  page9> [60] [61]
+<use  "../FinalThesisFunctions.pdf"  page9> [64]
+File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
+
+<use  "../FinalThesisFunctions.pdf"  page10>
+File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
+
+<use  "../FinalThesisFunctions.pdf"  page10>
+File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
+
+<use  "../FinalThesisFunctions.pdf"  page10> [65]
+File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
+
+<use  "../FinalThesisFunctions.pdf"  page11>
+File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
+
+<use  "../FinalThesisFunctions.pdf"  page11>
+File: ../FinalThesisFunctions.pdf Graphic file (type QTm)
+
+<use  "../FinalThesisFunctions.pdf"  page11> [66] [67]
 Appendix B.
 File: figures/overlaid_histogram.jpeg Graphic file (type QTm)
 <use  "figures/overlaid_histogram.jpeg" >
@@ -2011,9 +2024,9 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [62
+) [68
 
-] [63] [64] (./endmatter/personalize.tex) (./main.bbl
+] [69] [70] (./endmatter/personalize.tex) (./main.bbl
 
 LaTeX Font Warning: Font shape `EU1/EBGaramond12-Regular.otf(1)/m/it' undefined
 
@@ -2022,11 +2035,11 @@ t line 6.
 
 LaTeX Font Info:    Font shape `EU1/EBGaramond12-Regular.otf(1)/m/it' will be
 (Font)              scaled to size 10.95pt on input line 11.
-[65
+[71
 
 
 
-] [66]) [67]
+] [72]) [73]
 \openout2 = `endmatter/colophon.aux'.
 
  (./endmatter/colophon.tex)
@@ -2045,11 +2058,11 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
  ) 
 Here is how much of TeX's memory you used:
  31899 strings out of 493591
- 547778 string characters out of 6143546
- 644785 words of memory out of 5000000
+ 547781 string characters out of 6143546
+ 645785 words of memory out of 5000000
  34787 multiletter control sequences out of 15000+600000
  30824 words of font info for 152 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
- 75i,21n,107p,10481b,629s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 75i,21n,107p,10481b,631s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (74 pages).
+Output written on main.pdf (80 pages).
