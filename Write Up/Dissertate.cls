@@ -221,7 +221,7 @@
 	\abstractpage
     \contentspage
 	% \listoffigures % optional
-	\dedicationpage
+	% \dedicationpage
 	\acknowledgments
 }
 
@@ -239,7 +239,7 @@
 	\vspace{12pt}
 	in partial fulfillment of the requirements\\
 	for the degree of\\ \@degree\\
-	in the subject of\\ \@field\\
+	in the subjects of\\ \@field\\
 	\vspace{12pt}
 	\@university\\ \@universitycity, \@universitystate\\
 	\@degreemonth\ \@degreeyear}
@@ -263,7 +263,7 @@
 	\pagenumbering{roman}
 	\setcounter{page}{3}
 	\pagestyle{fancy}
-	\lhead{Thesis Advisors: Professors \@coadvisorOne   and \@coadvisorTwo \\ Department Advisor: Professor  \@committeeInternalOne} \rhead{\@author \\}
+	\lhead{Department Advisor: Professor  \@committeeInternalOne \\Thesis Advisors: Professors \@coadvisorOne   and \@coadvisorTwo } \rhead{\@author \\}
 	\renewcommand{\headrulewidth}{0.0pt}
 	\vspace*{35pt}
 	\begin{center}
@@ -284,15 +284,15 @@
     \tableofcontents
 }
 
-\newcommand{\dedicationpage}{
-    \cleardoublepage
-    \phantomsection
-    \pdfbookmark{Dedication}{Dedication}
-	\newpage \thispagestyle{fancy} \vspace*{\fill}
-	\scshape \noindent \input{frontmatter/dedication}
-	\vspace*{\fill} \newpage \rm
-    \cleardoublepage
-}
+% \newcommand{\dedicationpage}{
+%     \cleardoublepage
+%     \phantomsection
+%     \pdfbookmark{Dedication}{Dedication}
+% 	\newpage \thispagestyle{fancy} \vspace*{\fill}
+% 	\scshape \noindent \input{frontmatter/dedication}
+% 	\vspace*{\fill} \newpage \rm
+%     \cleardoublepage
+% }
 
 \newcommand{\acknowledgments}{
 	\chapter*{Acknowledgments}
